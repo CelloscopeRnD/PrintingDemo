@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         htmlHelper = new HtmlHelper(this);
 
 
@@ -73,11 +71,10 @@ public class MainActivity extends AppCompatActivity {
         pinEditText = (EditText) findViewById(R.id.pinEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         pin = pinEditText.getText().toString();
         name = nameEditText.getText().toString();
-        fab.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.printButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -87,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
             }
         });
     }
