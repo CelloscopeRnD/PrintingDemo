@@ -184,12 +184,21 @@ public class MainActivity extends AppCompatActivity {
         String str = getStringFromHtmlTemplateAsset(fileName);
         String pin = pinEditText.getText().toString();
         String name = nameEditText.getText().toString();
-        str = str.replace("#LOGO", logoFilePath);
-        str = str.replace("#PHOTO", photoFilePath);
-        str = str.replace("#BARCODE", barcodeFilePath);
-        str = str.replace("#PIN", pin);
-        str = str.replace("#NAME", name);
-        return str;
+        String[] keys = {"#LOGO", "#PHOTO", "#BARCODE", "#PIN", "#NAME"};
+        String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
+        return replaceToken(str, keys, values);
+    }
+
+    private String replaceToken(@NonNull String text, @NonNull String[] keys, @NonNull String[] values) {
+        if (keys.length != values.length) {
+            throw new IllegalArgumentException("keys and values should be same length");
+        }
+
+
+        for (int i = 0; i < keys.length; i++) {
+            text = text.replace(keys[i], values[i]);
+        }
+        return text;
     }
 
     /**
