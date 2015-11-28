@@ -14,7 +14,6 @@ import android.print.PrintManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.print.PrintHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -45,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
     private String photoFilePath = "";
     private String barcodeFilePath = "";
     private String logoFilePath = "";
-    private Printer printer;
+    private String pin = "";
+    private String name = "";
+    String[] keys = {"#LOGO", "#PHOTO", "#BARCODE", "#PIN", "#NAME"};
+
+    private HtmlHelper htmlHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        htmlHelper = new HtmlHelper(this);
 
 
         findViewById(R.id.logoButton).setOnClickListener(new View.OnClickListener() {
@@ -86,12 +90,17 @@ public class MainActivity extends AppCompatActivity {
 
         mPrintJobs = new ArrayList<>(10);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        pin = pinEditText.getText().toString();
+        name = nameEditText.getText().toString();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
 //                    doWebViewPrint();
-                    new SamsungMobilePrintApp(MainActivity.this, getHtml(TEMPLATE1)).print();
+
+                    String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
+                    new SamsungMobilePrintApp(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values)).print();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -180,47 +189,6 @@ public class MainActivity extends AppCompatActivity {
         else return k;
     }
 
-    private String getHtml(String fileName) throws IOException {
-        String str = getStringFromHtmlTemplateAsset(fileName);
-        String pin = pinEditText.getText().toString();
-        String name = nameEditText.getText().toString();
-        String[] keys = {"#LOGO", "#PHOTO", "#BARCODE", "#PIN", "#NAME"};
-        String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
-        return replaceToken(str, keys, values);
-    }
-
-    private String replaceToken(@NonNull String text, @NonNull String[] keys, @NonNull String[] values) {
-        if (keys.length != values.length) {
-            throw new IllegalArgumentException("keys and values should be same length");
-        }
-
-
-        for (int i = 0; i < keys.length; i++) {
-            text = text.replace(keys[i], values[i]);
-        }
-        return text;
-    }
-
-    /**
-     * Get Html template from asset; read it and
-     * return converted string
-     *
-     * @param fileName Name of the template
-     * @return Converted string
-     * @throws IOException if can not access file
-     */
-    @NonNull
-    private String getStringFromHtmlTemplateAsset(String fileName) throws IOException {
-        InputStream inputStream = getAssets().open(fileName);
-        int size = inputStream.available();
-
-        byte[] buffer = new byte[size];
-        inputStream.read(buffer);
-        inputStream.close();
-
-        return new String(buffer);
-    }
-
 
     private WebView mWebView;
 
@@ -242,21 +210,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Generate an HTML document on the fly:
-        String htmlDocument = getHtml(TEMPLATE1);
+        String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
+        String htmlDocument = htmlHelper.getFinalHtml(TEMPLATE1, keys, values);
         webView.loadDataWithBaseURL(null, htmlDocument, "text/HTML", "UTF-8", null);
 
         // Keep a reference to WebView object until you pass the PrintDocumentAdapter
         // to the PrintManager
         mWebView = webView;
-    }
-
-    private void doPhotoPrint() {
-        PrintHelper photoPrinter = new PrintHelper(this);
-        photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
-                R.drawable.heart);
-        photoPrinter.printBitmap("droids.jpg - test print", bitmap);
     }
 
     private void createWebPrintJob(WebView webView) {

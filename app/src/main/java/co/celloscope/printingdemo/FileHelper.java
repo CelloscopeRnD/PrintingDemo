@@ -20,7 +20,8 @@ public class FileHelper {
      * @return the temporary file
      * @throws IOException if an error occurs when writing the file
      */
-    static File createTempFileInExternalCacheDirectory(Context context, String data, String prefix, String suffix) throws IOException {
+    static File createTempFileInExternalCacheDirectory(Context context, String data, String prefix, String suffix)
+            throws IOException {
 
         File tempFile = File.createTempFile(prefix, suffix, context.getExternalCacheDir());
         BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));

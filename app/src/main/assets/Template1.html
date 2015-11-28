@@ -11,7 +11,6 @@
         }
 
         html, body {
-
         width: 100%;
         height: 100%;
         margin: 0;
@@ -50,10 +49,27 @@
         left: 10px;
         }
 
-        img {
+        img.logo {
         position: absolute;
-        top: 30px;
+        top: 10px;
         left: 10px;
+        width: 180px;
+        height: 40px;
+        }
+        img.photo {
+        position: absolute;
+        float: left;
+        top: 70px;
+        left: 10px;
+        width: 80px;
+        height: 80px;
+        }
+
+        img.barcode {
+        position: absolute;
+        float:right;
+        top: 70px;
+        right: 10px;
         width: 80px;
         height: 80px;
         }
@@ -66,7 +82,9 @@
 <body>
 <div id="container">
     <form>
-        <img src="#PHOTO" alt="Alternate Text" />
+        <img class="logo" src="#LOGO" alt="Logo" />
+        <img class="photo" src="#PHOTO" alt="Photo" />
+        <img class="barcode" src="#BARCODE" alt="Barcode" />
         <p>#PIN</p>
         <p id="name">#NAME</p>
     </form>
