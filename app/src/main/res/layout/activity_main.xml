@@ -67,10 +67,23 @@
         android:layout_height="wrap_content"
         android:inputType="text" />
 
-    <Button
-        android:id="@+id/printButton"
-        android:text="@string/print"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/appPrintButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_print" />
+
+        <Button
+            android:id="@+id/webViewPrintButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/web_view_print" />
+    </LinearLayout>
+
 
 </LinearLayout>

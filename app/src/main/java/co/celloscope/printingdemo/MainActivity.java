@@ -7,9 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -74,12 +72,23 @@ public class MainActivity extends AppCompatActivity {
 
         pin = pinEditText.getText().toString();
         name = nameEditText.getText().toString();
-        findViewById(R.id.printButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.appPrintButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
                     String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
-//                    new SamsungMobilePrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
+                    new SamsungMobilePrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        findViewById(R.id.webViewPrintButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
                     new WebViewPrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -7,4 +7,6 @@
     <string name="pick_barcode">Pick Barcode</string>
     <string name="pick_photo">Pick Photo</string>
     <string name="pick_logo">Pick Logo</string>
+    <string name="web_view_print">Web View Print</string>
+    <string name="app_print">App Print</string>
 </resources>
