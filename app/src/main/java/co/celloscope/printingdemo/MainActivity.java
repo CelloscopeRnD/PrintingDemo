@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
+                    String[] values = {"logo.png", photoFilePath, "barcode.png", pin, name};
                     new WebViewPrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
                 } catch (IOException e) {
                     e.printStackTrace();

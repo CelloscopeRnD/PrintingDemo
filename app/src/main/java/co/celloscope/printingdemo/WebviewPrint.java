@@ -42,7 +42,7 @@ public class WebViewPrint implements Printer{
             }
         });
 
-        webView.loadDataWithBaseURL(null, data, "text/HTML", "UTF-8", null);
+        webView.loadDataWithBaseURL("file:///android_asset/images/", data, "text/HTML", "UTF-8", null);
 
         // Keep a reference to WebView object until you pass the PrintDocumentAdapter
         // to the PrintManager
