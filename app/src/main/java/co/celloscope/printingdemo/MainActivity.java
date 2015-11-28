@@ -6,24 +6,15 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.print.PrintAttributes;
-import android.print.PrintDocumentAdapter;
-import android.print.PrintJob;
-import android.print.PrintManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int PICK_BARCODE = 300;
     // Asset that contains html template
     private static final String TEMPLATE1 = "Template1.html";
-    private List<PrintJob> mPrintJobs;
     private EditText pinEditText;
     private EditText nameEditText;
     private String photoFilePath = "";
@@ -83,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         pinEditText = (EditText) findViewById(R.id.pinEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
 
-        mPrintJobs = new ArrayList<>(10);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         pin = pinEditText.getText().toString();
@@ -92,10 +81,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-//                    doWebViewPrint();
-
                     String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
-                    new SamsungMobilePrintApp(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values)).print();
+//                    new SamsungMobilePrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
+                    new WebViewPrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -150,56 +138,5 @@ public class MainActivity extends AppCompatActivity {
                 cursor.close();
             }
         }
-    }
-
-
-
-
-
-
-    private WebView mWebView;
-
-    private void doWebViewPrint() throws IOException {
-        // Create a WebView object specifically for printing
-//        WebView webView = new WebView(getActivity());
-        WebView webView = new WebView(this);
-        webView.setWebViewClient(new WebViewClient() {
-
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                Log.i(TAG, "page finished loading " + url);
-                createWebPrintJob(view);
-                mWebView = null;
-            }
-        });
-
-        String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
-        String htmlDocument = htmlHelper.getFinalHtml(TEMPLATE1, keys, values);
-        webView.loadDataWithBaseURL(null, htmlDocument, "text/HTML", "UTF-8", null);
-
-        // Keep a reference to WebView object until you pass the PrintDocumentAdapter
-        // to the PrintManager
-        mWebView = webView;
-    }
-
-    private void createWebPrintJob(WebView webView) {
-
-        // Get a PrintManager instance
-        PrintManager printManager = (PrintManager) this.getSystemService(Context.PRINT_SERVICE);
-
-        // Get a print adapter instance
-        PrintDocumentAdapter printAdapter = webView.createPrintDocumentAdapter();
-
-        // Create a print job with name and adapter instance
-        String jobName = getString(R.string.app_name) + " Document";
-        PrintJob printJob = printManager.print(jobName, printAdapter,
-                new PrintAttributes.Builder().build());
-
-        // Save the job object for later status checking
-        mPrintJobs.add(printJob);
     }
 }

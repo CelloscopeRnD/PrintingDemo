@@ -9,34 +9,23 @@ import android.widget.Toast;
 import java.io.IOException;
 
 /**
- * Helper class which print using Mobile Print app.
+ * Helper class which print using Samsung Mobile Print app.
  * Takes html string; creates a temporary file and
  * send it to Mobile Print app for printing.
  */
-class SamsungMobilePrintApp implements Printer {
-    private final Context context;
-    //    data to be printed
-    private final String data;
+class SamsungMobilePrint implements Printer {
     public static final String prefix = "temp";
     public static final String suffix = ".html";
-
-    /**
-     * Constructor
-     * @param context activity context
-     * @param data html string to print
-     */
-    public SamsungMobilePrintApp(@NonNull final Context context, @NonNull final String data) {
-        this.context = context;
-        this.data = data;
-    }
 
     /**
      * Open Samsung Mobile Print app for printing
      * It creates an intent with necessary extras and
      * start the activity
+     * @param context activity context
+     * @param data html string from which document will be printed
      */
     @SuppressWarnings("SpellCheckingInspection")
-    public void print() {
+    public void print(@NonNull final Context context, @NonNull final String data) {
         try {
             Intent intent = new Intent("com.sec.print.mobileprint.action.PRINT");
             Uri uri = Uri.fromFile(FileHelper.createTempFileInExternalCacheDirectory(context, data, prefix, suffix));
