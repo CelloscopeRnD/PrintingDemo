@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private String photoFilePath = "";
     private String barcodeFilePath = "";
     private String logoFilePath = "";
+    private Printer printer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         findViewById(R.id.logoButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    doWebViewPrint();
-//                    startPrintActivity();
+//                    doWebViewPrint();
+                    new SamsungMobilePrintApp(MainActivity.this, getHtml()).print();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -197,25 +199,6 @@ public class MainActivity extends AppCompatActivity {
         return str;
     }
 
-    private void startPrintActivity() throws IOException {
-        Intent intent = new Intent("com.sec.print.mobileprint.action.PRINT");
-        Uri uri = Uri.fromFile(getFile());
-        intent.putExtra("com.sec.print.mobileprint.extra.CONTENT", uri);
-
-        intent.putExtra("com.sec.print.mobileprint.extra.CONTENT_TYPE", "WEBPAGE_AUTO");
-        intent.putExtra("com.sec.print.mobileprint.extra.OPTION_TYPE", "DOCUMENT_PRINT");
-        intent.putExtra("com.sec.print.mobileprint.extra.JOB_NAME", "TestPrint");
-        startActivity(intent);
-    }
-
-    private File getFile() throws IOException {
-        File outputDir = this.getExternalCacheDir(); // context being the Activity pointer
-        File temp = File.createTempFile("test", ".html", outputDir);
-        BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
-        bw.write(getHtml());
-        bw.close();
-        return temp;
-    }
 
     private WebView mWebView;
 
