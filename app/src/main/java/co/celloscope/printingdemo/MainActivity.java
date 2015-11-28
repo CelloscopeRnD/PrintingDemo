@@ -12,6 +12,7 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintJob;
 import android.print.PrintManager;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.print.PrintHelper;
 import android.support.v7.app.AppCompatActivity;
@@ -23,10 +24,7 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -39,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int PICK_LOGO = 100;
     public static final int PICK_PHOTO = 200;
     private static final int PICK_BARCODE = 300;
+    // Asset that contains html template
+    private static final String TEMPLATE1 = "Template1.html";
     private List<PrintJob> mPrintJobs;
     private EditText pinEditText;
     private EditText nameEditText;
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
 //                    doWebViewPrint();
-                    new SamsungMobilePrintApp(MainActivity.this, getHtml()).print();
+                    new SamsungMobilePrintApp(MainActivity.this, getHtml(TEMPLATE1)).print();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -180,15 +180,8 @@ public class MainActivity extends AppCompatActivity {
         else return k;
     }
 
-    private String getHtml() throws IOException {
-        InputStream is = getAssets().open("Template1.html");
-        int size = is.available();
-
-        byte[] buffer = new byte[size];
-        is.read(buffer);
-        is.close();
-
-        String str = new String(buffer);
+    private String getHtml(String fileName) throws IOException {
+        String str = getStringFromHtmlTemplateAsset(fileName);
         String pin = pinEditText.getText().toString();
         String name = nameEditText.getText().toString();
         str = str.replace("#LOGO", logoFilePath);
@@ -197,6 +190,26 @@ public class MainActivity extends AppCompatActivity {
         str = str.replace("#PIN", pin);
         str = str.replace("#NAME", name);
         return str;
+    }
+
+    /**
+     * Get Html template from asset; read it and
+     * return converted string
+     *
+     * @param fileName Name of the template
+     * @return Converted string
+     * @throws IOException if can not access file
+     */
+    @NonNull
+    private String getStringFromHtmlTemplateAsset(String fileName) throws IOException {
+        InputStream inputStream = getAssets().open(fileName);
+        int size = inputStream.available();
+
+        byte[] buffer = new byte[size];
+        inputStream.read(buffer);
+        inputStream.close();
+
+        return new String(buffer);
     }
 
 
@@ -221,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Generate an HTML document on the fly:
-        String htmlDocument = getHtml();
+        String htmlDocument = getHtml(TEMPLATE1);
         webView.loadDataWithBaseURL(null, htmlDocument, "text/HTML", "UTF-8", null);
 
         // Keep a reference to WebView object until you pass the PrintDocumentAdapter
