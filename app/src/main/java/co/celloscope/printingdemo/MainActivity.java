@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.print.PrintAttributes;
@@ -12,7 +11,6 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintJob;
 import android.print.PrintManager;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,16 +21,13 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final int THUMBNAIL_SIZE = 400;
     private static final int PICK_LOGO = 100;
     public static final int PICK_PHOTO = 200;
     private static final int PICK_BARCODE = 300;
@@ -131,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
             if (imageView != null) {
                 final Bitmap photo;
                 try {
-                    photo = getThumbnail(data.getData());
+                    photo = BitmapHelper.getThumbnail(data.getData(), this);
                     imageView.setImageBitmap(photo);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -157,37 +152,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public Bitmap getThumbnail(Uri uri) throws FileNotFoundException, IOException {
-        InputStream input = this.getContentResolver().openInputStream(uri);
 
-        BitmapFactory.Options onlyBoundsOptions = new BitmapFactory.Options();
-        onlyBoundsOptions.inJustDecodeBounds = true;
-        onlyBoundsOptions.inDither = true;//optional
-        onlyBoundsOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;//optional
-        BitmapFactory.decodeStream(input, null, onlyBoundsOptions);
-        input.close();
-        if ((onlyBoundsOptions.outWidth == -1) || (onlyBoundsOptions.outHeight == -1))
-            return null;
 
-        int originalSize = (onlyBoundsOptions.outHeight > onlyBoundsOptions.outWidth) ? onlyBoundsOptions.outHeight : onlyBoundsOptions.outWidth;
 
-        double ratio = (originalSize > THUMBNAIL_SIZE) ? (originalSize / THUMBNAIL_SIZE) : 1.0;
-
-        BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
-        bitmapOptions.inSampleSize = getPowerOfTwoForSampleRatio(ratio);
-        bitmapOptions.inDither = true;//optional
-        bitmapOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;//optional
-        input = this.getContentResolver().openInputStream(uri);
-        Bitmap bitmap = BitmapFactory.decodeStream(input, null, bitmapOptions);
-        input.close();
-        return bitmap;
-    }
-
-    private static int getPowerOfTwoForSampleRatio(double ratio) {
-        int k = Integer.highestOneBit((int) Math.floor(ratio));
-        if (k == 0) return 1;
-        else return k;
-    }
 
 
     private WebView mWebView;
