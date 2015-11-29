@@ -11,7 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     String[] keys = {"#LOGO", "#PHOTO", "#BARCODE", "#PIN", "#NAME"};
 
     private HtmlHelper htmlHelper;
+    private File htmlFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,20 +69,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        pinEditText = (EditText) findViewById(R.id.pinEditText);
-        nameEditText = (EditText) findViewById(R.id.nameEditText);
-
-
-        pin = pinEditText.getText().toString();
-        name = nameEditText.getText().toString();
         findViewById(R.id.appPrintButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    String[] values = {logoFilePath, photoFilePath, barcodeFilePath, pin, name};
-                    new SamsungMobilePrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
+                    SamsungMobilePrint.print(MainActivity.this, getHtmlFile(logoFilePath, photoFilePath, barcodeFilePath));
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Toast.makeText(MainActivity.this, "File access  error", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -88,14 +85,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    String[] values = {"logo.png", photoFilePath, "barcode.png", pin, name};
-                    new WebViewPrint().print(MainActivity.this, htmlHelper.getFinalHtml(TEMPLATE1, keys, values));
+                    new WebViewPrint().print(MainActivity.this, getHtml("logo.png", photoFilePath, "barcode.png"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
     }
+
+    private File getHtmlFile(String logo, String photo, String barcode) throws IOException {
+        return FileHelper.createTempFileInExternalCacheDirectory(this, getHtml(logo, photo, barcode));
+    }
+
+    private String getHtml(String logo, String photo, String barcode) throws IOException {
+        pin = ((EditText) findViewById(R.id.pinEditText)).getText().toString();
+        name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
+        String[] values = {logo, photo, barcode, pin, name};
+        return htmlHelper.getHtml(TEMPLATE1, keys, values);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

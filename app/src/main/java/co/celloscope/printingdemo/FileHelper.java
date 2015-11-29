@@ -11,16 +11,16 @@ import java.io.IOException;
  * Manage file related operations
  */
 public class FileHelper {
+    private static final String prefix = "temp"; //prefix to the temp file name
+    private static final String suffix = ".html"; //suffix to the temp file name
 
     /**
      * @param context Calling context
      * @param data content to be written in the file
-     * @param prefix  the prefix to the temp file name
-     * @param suffix  the suffix to the temp file name
      * @return the temporary file
      * @throws IOException if an error occurs when writing the file
      */
-    static File createTempFileInExternalCacheDirectory(Context context, String data, String prefix, String suffix)
+    static File createTempFileInExternalCacheDirectory(Context context, String data)
             throws IOException {
 
         File tempFile = File.createTempFile(prefix, suffix, context.getExternalCacheDir());

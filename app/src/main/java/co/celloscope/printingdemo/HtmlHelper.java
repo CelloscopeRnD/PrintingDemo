@@ -33,7 +33,7 @@ class HtmlHelper {
      * @return Print ready html
      * @throws IOException if template file can not be retrieve
      */
-    String getFinalHtml(String fileName, String[] keys, String[] values) throws IOException {
+    String getHtml(String fileName, String[] keys, String[] values) throws IOException {
         String str = getStringFromHtmlTemplateAsset(fileName);
         return StringHelper.replaceToken(str, keys, values);
     }

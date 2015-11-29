@@ -16,14 +16,14 @@ import java.util.List;
 /**
  * Created by assad on 11/28/2015.
  */
-public class WebViewPrint implements Printer{
+public class WebViewPrint{
 
     private static final String TAG = WebViewPrint.class.getSimpleName();
     private List<PrintJob> mPrintJobs;
 
     private WebView mWebView;
 
-    @Override
+
     public void print(@NonNull final Context context, @NonNull String data) {
         mPrintJobs = new ArrayList<>(10);
         // Create a WebView object specifically for printing
