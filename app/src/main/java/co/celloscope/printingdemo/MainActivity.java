@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        pinEditText = (EditText) findViewById(R.id.pinEditText);
+        nameEditText = (EditText) findViewById(R.id.nameEditText);
         htmlHelper = new HtmlHelper(this);
 
 
@@ -98,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getHtml(String logo, String photo, String barcode) throws IOException {
-        pin = ((EditText) findViewById(R.id.pinEditText)).getText().toString();
-        name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
+        pin = pinEditText.getText().toString();
+        name = nameEditText.getText().toString();
         String[] values = {logo, photo, barcode, pin, name};
         return htmlHelper.getHtml(TEMPLATE1, keys, values);
     }
