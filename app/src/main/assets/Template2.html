@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+        margin: 0px;
+        padding: 0px;
+        }
+
+        html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+
+
+        #container {
+        width: 314px;
+        height: 215px;
+        margin: 20px 0 0 20px;
+        padding: 11px;
+        background-color: #c3bcbc;
+        }
+
+        form {
+        height: 100%;
+        border: 3px solid #2061b1;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        position: relative;
+        }
+
+        #formDiv {
+        padding: 20px;
+        position: relative;
+        }
+
+        span.label {
+        font-weight: bold;
+        }
+
+        p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        }
+
+        img.logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 180px;
+        height: 40px;
+        }
+        img.photo {
+        position: absolute;
+        float: left;
+        top: 70px;
+        left: 10px;
+        width: 80px;
+        height: 80px;
+        }
+
+        img.barcode {
+        position: absolute;
+        float:right;
+        top: 70px;
+        right: 10px;
+        width: 80px;
+        height: 80px;
+        }
+
+        p#name {
+        bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <form>
+        <img class="logo" src="#LOGO" alt="Logo" />
+        <img class="photo" src="#PHOTO" alt="Photo" />
+        <img class="barcode" src="#BARCODE" alt="Barcode" />
+        <p>#PIN</p>
+        <p id="name">#NAME</p>
+    </form>
+</div>
+</body>
+</html>
