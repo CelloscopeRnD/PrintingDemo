@@ -97,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
             switch (requestCode) {
                 case PICK_PHOTO:
                     imageView = (ImageView) findViewById(R.id.photoImageView);
-                    photoFilePath = getRealPathFromUri(this, data.getData());
+                    photoFilePath = FileHelper.getRealPathFromUri(this, data.getData());
+                    FileHelper.copyFileToExternalCacheDir(this, new File(photoFilePath), "photo.jpg");
                     break;
             }
             if (imageView != null) {
@@ -112,20 +113,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    public static String getRealPathFromUri(Context context, Uri contentUri) {
-        Cursor cursor = null;
-        try {
-            String[] proj = {MediaStore.Images.Media.DATA};
-            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
     }
 }

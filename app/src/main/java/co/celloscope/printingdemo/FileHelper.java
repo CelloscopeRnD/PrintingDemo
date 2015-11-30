@@ -2,10 +2,14 @@ package co.celloscope.printingdemo;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,7 +25,7 @@ public class FileHelper {
 
     /**
      * @param context Calling context
-     * @param data content to be written in the file
+     * @param data    content to be written in the file
      * @return the temporary file
      * @throws IOException if an error occurs when writing the file
      */
@@ -51,10 +55,9 @@ public class FileHelper {
                 File outFile = new File(context.getExternalCacheDir(), filename);
                 out = new FileOutputStream(outFile);
                 copyFile(in, out);
-            } catch(IOException e) {
+            } catch (IOException e) {
                 Log.e("tag", "Failed to copy asset file: " + filename, e);
-            }
-            finally {
+            } finally {
                 if (in != null) {
                     try {
                         in.close();
@@ -72,11 +75,59 @@ public class FileHelper {
             }
         }
     }
+
     private static void copyFile(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
         int read;
-        while((read = in.read(buffer)) != -1){
+        while ((read = in.read(buffer)) != -1) {
             out.write(buffer, 0, read);
         }
+    }
+
+    static String getRealPathFromUri(Context context, Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    static boolean copyFileToExternalCacheDir(Context context, File source, String destinationFileName) {
+        try {
+            FileInputStream sourceFile = new FileInputStream(source);
+            File dest = new File(context.getExternalCacheDir(), destinationFileName);
+
+            try {
+                java.io.FileOutputStream destinationFile = null;
+
+                try {
+                    destinationFile = new FileOutputStream(dest);
+
+                    // Lecture par segment de 0.5Mo
+                    byte buffer[] = new byte[512 * 1024];
+                    int nbLecture;
+
+                    while ((nbLecture = sourceFile.read(buffer)) != -1) {
+                        destinationFile.write(buffer, 0, nbLecture);
+                    }
+                } finally {
+                    destinationFile.close();
+                }
+            } finally {
+                sourceFile.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false; // Erreur
+        }
+
+        return true; // Rsultat OK
     }
 }
