@@ -13,17 +13,6 @@
     tools:context="co.celloscope.printingdemo.MainActivity">
 
     <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="80px"
-        android:layout_height="80px" />
-
-    <Button
-        android:id="@+id/logoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pick_logo" />
-
-    <ImageView
         android:id="@+id/photoImageView"
         android:layout_width="80px"
         android:layout_height="80px" />
@@ -33,17 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pick_photo" />
-
-    <ImageView
-        android:id="@+id/barcodeImageView"
-        android:layout_width="80px"
-        android:layout_height="80px" />
-
-    <Button
-        android:id="@+id/barcodeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pick_barcode" />
 
     <TextView
         android:layout_width="wrap_content"

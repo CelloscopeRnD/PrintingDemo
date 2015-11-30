@@ -45,14 +45,6 @@ public class MainActivity extends AppCompatActivity {
         htmlHelper = new HtmlHelper(this);
         FileHelper.copyAssets(this);
 
-        findViewById(R.id.logoButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, PICK_LOGO);
-            }
-        });
         findViewById(R.id.photoButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,15 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, PICK_PHOTO);
             }
         });
-        findViewById(R.id.barcodeButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, PICK_BARCODE);
-            }
-        });
-
 
         findViewById(R.id.appPrintButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,17 +95,9 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             ImageView imageView = null;
             switch (requestCode) {
-                case PICK_LOGO:
-                    imageView = (ImageView) findViewById(R.id.logoImageView);
-                    logoFilePath = getRealPathFromUri(this, data.getData());
-                    break;
                 case PICK_PHOTO:
                     imageView = (ImageView) findViewById(R.id.photoImageView);
                     photoFilePath = getRealPathFromUri(this, data.getData());
-                    break;
-                case PICK_BARCODE:
-                    imageView = (ImageView) findViewById(R.id.barcodeImageView);
-                    barcodeFilePath = getRealPathFromUri(this, data.getData());
                     break;
             }
             if (imageView != null) {
