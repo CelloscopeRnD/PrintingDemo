@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         pinEditText = (EditText) findViewById(R.id.pinEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
         htmlHelper = new HtmlHelper(this);
-
+        FileHelper.copyAssets(this);
 
         findViewById(R.id.logoButton).setOnClickListener(new View.OnClickListener() {
             @Override
