@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    new WebViewPrint().print(MainActivity.this, getHtml("logo.png", photoFilePath, "barcode.png"));
+                    new WebViewPrint().print(MainActivity.this, getHtmlFile("logo.png", photoFilePath, "barcode.png"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

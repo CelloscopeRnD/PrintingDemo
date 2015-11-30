@@ -1,6 +1,7 @@
 package co.celloscope.printingdemo;
 
 import android.content.Context;
+import android.net.Uri;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintJob;
@@ -10,13 +11,14 @@ import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by assad on 11/28/2015.
  */
-public class WebViewPrint{
+ class WebViewPrint{
 
     private static final String TAG = WebViewPrint.class.getSimpleName();
     private List<PrintJob> mPrintJobs;
@@ -43,6 +45,31 @@ public class WebViewPrint{
         });
 
         webView.loadDataWithBaseURL("file:///android_asset/images/", data, "text/HTML", "UTF-8", null);
+
+        // Keep a reference to WebView object until you pass the PrintDocumentAdapter
+        // to the PrintManager
+        mWebView = webView;
+    }
+
+    public void print(@NonNull final Context context, @NonNull File file) {
+        mPrintJobs = new ArrayList<>(10);
+        // Create a WebView object specifically for printing
+        WebView webView = new WebView(context);
+        webView.setWebViewClient(new WebViewClient() {
+
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                Log.i(TAG, "page finished loading " + url);
+                createWebPrintJob(view, context);
+                mWebView = null;
+            }
+        });
+
+        webView.loadUrl(String.valueOf(Uri.fromFile(file)));
 
         // Keep a reference to WebView object until you pass the PrintDocumentAdapter
         // to the PrintManager
