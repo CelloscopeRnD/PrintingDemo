@@ -28,7 +28,7 @@ public class FileHelper {
     static File createTempFileInExternalCacheDirectory(Context context, String data)
             throws IOException {
 
-        File tempFile = File.createTempFile(prefix, suffix, context.getExternalCacheDir());
+        File tempFile = File.createTempFile(prefix, suffix, getDestinationDirectory(context));
         BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));
         bw.write(data);
         bw.close();
@@ -53,7 +53,7 @@ public class FileHelper {
     static boolean copyFileToExternalCacheDir(Context context, File source, String destinationFileName) {
         try {
             FileInputStream sourceFile = new FileInputStream(source);
-            File dest = new File(context.getExternalCacheDir(), destinationFileName);
+            File dest = new File(getDestinationDirectory(context), destinationFileName);
 
             try {
                 java.io.FileOutputStream destinationFile = null;
@@ -80,5 +80,9 @@ public class FileHelper {
         }
 
         return true; // Rsultat OK
+    }
+
+    static File getDestinationDirectory(Context context){
+        return context.getExternalCacheDir();
     }
 }
