@@ -1,12 +1,8 @@
 package co.celloscope.printingdemo;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -27,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText pinEditText;
     private EditText nameEditText;
     private String photoFilePath = "";
-    private String barcodeFilePath = "";
-    private String logoFilePath = "";
+    private String barcodeFilePath = "file:///android_asset/barcode.png";
+    private String logoFilePath = "file:///android_asset/logo.png";
     private String pin = "";
     private String name = "";
     String[] keys = {"#LOGO", "#PHOTO", "#BARCODE", "#PIN", "#NAME"};
@@ -43,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         pinEditText = (EditText) findViewById(R.id.pinEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
         htmlHelper = new HtmlHelper(this);
-        FileHelper.copyAssets(this);
 
         findViewById(R.id.photoButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,23 +49,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.appPrintButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    SamsungMobilePrint.print(MainActivity.this, getHtmlFile(logoFilePath, photoFilePath, barcodeFilePath));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(MainActivity.this, "File access  error", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
         findViewById(R.id.webViewPrintButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    new WebViewPrint().print(MainActivity.this, getHtmlFile("logo.png", photoFilePath, "barcode.png"));
+                    new WebViewPrint().print(MainActivity.this, getHtmlFile(logoFilePath, photoFilePath, barcodeFilePath));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
