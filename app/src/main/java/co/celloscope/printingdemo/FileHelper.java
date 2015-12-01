@@ -1,11 +1,9 @@
 package co.celloscope.printingdemo;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.util.Log;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,8 +11,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Manage file related operations
@@ -37,14 +33,6 @@ public class FileHelper {
         bw.write(data);
         bw.close();
         return tempFile;
-    }
-
-    private static void copyFile(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[1024];
-        int read;
-        while ((read = in.read(buffer)) != -1) {
-            out.write(buffer, 0, read);
-        }
     }
 
     static String getRealPathFromUri(Context context, Uri contentUri) {
