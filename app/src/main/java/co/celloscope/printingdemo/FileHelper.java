@@ -82,7 +82,14 @@ public class FileHelper {
         return true; // Rsultat OK
     }
 
-    static File getDestinationDirectory(Context context){
+    static File getDestinationDirectory(Context context) {
         return context.getExternalCacheDir();
+    }
+
+    static void deleteDestinationDirectory(Context context) {
+        for (File f :
+                getDestinationDirectory(context).listFiles()) {
+            f.delete();
+        }
     }
 }

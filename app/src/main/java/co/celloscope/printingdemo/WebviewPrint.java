@@ -20,14 +20,13 @@ import java.util.List;
  */
 class WebViewPrint {
 
-    private static
-    final String TAG = WebViewPrint.class.getSimpleName();
-    private static List<PrintJob> mPrintJobs;
+    private static final String TAG = WebViewPrint.class.getSimpleName();
+    private List<PrintJob> mPrintJobs;
+    private WebView mWebView;
+    private final Context context;
 
-    private static WebView mWebView;
-
-
-    static void print(@NonNull final Context context, @NonNull File file) {
+    WebViewPrint(final Context context) {
+        this.context = context;
         mPrintJobs = new ArrayList<>(10);
         // Create a WebView object specifically for printing
         mWebView = new WebView(context);
@@ -40,21 +39,24 @@ class WebViewPrint {
             @Override
             public void onPageFinished(WebView view, String url) {
                 Log.i(TAG, "page finished loading " + url);
-                createWebPrintJob(view, context);
+                createWebPrintJob();
                 mWebView = null;
             }
         });
+    }
 
+
+    void print(@NonNull File file) {
         mWebView.loadUrl(String.valueOf(Uri.fromFile(file)));
     }
 
-    static void createWebPrintJob(WebView webView, Context context) {
+    private void createWebPrintJob() {
 
         // Get a PrintManager instance
         PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
 
         // Get a print adapter instance
-        PrintDocumentAdapter printAdapter = webView.createPrintDocumentAdapter();
+        PrintDocumentAdapter printAdapter = mWebView.createPrintDocumentAdapter();
 
         // Create a print job with name and adapter instance
         String jobName = context.getString(R.string.app_name) + " Document";
