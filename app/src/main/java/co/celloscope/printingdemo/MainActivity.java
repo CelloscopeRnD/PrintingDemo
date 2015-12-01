@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    new WebViewPrint().print(MainActivity.this, getHtmlFile(logoFilePath, photoFilePath, barcodeFilePath));
+                    WebViewPrint.print(MainActivity.this, getHtmlFile(logoFilePath, photoFilePath, barcodeFilePath));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

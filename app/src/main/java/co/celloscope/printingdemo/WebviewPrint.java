@@ -18,19 +18,20 @@ import java.util.List;
 /**
  * Created by assad on 11/28/2015.
  */
- class WebViewPrint{
+class WebViewPrint {
 
-    private static final String TAG = WebViewPrint.class.getSimpleName();
-    private List<PrintJob> mPrintJobs;
+    private static
+    final String TAG = WebViewPrint.class.getSimpleName();
+    private static List<PrintJob> mPrintJobs;
 
-    private WebView mWebView;
+    private static WebView mWebView;
 
 
-    public void print(@NonNull final Context context, @NonNull String data) {
+    static void print(@NonNull final Context context, @NonNull File file) {
         mPrintJobs = new ArrayList<>(10);
         // Create a WebView object specifically for printing
-        WebView webView = new WebView(context);
-        webView.setWebViewClient(new WebViewClient() {
+        mWebView = new WebView(context);
+        mWebView.setWebViewClient(new WebViewClient() {
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return false;
@@ -44,39 +45,10 @@ import java.util.List;
             }
         });
 
-        webView.loadDataWithBaseURL("file:///android_asset/images/", data, "text/HTML", "UTF-8", null);
-
-        // Keep a reference to WebView object until you pass the PrintDocumentAdapter
-        // to the PrintManager
-        mWebView = webView;
+        mWebView.loadUrl(String.valueOf(Uri.fromFile(file)));
     }
 
-    public void print(@NonNull final Context context, @NonNull File file) {
-        mPrintJobs = new ArrayList<>(10);
-        // Create a WebView object specifically for printing
-        WebView webView = new WebView(context);
-        webView.setWebViewClient(new WebViewClient() {
-
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                Log.i(TAG, "page finished loading " + url);
-                createWebPrintJob(view, context);
-                mWebView = null;
-            }
-        });
-
-        webView.loadUrl(String.valueOf(Uri.fromFile(file)));
-
-        // Keep a reference to WebView object until you pass the PrintDocumentAdapter
-        // to the PrintManager
-        mWebView = webView;
-    }
-
-    private void createWebPrintJob(WebView webView, Context context) {
+    static void createWebPrintJob(WebView webView, Context context) {
 
         // Get a PrintManager instance
         PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
