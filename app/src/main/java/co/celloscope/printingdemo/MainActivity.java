@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TEMPLATE1 = "Template1.html";
     private EditText pinEditText;
     private EditText nameEditText;
-    private String photoFilePath = "";
+    private String photoFilePath = "photo.jpg";
     private String barcodeFilePath = "file:///android_asset/barcode.png";
     private String logoFilePath = "file:///android_asset/logo.png";
     private String pin = "";
@@ -80,8 +79,7 @@ public class MainActivity extends AppCompatActivity {
             switch (requestCode) {
                 case PICK_PHOTO:
                     imageView = (ImageView) findViewById(R.id.photoImageView);
-                    photoFilePath = FileHelper.getRealPathFromUri(this, data.getData());
-                    FileHelper.copyFileToExternalCacheDir(this, new File(photoFilePath), "photo.jpg");
+                    FileHelper.copyFileToExternalCacheDir(this, new File(FileHelper.getRealPathFromUri(this, data.getData())), "photo.jpg");
                     break;
             }
             if (imageView != null) {
