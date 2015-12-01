@@ -47,12 +47,11 @@ class WebViewPrint {
                 Log.i(TAG, "page finished loading " + url);
                 createWebPrintJob();
                 mWebView = null;
-//                FileHelper.deleteDestinationDirectory(context);
+                FileHelper.deleteDestinationDirectory(context);
             }
         });
         mWebView.clearCache(true);
         mWebView.loadUrl(String.valueOf(Uri.fromFile(file)));
-        Toast.makeText(context, file.toString(), Toast.LENGTH_SHORT).show();
     }
 
     private void createWebPrintJob() {
