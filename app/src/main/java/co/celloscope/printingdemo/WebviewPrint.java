@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,11 +30,16 @@ class WebViewPrint {
         this.context = context;
         mPrintJobs = new ArrayList<>(10);
         // Create a WebView object specifically for printing
+
+    }
+
+
+    void print(@NonNull File file) {
         mWebView = new WebView(context);
         mWebView.setWebViewClient(new WebViewClient() {
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
+                return true;
             }
 
             @Override
@@ -41,13 +47,12 @@ class WebViewPrint {
                 Log.i(TAG, "page finished loading " + url);
                 createWebPrintJob();
                 mWebView = null;
+//                FileHelper.deleteDestinationDirectory(context);
             }
         });
-    }
-
-
-    void print(@NonNull File file) {
+        mWebView.clearCache(true);
         mWebView.loadUrl(String.valueOf(Uri.fromFile(file)));
+        Toast.makeText(context, file.toString(), Toast.LENGTH_SHORT).show();
     }
 
     private void createWebPrintJob() {
