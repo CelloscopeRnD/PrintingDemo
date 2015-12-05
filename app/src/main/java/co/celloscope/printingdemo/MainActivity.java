@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeControl();
+        setTestValue();
         htmlHelper = new HtmlHelper(this);
 
         findViewById(R.id.photoButton).setOnClickListener(new View.OnClickListener() {
@@ -104,6 +105,25 @@ public class MainActivity extends AppCompatActivity {
         sub_districtEditText = (EditText) findViewById(R.id.nameEditText);
         villageEditText = (EditText) findViewById(R.id.villageEditText);
         unionEditText = (EditText) findViewById(R.id.nameEditText);
+    }
+
+    private void setTestValue() {
+        account_nameEditText.setText("Unknown");
+        account_noEditText.setText("Unknown");
+        account_opening_dateEditText.setText("Unknown");
+        account_typeEditText.setText("Unknown");
+        agent_idEditText.setText("Unknown");
+        agent_nameEditText.setText("Unknown");
+        booth_addressEditText.setText("Unknown");
+        districtEditText.setText("Unknown");
+        id_noEditText.setText("Unknown");
+        mobile_noEditText.setText("Unknown");
+        nameEditText.setText("Unknown");
+        photoEditText.setText("Unknown");
+        print_dateEditText.setText("Unknown");
+        sub_districtEditText.setText("Unknown");
+        villageEditText.setText("Unknown");
+        unionEditText.setText("Unknown");
     }
 
     private void setValue() {
