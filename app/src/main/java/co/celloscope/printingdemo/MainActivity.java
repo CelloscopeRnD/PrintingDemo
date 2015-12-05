@@ -17,15 +17,15 @@ public class MainActivity extends AppCompatActivity {
     public static final int PICK_PHOTO = 200;
     // Asset that contains html template
     private static final String SAVINGS_ACCOUNT_TEMPLATE = "savings_account.html";
-    private EditText pinEditText;
     private EditText nameEditText;
+    private EditText villageEditText;
     private String photo_file_path = "photo.png";
     private String style_sheet_file_path = "file:///android_asset/styles.css";
     private static final String agent_banking_logo_file_path = "file:///android_asset/agent_banking_logo.jpg";
     private static final String logo_file_path = "file:///android_asset/logo.gif";
-    private String pin = "";
     private String name = "";
-    String[] keys = {"#STYLE_SHEET", "#LOGO", "#PHOTO", "#AGENT_BANKING_LOGO", "#PIN", "#NAME"};
+    private String village = "";
+    String[] keys = {"#STYLE_SHEET", "#LOGO", "#PHOTO", "#AGENT_BANKING_LOGO", "#NAME", "#VILLAGE"};
 
     private HtmlHelper htmlHelper;
 
@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        pinEditText = (EditText) findViewById(R.id.pinEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
+        villageEditText = (EditText) findViewById(R.id.villageEditText);
         htmlHelper = new HtmlHelper(this);
 
         findViewById(R.id.photoButton).setOnClickListener(new View.OnClickListener() {
@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getHtml(String styleSheet, String logo, String photo, String agentBankingLogo) throws IOException {
-        pin = pinEditText.getText().toString();
         name = nameEditText.getText().toString();
-        String[] values = {styleSheet, logo, photo, agentBankingLogo, pin, name};
+        village = villageEditText.getText().toString();
+        String[] values = {styleSheet, logo, photo, agentBankingLogo, name, village};
         return htmlHelper.getHtml(SAVINGS_ACCOUNT_TEMPLATE, keys, values);
     }
 

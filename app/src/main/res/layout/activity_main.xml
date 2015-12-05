@@ -26,24 +26,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pin" />
-
-    <EditText
-        android:id="@+id/pinEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="phone" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/name" />
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="text"
+        android:text="Abdur Rahim"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/village" />
+
+    <EditText
+        android:id="@+id/villageEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="Karimpur"/>
 
     <Button
         android:id="@+id/webViewPrintButton"
