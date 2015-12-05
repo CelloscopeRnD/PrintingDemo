@@ -1,104 +1,13 @@
 ﻿<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
+<html>
 <head>
+    <title>Page</title>
     <meta charset="utf-8" />
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-    <title>ID Card</title>
-    <style>
-        body
-        {
-        margin-left: 200px;
-        margin-right: 200px;
-        margin-top: 20px;
-        padding: 0;
-        background-color: white;
-        height:500px;
-        width:500px;
-        }
-        #length
-        {
-        height:192px;
-        width: 288px;
-        border:solid;
-        border-color:blue;
-        background-color:white;
-        border-radius:15px;
-        }
-
-        #header
-        {
-        height:38px;
-        width: 100%;
-        }
-
-        #logo
-        {
-        height:40px;
-        width:auto;
-        margin-top:5px;
-        margin-left:15px;
-        background-size: 160px 40px;
-        background-repeat: no-repeat;
-        }
-
-        #container
-        {
-        height: 105px;
-        width: 100%;
-        }
-
-
-        #image
-        {
-        height:80px;
-        width:70px;
-        margin-top:10px;
-        margin-left:10px;
-        background-size: 80px 80px;
-        border:solid;border-color:green;
-        background-repeat: no-repeat;
-        float:left;
-        }
-
-        #barcode
-        {
-        height:100px;
-        width:120px;
-        background-size: 110px 110px;
-        background-repeat: no-repeat;
-        float:right;
-        }
-
-
-        #footer
-        {
-        height:45px;
-        width: 100%;
-        margin-left:10px;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/styles.css">
 </head>
-
 <body>
-<div id="length">
-
-    <div id="header">
-        <div><img src="#LOGO" id="logo" /></div>
-    </div>
-
-    <div id="container">
-        <div><img src="#PHOTO" id="image" /></div>
-        <div><img src="#BARCODE" id="barcode" /></div>
-    </div>
-
-    <div id="footer">
-        <div>#PIN</div>
-        <div>#NAME</div>
-    </div>
-
-</div>
+<div class="page-third" id="first-part"></div>
+<div class="page-third" id="second-part"></div>
+<div class="page-third" id="third-part"></div>
 </body>
-
 </html>
