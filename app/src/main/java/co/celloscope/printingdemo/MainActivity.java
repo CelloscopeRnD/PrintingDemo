@@ -20,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText pinEditText;
     private EditText nameEditText;
     private String photo_file_path = "photo.png";
+    private String style_sheet_file_path = "file:///android_asset/styles.css";
     private static final String agent_banking_logo_file_path = "file:///android_asset/agent_banking_logo.jpg";
     private static final String logo_file_path = "file:///android_asset/logo.gif";
     private String pin = "";
     private String name = "";
-    String[] keys = {"#LOGO", "#PHOTO", "#AGENT_BANKING_LOGO", "#PIN", "#NAME"};
+    String[] keys = {"#STYLE_SHEET", "#LOGO", "#PHOTO", "#AGENT_BANKING_LOGO", "#PIN", "#NAME"};
 
     private HtmlHelper htmlHelper;
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     new WebViewPrint(MainActivity.this)
-                            .print(getHtmlFile(logo_file_path, photo_file_path, agent_banking_logo_file_path));
+                            .print(getHtmlFile(style_sheet_file_path, logo_file_path, photo_file_path, agent_banking_logo_file_path));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -58,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private File getHtmlFile(String logo, String photo, String agentBankingLogo) throws IOException {
-        return FileHelper.createTempFileInExternalCacheDirectory(this, getHtml(logo, photo, agentBankingLogo));
+    private File getHtmlFile(String styleSheet, String logo, String photo, String agentBankingLogo) throws IOException {
+        return FileHelper.createTempFileInExternalCacheDirectory(this, getHtml(styleSheet, logo, photo, agentBankingLogo));
     }
 
-    private String getHtml(String logo, String photo, String agentBankingLogo) throws IOException {
+    private String getHtml(String styleSheet, String logo, String photo, String agentBankingLogo) throws IOException {
         pin = pinEditText.getText().toString();
         name = nameEditText.getText().toString();
-        String[] values = {logo, photo, agentBankingLogo, pin, name};
+        String[] values = {styleSheet, logo, photo, agentBankingLogo, pin, name};
         return htmlHelper.getHtml(SAVINGS_ACCOUNT_TEMPLATE, keys, values);
     }
 
