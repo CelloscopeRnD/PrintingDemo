@@ -14,22 +14,19 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final int PICK_LOGO = 100;
     public static final int PICK_PHOTO = 200;
-    private static final int PICK_BARCODE = 300;
     // Asset that contains html template
-    private static final String TEMPLATE1 = "Template1.html";
+    private static final String SAVINGS_ACCOUNT_TEMPLATE = "savings_account.html";
     private EditText pinEditText;
     private EditText nameEditText;
-    private String photoFilePath = "photo.jpg";
-    private String barcodeFilePath = "file:///android_asset/barcode.png";
-    private String logoFilePath = "file:///android_asset/logo.png";
+    private String photo_file_path = "photo.png";
+    private String agent_banking_logo_file_path = "file:///android_asset/agent_banking_logo.jpg";
+    private String logo_file_path = "file:///android_asset/logo.gif";
     private String pin = "";
     private String name = "";
     String[] keys = {"#LOGO", "#PHOTO", "#BARCODE", "#PIN", "#NAME"};
 
     private HtmlHelper htmlHelper;
-    private File htmlFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    new WebViewPrint(MainActivity.this).print(getHtmlFile(logoFilePath, photoFilePath, barcodeFilePath));
+                    new WebViewPrint(MainActivity.this).print(getHtmlFile(logo_file_path, photo_file_path, agent_banking_logo_file_path));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -68,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         pin = pinEditText.getText().toString();
         name = nameEditText.getText().toString();
         String[] values = {logo, photo, barcode, pin, name};
-        return htmlHelper.getHtml(TEMPLATE1, keys, values);
+        return htmlHelper.getHtml(SAVINGS_ACCOUNT_TEMPLATE, keys, values);
     }
 
 
@@ -90,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+             }
         }
 
         super.onActivityResult(requestCode, resultCode, data);
