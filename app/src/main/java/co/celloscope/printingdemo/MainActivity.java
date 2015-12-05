@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText pinEditText;
     private EditText nameEditText;
     private String photo_file_path = "photo.png";
-    private String agent_banking_logo_file_path = "file:///android_asset/agent_banking_logo.jpg";
-    private String logo_file_path = "file:///android_asset/logo.gif";
+    private static final String agent_banking_logo_file_path = "file:///android_asset/agent_banking_logo.jpg";
+    private static final String logo_file_path = "file:///android_asset/logo.gif";
     private String pin = "";
     private String name = "";
-    String[] keys = {"#LOGO", "#PHOTO", "#BARCODE", "#PIN", "#NAME"};
+    String[] keys = {"#LOGO", "#PHOTO", "#AGENT_BANKING_LOGO", "#PIN", "#NAME"};
 
     private HtmlHelper htmlHelper;
 
@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    new WebViewPrint(MainActivity.this).print(getHtmlFile(logo_file_path, photo_file_path, agent_banking_logo_file_path));
+                    new WebViewPrint(MainActivity.this)
+                            .print(getHtmlFile(logo_file_path, photo_file_path, agent_banking_logo_file_path));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -57,14 +58,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private File getHtmlFile(String logo, String photo, String barcode) throws IOException {
-        return FileHelper.createTempFileInExternalCacheDirectory(this, getHtml(logo, photo, barcode));
+    private File getHtmlFile(String logo, String photo, String agentBankingLogo) throws IOException {
+        return FileHelper.createTempFileInExternalCacheDirectory(this, getHtml(logo, photo, agentBankingLogo));
     }
 
-    private String getHtml(String logo, String photo, String barcode) throws IOException {
+    private String getHtml(String logo, String photo, String agentBankingLogo) throws IOException {
         pin = pinEditText.getText().toString();
         name = nameEditText.getText().toString();
-        String[] values = {logo, photo, barcode, pin, name};
+        String[] values = {logo, photo, agentBankingLogo, pin, name};
         return htmlHelper.getHtml(SAVINGS_ACCOUNT_TEMPLATE, keys, values);
     }
 
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
             switch (requestCode) {
                 case PICK_PHOTO:
                     imageView = (ImageView) findViewById(R.id.photoImageView);
-                    FileHelper.copyFileToExternalCacheDir(this, new File(FileHelper.getRealPathFromUri(this, data.getData())), "photo.jpg");
+                    FileHelper.copyFileToExternalCacheDir(this,
+                            new File(FileHelper.getRealPathFromUri(this, data.getData())), "photo.jpg");
                     break;
             }
             if (imageView != null) {
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-             }
+            }
         }
 
         super.onActivityResult(requestCode, resultCode, data);
