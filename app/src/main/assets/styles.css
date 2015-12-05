@@ -1,37 +1,60 @@
 ﻿@page {
-        size: A4;
+    size: A4;
+    margin: 0;
+    padding: 0;
+}
+
+@media print {
+    * {
         margin: 0;
         padding: 0;
-        }
+    }
 
-        @media print {
-        * {
-        margin: 0;
-        padding: 0;
-        }
-
-        html, body {
+    html, body {
         width: 100%;
         height: 100%;
         margin: 0;
         padding: 0;
-        }
-        }
+    }
+}
 
-        .page-third {
-        width: 100%;
-        height: 33.33%;
-        background-color: lightgray;
-        }
+.page-third {
+    width: 100%;
+    height: 33.33%;
+    background-color: lightgray;
+}
 
-        #first-part {
-        background-color: #e5dfdf;
-        }
+#first-part {
+    background-color: #e5dfdf;
+}
 
-        #second-part {
-        background-color: #757070;
-        }
+#second-part {
+    background-color: #757070;
+}
 
-        #third-part {
-        background-color: #494848;
-        }
+#third-part {
+    background-color: #494848;
+}
+
+
+#logo {
+    max-height: 2cm;
+}
+
+#agent_banking_logo {
+    float: left;
+    max-width: 4cm;
+}
+
+#logo {
+    float: right;
+    max-width: 4cm;
+}
+
+.center {
+    text-align: center;
+    width: auto;
+    background-color: gold;
+    margin-left: auto;
+    margin-right: auto;
+}
