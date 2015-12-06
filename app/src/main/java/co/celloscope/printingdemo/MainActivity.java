@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
         id_noEditText.setText("987654321");
         mobile_noEditText.setText("01799123456");
         nameEditText.setText("Mohammad Karim");
-        print_dateEditText.setText("Unknown");
-        sub_districtEditText.setText("Unknown");
-        villageEditText.setText("Unknown");
-        unionEditText.setText("Unknown");
+        print_dateEditText.setText("05-12-2015");
+        sub_districtEditText.setText("Sonagazi");
+        villageEditText.setText("Sujapur");
+        unionEditText.setText("Vhairab Chowdhurir Hat");
     }
 
     private void setValue() {
