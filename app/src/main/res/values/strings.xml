@@ -10,4 +10,14 @@
     <string name="web_view_print">Web View Print</string>
     <string name="app_print">App Print</string>
     <string name="village">Village</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="union">Union</string>
+    <string name="sub_district">Sub District</string>
+    <string name="district">District</string>
+    <string name="account_name">Account Name</string>
+    <string name="id_no">Id No</string>
+    <string name="account_no">Account No</string>
+    <string name="account_type">Account Type</string>
+    <string name="print_date">Print Date</string>
+    <string name="account_opening_date">Account Opening Date</string>
 </resources>
