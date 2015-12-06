@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText id_noEditText;
     private EditText mobile_noEditText;
     private EditText nameEditText;
-    private EditText photoEditText;
     private EditText print_dateEditText;
     private EditText sub_districtEditText;
     private EditText villageEditText;
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String logo = "file:///android_asset/logo.gif";
     private String mobile_no;
     private String name;
-    private String photo;
+    private String photo = "photo.jpg";
     private String print_date;
     private static final String style_sheet = "file:///android_asset/styles.css";
     private String sub_district;
@@ -101,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         id_noEditText = (EditText) findViewById(R.id.nameEditText);
         mobile_noEditText = (EditText) findViewById(R.id.nameEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
-        photoEditText = (EditText) findViewById(R.id.nameEditText);
         print_dateEditText = (EditText) findViewById(R.id.nameEditText);
         sub_districtEditText = (EditText) findViewById(R.id.nameEditText);
         villageEditText = (EditText) findViewById(R.id.villageEditText);
@@ -109,15 +107,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setTestValue() {
-        account_nameEditText.setText("Unknown");
-        account_noEditText.setText("Unknown");
-        account_opening_dateEditText.setText("Unknown");
-        account_typeEditText.setText("Unknown");
-        districtEditText.setText("Unknown");
-        id_noEditText.setText("Unknown");
-        mobile_noEditText.setText("Unknown");
-        nameEditText.setText("Unknown");
-        photoEditText.setText("Unknown");
+        account_nameEditText.setText("Mohammad Karim");
+        account_noEditText.setText("1234567890");
+        account_opening_dateEditText.setText("30-11-2015");
+        account_typeEditText.setText("Savings Account");
+        districtEditText.setText("Sonagazi");
+        id_noEditText.setText("987654321");
+        mobile_noEditText.setText("01799123456");
+        nameEditText.setText("Mohammad Karim");
         print_dateEditText.setText("Unknown");
         sub_districtEditText.setText("Unknown");
         villageEditText.setText("Unknown");
@@ -133,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
         id_no = id_noEditText.getText().toString();
         mobile_no = mobile_noEditText.getText().toString();
         name = nameEditText.getText().toString();
-        photo = photoEditText.getText().toString();
         print_date = print_dateEditText.getText().toString();
         sub_district = sub_districtEditText.getText().toString();
         village = villageEditText.getText().toString();
@@ -169,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 case PICK_PHOTO:
                     imageView = (ImageView) findViewById(R.id.photoImageView);
                     FileHelper.copyFileToExternalCacheDir(this,
-                            new File(FileHelper.getRealPathFromUri(this, data.getData())), "photo.jpg");
+                            new File(FileHelper.getRealPathFromUri(this, data.getData())), photo);
                     break;
             }
             if (imageView != null) {

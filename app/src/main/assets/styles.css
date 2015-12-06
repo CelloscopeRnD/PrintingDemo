@@ -44,6 +44,11 @@
     max-width: 4cm;
 }
 
+#photo{
+    max-width: 2cm;
+    max-height: 2cm;
+}
+
 #logo {
     float: right;
     max-width: 4cm;
