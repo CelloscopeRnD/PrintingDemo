@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText account_noEditText;
     private EditText account_opening_dateEditText;
     private EditText account_typeEditText;
-    private EditText agent_idEditText;
-    private EditText agent_nameEditText;
-    private EditText booth_addressEditText;
     private EditText districtEditText;
     private EditText id_noEditText;
     private EditText mobile_noEditText;
@@ -62,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeControl();
+        setLoginInformation();
         setTestValue();
         htmlHelper = new HtmlHelper(this);
 
@@ -88,14 +86,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void setLoginInformation() {
+        agent_id = "Naim Islam";
+        agent_name = "Raqibul Alom";
+        booth_address = "Vairab Chowdhurir Hath, Sonagazi";
+    }
+
     private void initializeControl() {
         account_nameEditText = (EditText) findViewById(R.id.nameEditText);
         account_noEditText = (EditText) findViewById(R.id.nameEditText);
         account_opening_dateEditText = (EditText) findViewById(R.id.nameEditText);
         account_typeEditText = (EditText) findViewById(R.id.nameEditText);
-        agent_idEditText = (EditText) findViewById(R.id.nameEditText);
-        agent_nameEditText = (EditText) findViewById(R.id.nameEditText);
-        booth_addressEditText = (EditText) findViewById(R.id.nameEditText);
         districtEditText = (EditText) findViewById(R.id.nameEditText);
         id_noEditText = (EditText) findViewById(R.id.nameEditText);
         mobile_noEditText = (EditText) findViewById(R.id.nameEditText);
@@ -112,9 +113,6 @@ public class MainActivity extends AppCompatActivity {
         account_noEditText.setText("Unknown");
         account_opening_dateEditText.setText("Unknown");
         account_typeEditText.setText("Unknown");
-        agent_idEditText.setText("Unknown");
-        agent_nameEditText.setText("Unknown");
-        booth_addressEditText.setText("Unknown");
         districtEditText.setText("Unknown");
         id_noEditText.setText("Unknown");
         mobile_noEditText.setText("Unknown");
@@ -131,9 +129,6 @@ public class MainActivity extends AppCompatActivity {
         account_no = account_noEditText.getText().toString();
         account_opening_date = account_opening_dateEditText.getText().toString();
         account_type = account_typeEditText.getText().toString();
-        agent_id = agent_idEditText.getText().toString();
-        agent_name = agent_nameEditText.getText().toString();
-        booth_address = booth_addressEditText.getText().toString();
         district = districtEditText.getText().toString();
         id_no = id_noEditText.getText().toString();
         mobile_no = mobile_noEditText.getText().toString();
