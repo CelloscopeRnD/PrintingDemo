@@ -92,18 +92,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeControl() {
-        account_nameEditText = (EditText) findViewById(R.id.nameEditText);
-        account_noEditText = (EditText) findViewById(R.id.nameEditText);
-        account_opening_dateEditText = (EditText) findViewById(R.id.nameEditText);
-        account_typeEditText = (EditText) findViewById(R.id.nameEditText);
-        districtEditText = (EditText) findViewById(R.id.nameEditText);
-        id_noEditText = (EditText) findViewById(R.id.nameEditText);
-        mobile_noEditText = (EditText) findViewById(R.id.nameEditText);
+        account_nameEditText = (EditText) findViewById(R.id.account_nameEditText);
+        account_noEditText = (EditText) findViewById(R.id.account_noEditText);
+        account_opening_dateEditText = (EditText) findViewById(R.id.account_opening_dateEditText);
+        account_typeEditText = (EditText) findViewById(R.id.account_typeEditText);
+        districtEditText = (EditText) findViewById(R.id.districtEditText);
+        id_noEditText = (EditText) findViewById(R.id.id_noEditText);
+        mobile_noEditText = (EditText) findViewById(R.id.mobile_noEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
-        print_dateEditText = (EditText) findViewById(R.id.nameEditText);
-        sub_districtEditText = (EditText) findViewById(R.id.nameEditText);
+        print_dateEditText = (EditText) findViewById(R.id.print_dateEditText);
+        sub_districtEditText = (EditText) findViewById(R.id.sub_districtEditText);
         villageEditText = (EditText) findViewById(R.id.villageEditText);
-        unionEditText = (EditText) findViewById(R.id.nameEditText);
+        unionEditText = (EditText) findViewById(R.id.unionEditText);
     }
 
     private void setTestValue() {
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         account_noEditText.setText("1234567890");
         account_opening_dateEditText.setText("30-11-2015");
         account_typeEditText.setText("Savings Account");
-        districtEditText.setText("Sonagazi");
+        districtEditText.setText("Feni");
         id_noEditText.setText("987654321");
         mobile_noEditText.setText("01799123456");
         nameEditText.setText("Mohammad Karim");
