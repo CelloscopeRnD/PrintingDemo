@@ -6,97 +6,62 @@
     <link rel="stylesheet" type="text/css" href="#STYLE_SHEET">
     <title>Saving Account</title>
 </head>
-<body>
-<div class="page-third" id="first-part">
-    <img id="agent_banking_logo" src="#AGENT_BANKING_LOGO" alt="Agent Banking Logo" />
-    <img id="logo" src="#LOGO" alt="logo" />
-    <img id="photo" src="#PHOTO" alt="Photo" />
-    <h1 class="center">গ্রাহকের একাউন্ট খোলার তথ্য</h1>
-    <table class="center">
-        <tr>
-            <td>এজেন্টর নাম</td>
-            <td id="agentName">#AGENT_NAME</td>
-        </tr>
-        <tr>
-            <td>বুথের ঠিকানা</td>
-            <td id="boothAddress">#BOOTH_ADDRESS</td>
-        </tr>
-        <tr>
-            <td>ইউজার আইডি</td>
-            <td id="agentId">#AGENT_ID</td>
-        </tr>
-    </table>
 
-    <div>
-        <h4>এজেন্ট ব্য়াংকিং ডিভিশন</h4>
-        <h5>দি সিটি ব্য়াংক লিমিটেড</h5>
-        <p>সিটি ব্য়াংক সেন্টার (৮ম তলা),</p>
-        <p>১৩৬, গুলশান এভিনিউ, গুলশান-২,</p>
-        <p>ঢাকা - ১২১২</p>
-    </div>
-    <table>
-        <tr>
-            <td>নামঃ</td>
-            <td id="name">#NAME</td>
-            <td>গ্রামঃ</td>
-            <td id="village">#VILLAGE</td>
-            <td>মো. নংঃ</td>
-            <td id="mobileNo">#MOBILE_NO</td>
-        </tr>
-        <tr>
-            <td>ইউনিয়নঃ</td>
-            <td id="union">#UNION</td>
-            <td>উপজেলাঃ</td>
-            <td id="subDistrict">#SUB_DISTRICT</td>
-            <td>জেলাঃ</td>
-            <td id="district">#DISTRICT</td>
-        </tr>
-    </table>
+<body style="margin-top:0px;">
+<div id="main">
 
-    <div>
-        <p>প্রিয় মহোদয় ম্য়াডাম</p>
-        <p>সিটি ব্য়াংক এজেন্ট ব্য়াংকিং এর পক্ষ থেকে আপনাকে স্বাগতম । সিটি ব্য়াংকের এজেন্ট ব্য়াংকিং এর সম্মানিত গ্রাহক হওয়ার জন্য় আপনাকে ধন্য়বাদ ।</p>
-        <p>আপনার একাউন্টের প্রয়োজনীয় তথ্য়াদি নিম্নে দেওয়া হলঃ</p>
+    <div id="header">
+        <table style="margin-top:0px; width:100%; height:auto">
+            <tr>
+                <td style="width:33%"><img id="agent_banking_logo" src="#AGENT_BANKING_LOGO" alt="Agent Banking Logo" /><p class="content3">এজেন্ট ব্যাংকিং ডিভিশন<br />সিটি ব্যাংক  সেন্টার ১৩৬, গুলশান এভিনিউ , গুলশান-২<br />ঢাকা-১২১২, বাংলাদেশ</p></td>
+                <td><strong style="margin-left:40px;"> গ্রাহকের একাউন্ট খোলার তথ্য</strong><br /><p class="content2">এজেন্টের নাম: <span id="agentName">#AGENT_NAME</span><br />বুথের ঠিকানা: <span id="boothAddress">#BOOTH_ADDRESS</span>  <br />ইউজার  আইডি: <span id="agentId">#AGENT_ID</span></p></td>
+                <td><img id="logo" src="#LOGO" alt="logo" /></td>
+            </tr>
+        </table>
     </div>
-    <div>
-        <h3>সিটি ব্য়াংক সেন্টার</h3>
-        <h3>136, গুলশান এভিনিউ, গুলশান - 2</h3>
-        <h3>ঢাকা - 1212</h3>
+
+    <div style="margin-left:25px">
+        <table style="width:100%;">
+            <tr style="width:100%;">
+                <td style="width:32%;"><p class="content1">নাম: <span id="name"> #NAME</span><br />ইউনিয়ন:<span id="union">#UNION</span>  </p></td>
+                <td style="width:33%;"><p class="content1"> গ্রাম:<span id="village"> #VILLAGE</span> <br /> উপজিলা:<span id="subDistrict">#SUB_DISTRICT</span>  </p></td>
+                <td><p class="content1">মোবাইল নং:<span id="mobileNo">#MOBILE_NO</span>  <br />জেলা:<span id="district">#DISTRICT</span>  </p></td>
+                <td><img id="photo" src="#PHOTO" alt="Photo" /></td>
+            </tr>
+        </table>
     </div>
-    <table>
-        <tr>
-            <td>একাউন্টের নাম</td>
-            <td id="accountName">#ACCOUNT_NAME</td>
-            <td>আইডি নম্বর</td>
-            <td id="idNo">#ID_NO</td>
-            <td>একাউন্ট নম্বর</td>
-            <td id="accountNo">#ACCOUNT_NO</td>
-        </tr>
-        <tr>
-            <td>একাউন্টের ধরন</td>
-            <td id="accountType">#ACCOUNT_TYPE</td>
-            <td>একাউন্ট খোলার তারিখ</td>
-            <td id="accountOpeningDate">#ACCOUNT_OPENING_DATE</td>
-            <td>প্রিন্টের তারিখ</td>
-            <td id="printDate">#PRINT_DATE</td>
-        </tr>
-    </table>
-    <footer>
-        <div>
-            <p>ফোনঃ +৮৮ ০২ ৫৮৮১৩৪৮৩, ৫৮৮১৪৩৭৫, ৫৮৮১৩১২৬</p>
-            <p>ফ্য়াক্সঃ +৮৮ ০২ ৯৮৮৪৪৬</p>
-        </div>
-        <div>
-            <p>সিটি ব্য়াংকের এজেন্ট ব্য়াংকিং সেবা গ্রহনের জন্য় আপনাকে</p>
-            <p>এখানে কোনো স্বাক্ষর করবেন না, আপনার সকল তথ্য় কম্পিউটারের মাধ্য়মে স্বয়ংক্রিয়ভাবে প্রস্তুত হয়ে যাবে</p>
-        </div>
-        <div>
-            <p>ইমেইলঃ agent.banking@thecitybank.com</p>
-            <p>ওয়েবসাইটঃ www.thecitybank.com</p>
-        </div>
-    </footer>
+
+    <div style="margin-left:25px; margin-top:0px;">
+        <table style="width:100%; height:auto">
+            <tr style="width:100%;">
+                <td style="width:100%;"><p class="content1">প্রিয় মহোদয় / ম্যাডাম <br />সিটি এজেন্ট ব্যাংকিং এর পক্ষ থেকে আপনাকে স্বাগতম। সিটি এজেন্ট ব্যাংকিং এর সম্মানিত গ্রাহক হওয়ার জন্য আপনাকে ধন্যবাদ।<br />আপনার একাউন্ট এর প্রয়োজনীয় তথ্যাদি নিন্মে দেয়া হলো:</p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-left:25px; margin-top:0px;">
+        <table style="width:100%; height:auto">
+            <tr style="width:100%;">
+                <td style="width:27%;"><p class="content1">একাউন্ট নাম:<span id="accountName">#ACCOUNT_NAME</span> <br />একাউন্টের ধরন:<span id="savingsAccountType">#ACCOUNT_TYPE</span><br />প্রারম্ভিক জমার পরিমান: <span id="initialDeposit">#INITIAL_DEPOSIT</span> </p></td>
+                <td style="width:30%;"><p class="content1">আইডি নম্বর:<span id="idNo">#ID_NO</span> <br />একাউন্ট খোলার তারিখ:<span id="accountOpeningDate">#ACCOUNT_OPENING_DATE</span>  </p></td>
+                <td style="width:30%;"><p class="content1">একাউন্ট নম্বর:<span id="accountNo">#ACCOUNT_NO</span>  <br />প্রিন্টের তারিখ:<span id="printDate">#PRINT_DATE</span> </p></td>
+                <td><img id="qr" src="#QR" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-left:10px; margin-top:0px;">
+        <table style="width:100%; height:auto">
+            <tr style="width:100%;">
+                <td style="width:27%;"> <p class="content" style="text-align:left">ফোন: +৮৮ ০২ ৫৮৮১৩৪৮৩, ৫৮৮১৪৩৭৫, ৫৮৮১৩১২৬<br />ফ্যাক্সঃ +৮৮ ০২ ৯৮৮৪৪৬</p></td>
+                <td style="width:47%;"><p class="content" style="text-align:center">সিটি ব্যাংকের এজেন্ট ব্যাংকিং সেবা গ্রহনের জন্য আপনাকে ধন্যবাদ<br />এখানে কোনো স্বাক্ষর করবেন না, আপনার সকল তথ্য কম্পিউটারের মাধ্যমে স্বয়ংক্রিয়ভাবে প্রস্তুত হয়ে যাবে</p></td>
+                <td style="width:25%;"><p class="content" style="text-align:center">ইমেইল: agent.banking@thecitybank.com<br />ওয়েবসাইট: www.thecitybank.com</p></td>
+            </tr>
+        </table>
+    </div>
 </div>
-<div class="page-third" id="second-part"></div>
-<div class="page-third" id="third-part"></div>
+
+
+
 </body>
 </html>

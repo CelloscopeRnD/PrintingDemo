@@ -1,63 +1,89 @@
-﻿@page {
-    size: A4;
-    margin: 0;
-    padding: 0;
+﻿body
+{
+	background-color: white;
+    margin:0px;
+    padding:0px;
 }
 
-* {
-        margin: 0;
-        padding: 0;
-    }
-
-    html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-.page-third {
-    width: 100%;
-    height: 33.33%;
-    background-color: lightgray;
+ @page
+    {
+        size: auto;
+        margin: 0mm;
+ }
+#main {
+    height:370px;
+    width:780px;
+    border-bottom:dashed 1px black;
 }
 
-#first-part {
-    background-color: #e5dfdf;
+#header {
+    height:120px;
+    width:100%;
+    margin-left:10px;
 }
-
-#second-part {
-    background-color: #757070;
-}
-
-#third-part {
-    background-color: #494848;
-}
-
 
 #logo {
-    max-height: 2cm;
+    margin-top:-60px;
+    height:70px;
+    width:116px;
+    margin-right:10px;
+}
+
+#qr {
+    margin-top:-15px;
+    height:70px;
+    width:70px;
+    margin-right:10px;
+    float:right;
 }
 
 #agent_banking_logo {
-    float: left;
-    max-width: 4cm;
+    height:80px;
+    width:126px;
+    float:left;
+    margin-top:1px;
+    margin-right:10px;
 }
 
-#photo{
-    max-width: 2cm;
-    max-height: 2cm;
+#photo {
+    height:70px;
+    width:70px;
+    float:right;
+    margin-right:10px;
 }
 
-#logo {
-    float: right;
-    max-width: 4cm;
+
+.content {
+    color: #424242;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Verdana, SolaimanLipi, Times, serif;
+	letter-spacing:0.1em;
+	line-height: 100%;
+	font-size: 6.1pt;
 }
 
-.center {
-    text-align: center;
-    width: auto;
-    background-color: gold;
-    margin-left: auto;
-    margin-right: auto;
+.content1 {
+    color: #424242;
+   font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Verdana, SolaimanLipi, Times, serif;
+	letter-spacing:0.1em;
+	line-height: 100%;
+	font-size: 8pt;
 }
+
+.content2 {
+    color: #424242;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Verdana, SolaimanLipi, Times, serif;
+	letter-spacing:0.1em;
+	line-height: 100%;
+	font-size: 10pt;
+    text-align:left;
+}
+
+.content3 {
+    color: #424242;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Verdana, SolaimanLipi, Times, serif;
+    letter-spacing: 0.1em;
+    line-height: 100%;
+    font-size: 8.5pt;
+    margin-top:85px;
+}
+
