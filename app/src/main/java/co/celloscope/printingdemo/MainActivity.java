@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private String user_id;
     private String withdraw_amount = "Undefined";
     private String sub_district;
+    private Toolbar mToolbar;
 
     private String getHtml() throws IOException {
         String[] keys = {
@@ -166,6 +169,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
         initializeControl();
         setLoginInformation();
         setTestValue();
@@ -251,7 +257,11 @@ public class MainActivity extends AppCompatActivity {
         return FileHelper.createTempFileInExternalCacheDirectory(this, getHtml());
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
