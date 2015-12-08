@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText account_nameEditText;
     private EditText account_noEditText;
     private EditText account_opening_dateEditText;
-    private EditText account_typeEditText;
+    private EditText savings_account_typeEditText;
     private EditText districtEditText;
     private EditText id_noEditText;
     private EditText mobile_noEditText;
@@ -32,55 +32,48 @@ public class MainActivity extends AppCompatActivity {
     private EditText villageEditText;
     private EditText unionEditText;
 
+    private static final String style_sheet = "file:///android_asset/styles.css";
+
+    private static final String agent_banking_logo = "file:///android_asset/agent_banking_logo.jpg";
+    private static final String logo = "file:///android_asset/logo.gif";
+    private String photo = "photo.jpg";
     private String qr = "Undefined";
 
 
     private String agent_name;
     private String agent_point;
     private String booth_address;
+    private String outlet_name;
+
     private String account_name;
     private String account_no;
     private String account_opening_date;
-    private String account_type;
-    private static final String agent_banking_logo = "file:///android_asset/agent_banking_logo.jpg";
-    private String user_id;
-
-
-    private String district;
-    private String id_no;
-    private static final String logo = "file:///android_asset/logo.gif";
-    private String mobile_no;
-    private String name;
-    private String outlet_name;
-    private String photo = "photo.jpg";
-    private String print_date;
-    private static final String style_sheet = "file:///android_asset/styles.css";
-    private String sub_district;
-    private String village;
-    private String union;
     private String cash_deposit = "Undefined";
     private String cash_withdraw = "Undefined";
     private String current_account_type = "Undefined";
+    private String district;
     private String deposit_amount = "Undefined";
     private String end_date = "Undefined";
     private String expiry_amount = "Undefined";
     private String expire_date = "Undefined";
+    private String id_no;
     private String initial_deposit = "Undefined";
     private String link_account_number = "Undefined";
+    private String mobile_no;
     private String monthly_deposit = "Undefined";
+    private String name;
+    private String print_date;
     private String request_id = "Undefined";
     private String savings_account_type = "Undefined";
     private String timeSpan = "Undefined";
     private String transaction_date = "Undefined";
     private String transaction_id = "Undefined";
+    private String village;
+    private String union;
+    private String user_id;
     private String withdraw_amount = "Undefined";
+    private String sub_district;
 
-
-//    #ACCOUNT_NAME", "#ACCOUNT_NO", "#ACCOUNT_OPENING_DATE", "#ACCOUNT_TYPE",
-//            "#AGENT_BANKING_LOGO", "#AGENT_ID", "#AGENT_NAME",
-//            "#BOOTH_ADDRESS", "#DISTRICT", "#ID_NO", "#LOGO", "#MOBILE_NO", "#NAME", "#PHOTO", "#PRINT_DATE",
-//            "#STYLE_SHEET", "#SUB_DISTRICT",
-//            "#VILLAGE", "#UNION",
     private String getHtml() throws IOException {
         String[] keys = {
                 "#STYLE_SHEET",
@@ -213,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         account_nameEditText = (EditText) findViewById(R.id.account_nameEditText);
         account_noEditText = (EditText) findViewById(R.id.account_noEditText);
         account_opening_dateEditText = (EditText) findViewById(R.id.account_opening_dateEditText);
-        account_typeEditText = (EditText) findViewById(R.id.account_typeEditText);
+        savings_account_typeEditText = (EditText) findViewById(R.id.account_typeEditText);
         districtEditText = (EditText) findViewById(R.id.districtEditText);
         id_noEditText = (EditText) findViewById(R.id.id_noEditText);
         mobile_noEditText = (EditText) findViewById(R.id.mobile_noEditText);
@@ -226,14 +219,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTestValue() {
         account_nameEditText.setText("Mohammad Karim");
-        account_noEditText.setText("100-5000001-001");
-        account_opening_dateEditText.setText("30-11-2015");
-        account_typeEditText.setText("Savings Account");
+        account_noEditText.setText("100-5000001-001"); //Account Number will be 13 characters
+        account_opening_dateEditText.setText("30-NOV-2015");
         districtEditText.setText("Feni");
-        id_noEditText.setText("987654321");
+        id_noEditText.setText("CB5000001"); //ID will be 7 characters
         mobile_noEditText.setText("01799123456");
         nameEditText.setText("Mohammad Karim");
-        print_dateEditText.setText("05-12-2015");
+        print_dateEditText.setText("30-NOV-2015 11:15:15 AM");
+        savings_account_typeEditText.setText("Savings Account");
         sub_districtEditText.setText("Sonagazi");
         villageEditText.setText("Sujapur");
         unionEditText.setText("Vhairab Chowdhurir Hat");
@@ -243,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
         account_name = account_nameEditText.getText().toString();
         account_no = account_noEditText.getText().toString();
         account_opening_date = account_opening_dateEditText.getText().toString();
-        account_type = account_typeEditText.getText().toString();
+        savings_account_type = savings_account_typeEditText.getText().toString();
         district = districtEditText.getText().toString();
         id_no = id_noEditText.getText().toString();
         mobile_no = mobile_noEditText.getText().toString();
