@@ -33,6 +33,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/photoLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -50,6 +51,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/nameLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -67,6 +69,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/villageLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -84,6 +87,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/mobile_noLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -102,6 +106,7 @@
 
 
             <LinearLayout
+                android:id="@+id/unionLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -120,6 +125,7 @@
 
 
             <LinearLayout
+                android:id="@+id/sub_districtLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -137,6 +143,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/districtLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -154,6 +161,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/account_nameLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -172,6 +180,7 @@
 
 
             <LinearLayout
+                android:id="@+id/id_noLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -190,6 +199,7 @@
 
 
             <LinearLayout
+                android:id="@+id/account_noLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -208,6 +218,7 @@
 
 
             <LinearLayout
+                android:id="@+id/account_typeLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -225,6 +236,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/account_opening_dateLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -242,6 +254,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/print_dateLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

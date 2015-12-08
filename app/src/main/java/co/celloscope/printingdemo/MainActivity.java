@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +35,19 @@ public class MainActivity extends AppCompatActivity {
     private EditText sub_districtEditText;
     private EditText villageEditText;
     private EditText unionEditText;
+
+    private LinearLayout account_nameLinearLayout;
+    private LinearLayout account_noLinearLayout;
+    private LinearLayout account_opening_dateLinearLayout;
+    private LinearLayout savings_account_typeLinearLayout;
+    private LinearLayout districtLinearLayout;
+    private LinearLayout id_noLinearLayout;
+    private LinearLayout mobile_noLinearLayout;
+    private LinearLayout nameLinearLayout;
+    private LinearLayout print_dateLinearLayout;
+    private LinearLayout sub_districtLinearLayout;
+    private LinearLayout villageLinearLayout;
+    private LinearLayout unionLinearLayout;
 
     private static final String style_sheet = "file:///android_asset/styles.css";
 
@@ -221,6 +236,20 @@ public class MainActivity extends AppCompatActivity {
         sub_districtEditText = (EditText) findViewById(R.id.sub_districtEditText);
         villageEditText = (EditText) findViewById(R.id.villageEditText);
         unionEditText = (EditText) findViewById(R.id.unionEditText);
+
+
+        account_nameLinearLayout = (LinearLayout) findViewById(R.id.account_nameLinearLayout);
+        account_noLinearLayout = (LinearLayout) findViewById(R.id.account_noLinearLayout);
+        account_opening_dateLinearLayout = (LinearLayout) findViewById(R.id.account_opening_dateLinearLayout);
+        savings_account_typeLinearLayout = (LinearLayout) findViewById(R.id.account_typeLinearLayout);
+        districtLinearLayout = (LinearLayout) findViewById(R.id.districtLinearLayout);
+        id_noLinearLayout = (LinearLayout) findViewById(R.id.id_noLinearLayout);
+        mobile_noLinearLayout = (LinearLayout) findViewById(R.id.mobile_noLinearLayout);
+        nameLinearLayout = (LinearLayout) findViewById(R.id.nameLinearLayout);
+        print_dateLinearLayout = (LinearLayout) findViewById(R.id.print_dateLinearLayout);
+        sub_districtLinearLayout = (LinearLayout) findViewById(R.id.sub_districtLinearLayout);
+        villageLinearLayout = (LinearLayout) findViewById(R.id.villageLinearLayout);
+        unionLinearLayout = (LinearLayout) findViewById(R.id.unionLinearLayout);
     }
 
     private void setTestValue() {
@@ -262,6 +291,131 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        setVisibilityGone();
+        switch (item.getItemId()) {
+            case R.id.savings_account:
+                selectSavingsAccountForm();
+                return true;
+            case R.id.current_account:
+                selectCurrentAccountForm();
+                return true;
+            case R.id.dps_account:
+                selectDPSAccountForm();
+                return true;
+            case R.id.cash_deposit:
+                selectCashDepositForm();
+                return true;
+            case R.id.cash_withdraw:
+                selectCashDepositForm();
+                return true;
+            case R.id.fund_transfer:
+                selectFundTransferForm();
+                return true;
+            case R.id.reb:
+                selectREBForm();
+                return true;
+            case R.id.agent_banking:
+                selectAgentBankingForm();
+                return true;
+            case R.id.remittance:
+                selectRemittanceForm();
+                return true;
+            case R.id.term_deposit:
+                selectTermDepositForm();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void setVisibilityGone() {
+        account_nameLinearLayout.setVisibility(View.GONE);
+        account_noLinearLayout.setVisibility(View.GONE);
+        account_opening_dateLinearLayout.setVisibility(View.GONE);
+        savings_account_typeLinearLayout.setVisibility(View.GONE);
+        districtLinearLayout.setVisibility(View.GONE);
+        id_noLinearLayout.setVisibility(View.GONE);
+        mobile_noLinearLayout.setVisibility(View.GONE);
+        nameLinearLayout.setVisibility(View.GONE);
+        print_dateLinearLayout.setVisibility(View.GONE);
+        sub_districtLinearLayout.setVisibility(View.GONE);
+        villageLinearLayout.setVisibility(View.GONE);
+        unionLinearLayout.setVisibility(View.GONE);
+    }
+
+    private void selectSavingsAccountForm() {
+        account_nameLinearLayout.setVisibility(View.VISIBLE);
+        account_noLinearLayout.setVisibility(View.VISIBLE);
+        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
+        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
+        districtLinearLayout.setVisibility(View.VISIBLE);
+        id_noLinearLayout.setVisibility(View.VISIBLE);
+        mobile_noLinearLayout.setVisibility(View.VISIBLE);
+        nameLinearLayout.setVisibility(View.VISIBLE);
+        print_dateLinearLayout.setVisibility(View.VISIBLE);
+        sub_districtLinearLayout.setVisibility(View.VISIBLE);
+        villageLinearLayout.setVisibility(View.VISIBLE);
+        unionLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectCurrentAccountForm() {
+        account_nameLinearLayout.setVisibility(View.VISIBLE);
+        account_noLinearLayout.setVisibility(View.VISIBLE);
+        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
+        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
+        districtLinearLayout.setVisibility(View.VISIBLE);
+        id_noLinearLayout.setVisibility(View.VISIBLE);
+        mobile_noLinearLayout.setVisibility(View.VISIBLE);
+        nameLinearLayout.setVisibility(View.VISIBLE);
+        print_dateLinearLayout.setVisibility(View.VISIBLE);
+        sub_districtLinearLayout.setVisibility(View.VISIBLE);
+        villageLinearLayout.setVisibility(View.VISIBLE);
+        unionLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectDPSAccountForm() {
+        account_nameLinearLayout.setVisibility(View.VISIBLE);
+        account_noLinearLayout.setVisibility(View.VISIBLE);
+        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
+        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
+        districtLinearLayout.setVisibility(View.VISIBLE);
+        id_noLinearLayout.setVisibility(View.VISIBLE);
+        mobile_noLinearLayout.setVisibility(View.VISIBLE);
+        nameLinearLayout.setVisibility(View.VISIBLE);
+        print_dateLinearLayout.setVisibility(View.VISIBLE);
+        sub_districtLinearLayout.setVisibility(View.VISIBLE);
+        villageLinearLayout.setVisibility(View.VISIBLE);
+        unionLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectCashDepositForm() {
+        account_nameLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectFundTransferForm() {
+        account_noLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectREBForm() {
+        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectAgentBankingForm() {
+        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectRemittanceForm() {
+        districtLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectTermDepositForm() {
+        id_noLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
