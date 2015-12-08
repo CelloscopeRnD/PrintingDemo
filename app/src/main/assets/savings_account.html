@@ -4,17 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="#STYLE_SHEET">
-    <title>Saving Account</title>
+    <title>DPS Account</title>
 </head>
-
-<body style="margin-top:0px;">
+<body>
 <div id="main">
 
     <div id="header">
-        <table style="margin-top:0px; width:100%; height:auto">
+        <table style="margin-top:10px; width:100%; height:auto">
             <tr>
                 <td style="width:33%"><img id="agent_banking_logo" src="#AGENT_BANKING_LOGO" alt="Agent Banking Logo" /><p class="content3">এজেন্ট ব্যাংকিং ডিভিশন<br />সিটি ব্যাংক  সেন্টার ১৩৬, গুলশান এভিনিউ , গুলশান-২<br />ঢাকা-১২১২, বাংলাদেশ</p></td>
-                <td><strong style="margin-left:40px;"> গ্রাহকের একাউন্ট খোলার তথ্য</strong><br /><p class="content2">এজেন্টের নাম: <span id="agentName">#AGENT_NAME</span><br />বুথের ঠিকানা: <span id="boothAddress">#BOOTH_ADDRESS</span>  <br />ইউজার  আইডি: <span id="agentId">#AGENT_ID</span></p></td>
+                <td><p class="content2">Agent Name: <span id="agentName">#AGENT_NAME</span><br />Agent Point: <span id="agentPoint">#AGENT_POINT</span>  <br />Address: <span id="boothAddress">#BOOTH_ADDRESS</span></p></td>
                 <td><img id="logo" src="#LOGO" alt="logo" /></td>
             </tr>
         </table>
@@ -23,34 +22,60 @@
     <div style="margin-left:25px">
         <table style="width:100%;">
             <tr style="width:100%;">
-                <td style="width:32%;"><p class="content1">নাম: <span id="name"> #NAME</span><br />ইউনিয়ন:<span id="union">#UNION</span>  </p></td>
-                <td style="width:33%;"><p class="content1"> গ্রাম:<span id="village"> #VILLAGE</span> <br /> উপজিলা:<span id="subDistrict">#SUB_DISTRICT</span>  </p></td>
-                <td><p class="content1">মোবাইল নং:<span id="mobileNo">#MOBILE_NO</span>  <br />জেলা:<span id="district">#DISTRICT</span>  </p></td>
-                <td><img id="photo" src="#PHOTO" alt="Photo" /></td>
+                <td style="text-align:center">নগদ উত্তোলন</td>
             </tr>
         </table>
     </div>
 
-    <div style="margin-left:25px; margin-top:0px;">
-        <table style="width:100%; height:auto">
-            <tr style="width:100%;">
-                <td style="width:100%;"><p class="content1">প্রিয় মহোদয় / ম্যাডাম <br />সিটি এজেন্ট ব্যাংকিং এর পক্ষ থেকে আপনাকে স্বাগতম। সিটি এজেন্ট ব্যাংকিং এর সম্মানিত গ্রাহক হওয়ার জন্য আপনাকে ধন্যবাদ।<br />আপনার একাউন্ট এর প্রয়োজনীয় তথ্যাদি নিন্মে দেয়া হলো:</p></td>
-            </tr>
-        </table>
-    </div>
+    <div style="margin-left:25px; margin-top:10px;">
+        <table>
+            <tr>
+                <td style="width:650px;">
+                    <table class="content1">
+                        <tr>
+                            <td style="text-align:right; padding-right:10px;">Acount Title</td>
+                            <td>:</td>
+                            <td>Halima Khatun</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right; padding-right:10px;">Account No</td>
+                            <td>:</td>
+                            <td id="accountNo">#ACCOUNT_NO</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right; padding-right:10px;">Transaction Date</td>
+                            <td>:</td>
+                            <td id="transactionDate">#TRANSACTION_DATE</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right; padding-right:10px;">Transaction ID</td>
+                            <td>:</td>
+                            <td id="transactionId">#TRANSACTION_ID</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right; padding-right:10px;">Transaction Type</td>
+                            <td>:</td>
+                            <td id="cashWithdraw">#Cash Withdraw</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right; padding-right:10px;" id="agentId">User ID</td>
+                            <td>:</td>
+                            <td id="userId">#TRANSACTION_ID</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right; padding-right:10px;">Amount (In Taka)</td>
+                            <td>:</td>
+                            <td id="withdrawAmount">#WITHDRAW_AMOUNT</td>
+                        </tr>
+                    </table>
 
-    <div style="margin-left:25px; margin-top:0px;">
-        <table style="width:100%; height:auto">
-            <tr style="width:100%;">
-                <td style="width:27%;"><p class="content1">একাউন্ট নাম:<span id="accountName">#ACCOUNT_NAME</span> <br />একাউন্টের ধরন:<span id="savingsAccountType">#ACCOUNT_TYPE</span><br />প্রারম্ভিক জমার পরিমান: <span id="initialDeposit">#INITIAL_DEPOSIT</span> </p></td>
-                <td style="width:30%;"><p class="content1">আইডি নম্বর:<span id="idNo">#ID_NO</span> <br />একাউন্ট খোলার তারিখ:<span id="accountOpeningDate">#ACCOUNT_OPENING_DATE</span>  </p></td>
-                <td style="width:30%;"><p class="content1">একাউন্ট নম্বর:<span id="accountNo">#ACCOUNT_NO</span>  <br />প্রিন্টের তারিখ:<span id="printDate">#PRINT_DATE</span> </p></td>
+                </td>
                 <td><img id="qr" src="#QR" /></td>
             </tr>
         </table>
     </div>
 
-    <div style="margin-left:10px; margin-top:0px;">
+    <div style="margin-left:10px; margin-top:20px;">
         <table style="width:100%; height:auto">
             <tr style="width:100%;">
                 <td style="width:27%;"> <p class="content" style="text-align:left">ফোন: +৮৮ ০২ ৫৮৮১৩৪৮৩, ৫৮৮১৪৩৭৫, ৫৮৮১৩১২৬<br />ফ্যাক্সঃ +৮৮ ০২ ৯৮৮৪৪৬</p></td>
