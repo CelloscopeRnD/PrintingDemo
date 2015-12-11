@@ -1,110 +1,136 @@
-﻿body
-{
-	background-color: white;
-    margin:0px;
-    padding:0px;
-    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Verdana, SolaimanLipi, Times, serif, BenSenHandwriting;
+﻿*{
+    margin: 0 ;
+    padding: 0 ;
+}
+@media print {
+  * { margin: 0 !important; padding: 0 !important; }
+  .header, .footer, .footerarea{ display: none; }
+  html, body {
+    /*changing width to 100% causes huge overflow and wrap*/
+    overflow: hidden;
+    background: #FFF;
+
+   /* font-size: 9.5pt;
+    height:3.5in;
+    width: 8.5in;*/
+  }
+
+  /*.template { width: auto; left:0; top:0; }
+  img { width:100%; }
+  li { margin: 0 0 10px 20px !important;}*/
 }
 
- @page
-    {
-        size: auto;
-        margin: 0mm;
- }
+@page {
+   size: 8.5in 11in;
+   margin: .05in .17in .05in .62in;
+   /*margin: .25in .25in .25in .75in;*/
+}
 
- @font-face {
-    font-family: "BenSenHandwriting";
-    src: url(file:///android_asset/fonts/BenSenHandwriting.ttf) format("truetype");
+@font-face {
+    font-family: "kalpurush";
+    src: url(../Fonts/kalpurush.ttf) format("truetype");
+}
+
+body {
+    background-color: white;
+    font-family: 'Arial Narrow', kalpurush;
+    font-size: 11pt;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+th, td {
+    padding: 0px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.topLabel {
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.topFieldValue {
+    font-size: 8pt;
 }
 
 #main {
-    height:320px;
-    width:780px;
-    border-bottom:dashed 1px black;
-}
-
-#header {
-    height:120px;
-    width:100%;
-    margin-left:10px;
-}
-
-#logo {
-    margin-top:-60px;
-    height:70px;
-    width:116px;
-    margin-right:10px;
-}
-
-#qr {
-    margin-top:-15px;
-    height:60px;
-    width:60px;
-    margin-right:10px;
-    float:right;
-}
-
-#barcode {
-    height:60px;
-    width:200px;
-    margin-right:-25px;
-    float:right;
+    width: 7.5in;
+    height: 3.0in;
+    background-color: gray;
+    /*padding: 0.25in 0.25in 0.25in 0.75in;*/
 }
 
 #agent_banking_logo {
-    height:80px;
-    width:126px;
-    float:left;
-    margin-top:1px;
-    margin-right:10px;
+    width: .85in;
+    max-height: .40in;
+    float: right;
 }
 
-#photo {
-    height:70px;
-    width:70px;
-    float:right;
-    margin-right:10px;
-}
-
-
-.content {
-    color: #424242;
-
-	letter-spacing:0.1em;
-	line-height: 100%;
-	font-size: 6.1pt;
-}
-
-.content1 {
-    color: #424242;
-	letter-spacing:0.1em;
-	line-height: 100%;
-	font-size: 8pt;
-}
-
-.content2 {
-    color: #424242;
-	letter-spacing:0.1em;
-	line-height: 100%;
-	font-size: 10pt;
-    text-align:left;
-}
-
-.content3 {
-    color: #424242;
-    letter-spacing: 0.1em;
-    line-height: 100%;
-    font-size: 8.5pt;
-    margin-top:85px;
-}
-.content4 {
-    color: #424242;
-    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Verdana, SolaimanLipi, Times, serif;
-    letter-spacing: 0.1em;
-    line-height: 100%;
-    font-size: 7.3pt;
-    margin-top:0px;
+#logo {
+    width: .85in;
+    max-height: .5in;
+    float: left;
 }
 
 
 
+
+#threeColumnTable {
+    float: left;
+    width: 100%;
+}
+
+.tdSide {
+    width: 20%;
+    vertical-align: top;
+}
+
+.tdMiddle {
+    width: 60%;
+}
+
+#thirdTable {
+    float: left;
+    width: 100%;
+}
+
+    #thirdTable tr {
+        /*height: 15px;*/
+    }
+
+#fourthTable {
+    float: left;
+    width: 100%;
+}
+
+    #fourthTable tr {
+        /*height: 15px;*/
+    }
+
+#customerPhoto {
+    width: .85in;
+    height: .75in;
+    float: left;
+}
+
+#addressDiv {
+    float: right;
+    font-size: 9px;
+}
+
+#tableMiddle {
+    margin: 0 auto;
+    height: auto;
+}
