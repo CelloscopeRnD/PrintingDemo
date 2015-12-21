@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final int PICK_PHOTO = 200;
     // Asset that contains html template
-    private static final String SAVINGS_ACCOUNT_TEMPLATE = "savings_account.html";
+    private static final String TEMPLATE_HTML = "template.html";
     private HtmlHelper htmlHelper;
 
     private EditText account_nameEditText;
@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String style_sheet = "file:///android_asset/styles.css";
 
-    private static final String agent_banking_logo = "file:///android_asset/agent_banking_logo.jpg";
+    private static final String agent_banking_logo = "file:///android_asset/agent_banking_logo.png";
     private static final String logo = "file:///android_asset/logo.gif";
-    private String photo = "photo.jpg";
-    private String qr = "Undefined";
+    private String photo = "file:///android_asset/photo.png";
+    private String qr = "file:///android_asset/qr.png";
 
 
     private String agent_name;
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 union,
                 user_id,
                 withdraw_amount};
-        return htmlHelper.getHtml(SAVINGS_ACCOUNT_TEMPLATE, keys, values);
+        return htmlHelper.getHtml(TEMPLATE_HTML, keys, values);
     }
 
     @Override

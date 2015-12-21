@@ -1,136 +1,238 @@
-﻿*{
-    margin: 0 ;
-    padding: 0 ;
+﻿* {
+    margin: 0;
+    padding: 0;
 }
+
+
+
 @media print {
-  * { margin: 0 !important; padding: 0 !important; }
-  .header, .footer, .footerarea{ display: none; }
-  html, body {
-    /*changing width to 100% causes huge overflow and wrap*/
-    overflow: hidden;
-    background: #FFF;
 
-   /* font-size: 9.5pt;
-    height:3.5in;
-    width: 8.5in;*/
-  }
+    html {
+        margin: .15in 0in 0in 0in;
+    }
 
-  /*.template { width: auto; left:0; top:0; }
-  img { width:100%; }
-  li { margin: 0 0 10px 20px !important;}*/
+    .header, .footer, .footerarea {
+        display: none;
+    }
+
+    html, body {
+        overflow: hidden;
+        background: #FFF;
+        position: relative;
+    }
+
+    .tableMiddle {
+        margin: 0 auto;
+    }
+
+    .cellPaddingTop {
+        padding-top: 1px !important;
+        padding-bottom: 2px !important;
+    }
+
+    .cellPadding {
+        padding-bottom: 1px !important;
+    }
+
+    .label {
+        padding-left: 2px !important;
+    }
 }
 
 @page {
-   size: 8.5in 11in;
-   margin: .05in .17in .05in .62in;
-   /*margin: .25in .25in .25in .75in;*/
+    size: 8.5in 11in;
+    margin: .05in .17in 7.5in .62in;
 }
 
 @font-face {
-    font-family: "kalpurush";
-    src: url(../Fonts/kalpurush.ttf) format("truetype");
+    font-family: "SULEKHA";
+    /*src: url(file:///android_asset/fonts/SULEKHA.TTF) format("truetype");
+    src: url(file:///android_asset/fonts/SULEKHAB.TTF) format("truetype");
+    src: url(file:///android_asset/fonts/SULEKHAI.TTF) format("truetype");*/
+    /*src: url('../Fonts/SULEKHA.TTF') format('truetype');
+    src: url('../Fonts/SULEKHAB.TTF') format('truetype');
+    src: url('../Fonts/SULEKHAI.TTF') format('truetype');*/
 }
 
 body {
     background-color: white;
-    font-family: 'Arial Narrow', kalpurush;
+    font-family: 'Arial Narrow', SULEKHA;
     font-size: 11pt;
 }
 
 table, th, td {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     border-collapse: collapse;
     margin: 0px;
     padding: 0px;
 }
 
+tr {
+    line-height: 10px;
+}
 
-th, td {
-    padding: 0px;
-    text-align: left;
-    vertical-align: middle;
+
+
+.tableMiddle {
+    margin: 0 auto;
+}
+
+table tr td.colon, span.colon {
+    width: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: top;
+    font-size: 7pt;
+    font-weight: bold;
+}
+
+
+span.colon {
+    width: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    font-size: 7pt;
+    font-weight: bold;
 }
 
 .topLabel {
-    font-size: 9pt;
+    font-size: 6pt;
     font-weight: bold;
 }
 
 .label {
-    font-size: 10pt;
+    font-size: 7pt;
     font-weight: bold;
+    height: 12px;
+    padding-left: 2px;
 }
 
 .topFieldValue {
-    font-size: 8pt;
+    font-size: 6pt;
+    text-transform: uppercase;
 }
 
-#main {
-    width: 7.5in;
+.fieldValue {
+    font-size: 7pt;
+    text-transform: uppercase;
+}
+
+.boldFieldValue {
+    font-size: 7pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tblFooter {
+    font-size: 5pt;
+    vertical-align: bottom;
+    margin: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.main {
+    width: 7.2in;
     height: 3.0in;
-    background-color: lightgray;
-    /*padding: 0.25in 0.25in 0.25in 0.75in;*/
+    position: relative;
 }
 
-#agent_banking_logo {
+.agent_banking_logo {
     width: .85in;
     max-height: .40in;
     float: right;
 }
 
-#logo {
-    width: .85in;
-    max-height: .5in;
+.logo {
+    width: .658in; /*it was .85in X .50in; now it is .64in X .40 in*/
+    height: .4in;
     float: left;
 }
 
+.customerPhoto {
+    width: .75in;
+    height: .75in;
+    float: left;
+    padding: 5px 0 5px 2px;
+    filter: gray;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
 
+.copy {
+    position: absolute;
+    margin-left: -45px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid black;
+}
 
-
-#threeColumnTable {
+.threeColumnTable {
     float: left;
     width: 100%;
 }
 
-.tdSide {
-    width: 20%;
+.customerAddress {
     vertical-align: top;
 }
+
+.thirdTable {
+    width: 100%;
+}
+
+.firstColumn {
+    width: 17%;
+}
+
+.thirdColumn {
+}
+
+.fourthColumn {
+    width: 17%;
+}
+
+.sixthColumn {
+    width: 90px;
+}
+
+.lastColumn {
+    width: 16%;
+}
+
+
 
 .tdMiddle {
     width: 60%;
 }
 
-#thirdTable {
-    float: left;
-    width: 100%;
+
+
+
+.addressDiv {
+    float: right;
+    font-size: 8px;
+    margin: 3px 5px 0 0;
+    text-align: right;
 }
 
-    #thirdTable tr {
-        /*height: 15px;*/
-    }
-
-#fourthTable {
-    float: left;
-    width: 100%;
-}
-
-    #fourthTable tr {
-        /*height: 15px;*/
-    }
-
-#customerPhoto {
+.qrCodeImg {
     width: .85in;
     height: .75in;
-    float: left;
-}
-
-#addressDiv {
     float: right;
-    font-size: 9px;
+    vertical-align: top;
+    margin: -4px 6px 0 0;
 }
 
-#tableMiddle {
-    margin: 0 auto;
-    height: auto;
+.trBackground {
+    background: #E6E7E8;
+}
+
+.cellPaddingTop {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.cellPadding {
+    padding-bottom: 1px !important;
 }
