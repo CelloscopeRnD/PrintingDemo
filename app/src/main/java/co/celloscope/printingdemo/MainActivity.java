@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 "#AGENT_BANKING_LOGO",
                 "#LOGO",
                 "#PHOTO",
-                "#QR",
+                "#QRCODE",
 
                 "#ADDRESS_LINE_1",
                 "#ADDRESS_LINE_2",
