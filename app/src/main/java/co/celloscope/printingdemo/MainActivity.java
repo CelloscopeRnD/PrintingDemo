@@ -9,6 +9,7 @@ import android.view.View;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -84,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
     private String balanceAmountInWordsValue = "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY";
     private String chargeVaue = "BDT 7.50";
     private Date today = new Date();
-    private String currentDate = today.toString();
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+    private String currentDate = formatter.format(today).toString();
     private String customerAddressValue = "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA";
     private String depositAmountInWordsValue = "THREE THOUSAND ONLY";
     private String depositAmountValue = "BDT 3,000.00";
@@ -93,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
     private String maturityAmountValue = "BDT 2,26,047.00";
     private String maturityDate = (new Date()).toString();
     private String principalAmountValue = "BDT 1,00,000.00";
-    private String printDateValue = (new Date()).toString();
+    private SimpleDateFormat printDateFormatter = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss a");
+    private String printDateValue = printDateFormatter.format(today).toString();
     private String productTenorValue = "5 Years";
     private String profitRateValue = "8.85% (Yearly)";
     private String receiverAccountNameValue = "SUJON PATWARY";
@@ -153,8 +156,8 @@ public class MainActivity extends AppCompatActivity {
                 "#T_21_COLON",
                 "#T_21_VALUE",
                 "#T_30_LABEL",
-                "T_30_COLON",
-                "T_30_VALUE",
+                "#T_30_COLON",
+                "#T_30_VALUE",
                 "#T_31_LABEL",
                 "#T_31_COLON",
                 "#T_31_VALUE"
