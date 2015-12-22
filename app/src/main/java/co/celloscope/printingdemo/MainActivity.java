@@ -1,53 +1,24 @@
 package co.celloscope.printingdemo;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    //    private static final String TAG = MainActivity.class.getSimpleName();
     public static final int PICK_PHOTO = 200;
     // Asset that contains html template
     private static final String TEMPLATE_HTML = "template.html";
     private HtmlHelper htmlHelper;
 
-    private EditText account_nameEditText;
-    private EditText account_noEditText;
-    private EditText account_opening_dateEditText;
-    private EditText savings_account_typeEditText;
-    private EditText districtEditText;
-    private EditText id_noEditText;
-    private EditText mobile_noEditText;
-    private EditText nameEditText;
-    private EditText print_dateEditText;
-    private EditText sub_districtEditText;
-    private EditText villageEditText;
-    private EditText unionEditText;
-
-    private LinearLayout account_nameLinearLayout;
-    private LinearLayout account_noLinearLayout;
-    private LinearLayout account_opening_dateLinearLayout;
-    private LinearLayout savings_account_typeLinearLayout;
-    private LinearLayout districtLinearLayout;
-    private LinearLayout id_noLinearLayout;
-    private LinearLayout mobile_noLinearLayout;
-    private LinearLayout nameLinearLayout;
-    private LinearLayout print_dateLinearLayout;
-    private LinearLayout sub_districtLinearLayout;
-    private LinearLayout villageLinearLayout;
-    private LinearLayout unionLinearLayout;
 
     private static final String style_sheet = "file:///android_asset/styles.css";
 
@@ -56,41 +27,81 @@ public class MainActivity extends AppCompatActivity {
     private String photo = "file:///android_asset/photo.png";
     private String qr = "file:///android_asset/qr.png";
 
-
-    private String agent_name;
-    private String agent_point;
-    private String booth_address;
-    private String outlet_name;
-
-    private String account_name;
-    private String account_no;
-    private String account_opening_date;
-    private String cash_deposit = "Undefined";
-    private String cash_withdraw = "Undefined";
-    private String current_account_type = "Undefined";
-    private String district;
-    private String deposit_amount = "Undefined";
-    private String end_date = "Undefined";
-    private String expiry_amount = "Undefined";
-    private String expire_date = "Undefined";
-    private String id_no;
-    private String initial_deposit = "Undefined";
-    private String link_account_number = "Undefined";
-    private String mobile_no;
-    private String monthly_deposit = "Undefined";
-    private String name;
-    private String print_date;
-    private String request_id = "Undefined";
-    private String savings_account_type = "Undefined";
-    private String timeSpan = "Undefined";
-    private String transaction_date = "Undefined";
-    private String transaction_id = "Undefined";
-    private String village;
-    private String union;
-    private String user_id;
-    private String withdraw_amount = "Undefined";
-    private String sub_district;
     private Toolbar mToolbar;
+
+
+    private String accountNoText;
+    private String accountNameText;
+    private String accountBalanceText;
+    private String accountOpeningDateText;
+    private String accountTypeText;
+    private String addressLine1Text;
+    private String addressLine2Text;
+    private String addressLine3Text;
+    private String addressLine4Text;
+    private String addressText;
+    private String agentNameText;
+    private String balanceAmountText;
+    private String balanceDateText;
+    private String chargeText;
+    private String cashDepositText;
+    private String cashWithdrawText;
+    private String cityAgentFixedDepositText;
+    private String cityAgentSavingsAccountText;
+    private String colonText;
+    private String customerIdText;
+    private String customerNameText;
+    private String depositAmountText;
+    private String depositDateText;
+    private String emptyText = "";
+    private String fundTransferDateText;
+    private String fundTrasferText;
+    private String generalDPSAccountText;
+    private String initialDepositText;
+    private String inWordsText;
+    private String linkAccountNumberText;
+    private String maturityAmountText;
+    private String maturityDateText;
+    private String mobileNoText;
+    private String monthlyDepositText;
+    private String profitRateText;
+    private String printDateText;
+    private String principalAmountText;
+    private String productTenorText;
+    private String receiverAccountNoText;
+    private String receiverAccountNameText;
+    private String senderAccountNoText;
+    private String sendrAccountNameText;
+    private String transferAmountText;
+    private String transactionIdText;
+    private String userText;
+    private String withdrawAmountText;
+    private String withdrawDateText;
+
+    private String accountNameValue = "MD Arif Gazi";
+    private String accountNumberValue = "2001158500126";
+    private String balanceAmountValue = "BDT 80,550.00";
+    private String balanceAmountInWordsValue = "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY";
+    private String chargeVaue = "BDT 7.50";
+    private Date today = new Date();
+    private String currentDate = today.toString();
+    private String customerAddressValue = "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA";
+    private String depositAmountInWordsValue = "THREE THOUSAND ONLY";
+    private String depositAmountValue = "BDT 3,000.00";
+    private String dpsAccountTypeValue = "DPS";
+    private String linkAccountNumberValue = "2005246987526";
+    private String maturityAmountValue = "BDT 2,26,047.00";
+    private String maturityDate = (new Date()).toString();
+    private String principalAmountValue = "BDT 1,00,000.00";
+    private String printDateValue = (new Date()).toString();
+    private String productTenorValue = "5 Years";
+    private String profitRateValue = "8.85% (Yearly)";
+    private String receiverAccountNameValue = "SUJON PATWARY";
+    private String termDepositAccountTypeValue = "TERM DEPOSIT";
+    private String savingsAccountTypeValue = "Savings";
+    private String transactionCodeValue = "TR222369";
+    private String withdrawAmountValue = "BDT 3,000.00 + 7.5 (Charge)";
+    private String withdrawsAmountInWordsValue = "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY";
 
     private String getHtml() throws IOException {
         String[] keys = {
@@ -101,39 +112,23 @@ public class MainActivity extends AppCompatActivity {
                 "#PHOTO",
                 "#QR",
 
+                "#ADDRESS_LINE_1",
+                "#ADDRESS_LINE_2",
+                "#ADDRESS_LINE_3",
+                "#ADDRESS_LINE_4",
+                "#AGENT_NAME_LABEL",
                 "#AGENT_NAME",
-                "#AGENT_POINT",
-                "#BOOTH_ADDRESS",
-                "#OUTLATE_NAME",
-
-                "#ACCOUNT_NAME",
-                "#ACCOUNT_NO",
-                "#ACCOUNT_OPENING_DATE",
-                "#CASH_DEPOSIT",
-                "#CASH_WITHDRAW",
-                "#CURRENT_ACCOUNT_TYPE",
-                "#DISTRICT",
-                "#DEPOSIT_AMOUNT",
-                "#END_DATE",
-                "#EXPIRY_AMOUNT",
-                "#EXPAIRE_DATE",
-                "#ID_NO",
-                "#INITIAL_DEPOSIT",
-                "#LINK_ACCOUNT_NUMBER",
-                "#MOBILE_NO",
-                "#MONTHLY_DEPOSIT",
-                "#NAME",
-                "#PRINT_DATE",
-                "#REQUEST_ID",
-                "#SAVINGS_ACCOUNT_TYPE",
-                "#SUB_DISTRICT",
-                "#TIMESPAN",
-                "#TRANSACTION_DATE",
-                "#TRANSACTION_ID",
-                "#VILLAGE",
-                "#UNION",
+                "#USER_ID_LABEL",
                 "#USER_ID",
-                "#WITHDRAW_AMOUNT"
+                "#ADDRESS_LABEL",
+                "#BOOTH_ADDRESS",
+                "#CUSTOMER_ID_LABEL",
+                "#CUSTOMER_ID",
+                "#ACCOUNT_TYPE_LABEL",
+                "#CUSTOMER_NAME_LABEL",
+                "#CUSTOMER_NAME",
+                "#MOBILE_NO_LABEL",
+                "#MOBILE_NO"
         };
 
         String[] values = {
@@ -144,39 +139,24 @@ public class MainActivity extends AppCompatActivity {
                 photo,
                 qr,
 
-                agent_name,
-                agent_point,
-                booth_address,
-                outlet_name,
-
-                account_name,
-                account_no,
-                account_opening_date,
-                cash_deposit,
-                cash_withdraw,
-                current_account_type,
-                district,
-                deposit_amount,
-                end_date,
-                expiry_amount,
-                expire_date,
-                id_no,
-                initial_deposit,
-                link_account_number,
-                mobile_no,
-                monthly_deposit,
-                name,
-                print_date,
-                request_id,
-                savings_account_type,
-                sub_district,
-                timeSpan,
-                transaction_date,
-                transaction_id,
-                village,
-                union,
-                user_id,
-                withdraw_amount};
+                addressLine1Text,
+                addressLine2Text,
+                addressLine3Text,
+                addressLine4Text,
+                agentNameText,
+                "BADRUL ALOM",
+                userText,
+                "615001001 (NAIM ISLAM)",
+                addressText,
+                "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                customerIdText,
+                "CB1158500",
+                accountTypeText,
+                customerNameText,
+                "MD Arif Gazi",
+                mobileNoText,
+                "01617877595"
+        };
         return htmlHelper.getHtml(TEMPLATE_HTML, keys, values);
     }
 
@@ -186,20 +166,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        initializeControl();
-        setLoginInformation();
-        setTestValue();
         htmlHelper = new HtmlHelper(this);
 
-        findViewById(R.id.photoButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, PICK_PHOTO);
-            }
-        });
 
         findViewById(R.id.webViewPrintButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,71 +183,56 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setLoginInformation() {
-        user_id = "11009(Naim Islam)";
-        agent_name = "Raqibul Alom";
-        agent_point = "Kashipur Bazar";
-        booth_address = "Vairab Chowdhurir Hath, Sonagazi";
-        outlet_name = "Vairab Chowdhurir Hath, Sonagazi";
-    }
-
-    private void initializeControl() {
-        account_nameEditText = (EditText) findViewById(R.id.account_nameEditText);
-        account_noEditText = (EditText) findViewById(R.id.account_noEditText);
-        account_opening_dateEditText = (EditText) findViewById(R.id.account_opening_dateEditText);
-        savings_account_typeEditText = (EditText) findViewById(R.id.account_typeEditText);
-        districtEditText = (EditText) findViewById(R.id.districtEditText);
-        id_noEditText = (EditText) findViewById(R.id.id_noEditText);
-        mobile_noEditText = (EditText) findViewById(R.id.mobile_noEditText);
-        nameEditText = (EditText) findViewById(R.id.nameEditText);
-        print_dateEditText = (EditText) findViewById(R.id.print_dateEditText);
-        sub_districtEditText = (EditText) findViewById(R.id.sub_districtEditText);
-        villageEditText = (EditText) findViewById(R.id.villageEditText);
-        unionEditText = (EditText) findViewById(R.id.unionEditText);
-
-
-        account_nameLinearLayout = (LinearLayout) findViewById(R.id.account_nameLinearLayout);
-        account_noLinearLayout = (LinearLayout) findViewById(R.id.account_noLinearLayout);
-        account_opening_dateLinearLayout = (LinearLayout) findViewById(R.id.account_opening_dateLinearLayout);
-        savings_account_typeLinearLayout = (LinearLayout) findViewById(R.id.account_typeLinearLayout);
-        districtLinearLayout = (LinearLayout) findViewById(R.id.districtLinearLayout);
-        id_noLinearLayout = (LinearLayout) findViewById(R.id.id_noLinearLayout);
-        mobile_noLinearLayout = (LinearLayout) findViewById(R.id.mobile_noLinearLayout);
-        nameLinearLayout = (LinearLayout) findViewById(R.id.nameLinearLayout);
-        print_dateLinearLayout = (LinearLayout) findViewById(R.id.print_dateLinearLayout);
-        sub_districtLinearLayout = (LinearLayout) findViewById(R.id.sub_districtLinearLayout);
-        villageLinearLayout = (LinearLayout) findViewById(R.id.villageLinearLayout);
-        unionLinearLayout = (LinearLayout) findViewById(R.id.unionLinearLayout);
-    }
-
-    private void setTestValue() {
-        account_nameEditText.setText("Mohammad Karim");
-        account_noEditText.setText("100-5000001-001"); //Account Number will be 13 characters
-        account_opening_dateEditText.setText("30-NOV-2015");
-        districtEditText.setText("Feni");
-        id_noEditText.setText("CB5000001"); //ID will be 7 characters
-        mobile_noEditText.setText("01799123456");
-        nameEditText.setText("Mohammad Karim");
-        print_dateEditText.setText("30-NOV-2015 11:15:15 AM");
-        savings_account_typeEditText.setText("Savings Account");
-        sub_districtEditText.setText("Sonagazi");
-        villageEditText.setText("Sujapur");
-        unionEditText.setText("Vhairab Chowdhurir Hat");
-    }
 
     private void setValue() {
-        account_name = account_nameEditText.getText().toString();
-        account_no = account_noEditText.getText().toString();
-        account_opening_date = account_opening_dateEditText.getText().toString();
-        savings_account_type = savings_account_typeEditText.getText().toString();
-        district = districtEditText.getText().toString();
-        id_no = id_noEditText.getText().toString();
-        mobile_no = mobile_noEditText.getText().toString();
-        name = nameEditText.getText().toString();
-        print_date = print_dateEditText.getText().toString();
-        sub_district = sub_districtEditText.getText().toString();
-        village = villageEditText.getText().toString();
-        union = unionEditText.getText().toString();
+        accountNoText = this.getResources().getString(R.string.accountNoText);
+        accountNameText = this.getResources().getString(R.string.accountNameText);
+        accountBalanceText = this.getResources().getString(R.string.accountBalanceText);
+        accountOpeningDateText = this.getResources().getString(R.string.accountOpeningDateText);
+        accountTypeText = this.getResources().getString(R.string.accountTypeText);
+        addressLine1Text = this.getResources().getString(R.string.addressLine1Text);
+        addressLine2Text = this.getResources().getString(R.string.addressLine2Text);
+        addressLine3Text = this.getResources().getString(R.string.addressLine3Text);
+        addressLine4Text = this.getResources().getString(R.string.addressLine4Text);
+        addressText = this.getResources().getString(R.string.addressText);
+        agentNameText = this.getResources().getString(R.string.agentNameText);
+        balanceAmountText = this.getResources().getString(R.string.balanceAmountText);
+        balanceDateText = this.getResources().getString(R.string.balanceDateText);
+        chargeText = this.getResources().getString(R.string.chargeText);
+        cashDepositText = this.getResources().getString(R.string.cashDepositText);
+        cashWithdrawText = this.getResources().getString(R.string.cashWithdrawText);
+        cityAgentFixedDepositText = this.getResources().getString(R.string.cityAgentFixedDepositText);
+        cityAgentSavingsAccountText = this.getResources().getString(R.string.cityAgentSavingsAccountText);
+        colonText = this.getResources().getString(R.string.colonText);
+        customerIdText = this.getResources().getString(R.string.customerIdText);
+        customerNameText = this.getResources().getString(R.string.customerNameText);
+        depositAmountText = this.getResources().getString(R.string.depositAmountText);
+        depositDateText = this.getResources().getString(R.string.depositDateText);
+        emptyText = "";
+        fundTransferDateText = this.getResources().getString(R.string.fundTransferDateText);
+        fundTrasferText = this.getResources().getString(R.string.fundTrasferText);
+        generalDPSAccountText = this.getResources().getString(R.string.generalDPSAccountText);
+        initialDepositText = this.getResources().getString(R.string.initialDepositText);
+        inWordsText = this.getResources().getString(R.string.inWordsText);
+        linkAccountNumberText = this.getResources().getString(R.string.linkAccountNumberText);
+        maturityAmountText = this.getResources().getString(R.string.maturityAmountText);
+        maturityDateText = this.getResources().getString(R.string.maturityDateText);
+        mobileNoText = this.getResources().getString(R.string.mobileNoText);
+        monthlyDepositText = this.getResources().getString(R.string.monthlyDepositText);
+        profitRateText = this.getResources().getString(R.string.profitRateText);
+        printDateText = this.getResources().getString(R.string.printDateText);
+        principalAmountText = this.getResources().getString(R.string.principalAmountText);
+        productTenorText = this.getResources().getString(R.string.productTenorText);
+        receiverAccountNoText = this.getResources().getString(R.string.receiverAccountNoText);
+        receiverAccountNameText = this.getResources().getString(R.string.receiverAccountNameText);
+        senderAccountNoText = this.getResources().getString(R.string.senderAccountNoText);
+        sendrAccountNameText = this.getResources().getString(R.string.sendrAccountNameText);
+        transferAmountText = this.getResources().getString(R.string.transferAmountText);
+        transactionIdText = this.getResources().getString(R.string.transactionIdText);
+        userText = this.getResources().getString(R.string.userText);
+        withdrawAmountText = this.getResources().getString(R.string.withdrawAmountText);
+        withdrawDateText = this.getResources().getString(R.string.withdrawDateText);
+
     }
 
     private File getHtmlFile() throws IOException {
@@ -294,150 +247,31 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        setVisibilityGone();
         switch (item.getItemId()) {
             case R.id.savings_account:
-                selectSavingsAccountForm();
                 return true;
             case R.id.current_account:
-                selectCurrentAccountForm();
                 return true;
             case R.id.dps_account:
-                selectDPSAccountForm();
                 return true;
             case R.id.cash_deposit:
-                selectCashDepositForm();
                 return true;
             case R.id.cash_withdraw:
-                selectCashDepositForm();
                 return true;
             case R.id.fund_transfer:
-                selectFundTransferForm();
                 return true;
             case R.id.reb:
-                selectREBForm();
                 return true;
             case R.id.agent_banking:
-                selectAgentBankingForm();
                 return true;
             case R.id.remittance:
-                selectRemittanceForm();
                 return true;
             case R.id.term_deposit:
-                selectTermDepositForm();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void setVisibilityGone() {
-        account_nameLinearLayout.setVisibility(View.GONE);
-        account_noLinearLayout.setVisibility(View.GONE);
-        account_opening_dateLinearLayout.setVisibility(View.GONE);
-        savings_account_typeLinearLayout.setVisibility(View.GONE);
-        districtLinearLayout.setVisibility(View.GONE);
-        id_noLinearLayout.setVisibility(View.GONE);
-        mobile_noLinearLayout.setVisibility(View.GONE);
-        nameLinearLayout.setVisibility(View.GONE);
-        print_dateLinearLayout.setVisibility(View.GONE);
-        sub_districtLinearLayout.setVisibility(View.GONE);
-        villageLinearLayout.setVisibility(View.GONE);
-        unionLinearLayout.setVisibility(View.GONE);
-    }
 
-    private void selectSavingsAccountForm() {
-        account_nameLinearLayout.setVisibility(View.VISIBLE);
-        account_noLinearLayout.setVisibility(View.VISIBLE);
-        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
-        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
-        districtLinearLayout.setVisibility(View.VISIBLE);
-        id_noLinearLayout.setVisibility(View.VISIBLE);
-        mobile_noLinearLayout.setVisibility(View.VISIBLE);
-        nameLinearLayout.setVisibility(View.VISIBLE);
-        print_dateLinearLayout.setVisibility(View.VISIBLE);
-        sub_districtLinearLayout.setVisibility(View.VISIBLE);
-        villageLinearLayout.setVisibility(View.VISIBLE);
-        unionLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectCurrentAccountForm() {
-        account_nameLinearLayout.setVisibility(View.VISIBLE);
-        account_noLinearLayout.setVisibility(View.VISIBLE);
-        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
-        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
-        districtLinearLayout.setVisibility(View.VISIBLE);
-        id_noLinearLayout.setVisibility(View.VISIBLE);
-        mobile_noLinearLayout.setVisibility(View.VISIBLE);
-        nameLinearLayout.setVisibility(View.VISIBLE);
-        print_dateLinearLayout.setVisibility(View.VISIBLE);
-        sub_districtLinearLayout.setVisibility(View.VISIBLE);
-        villageLinearLayout.setVisibility(View.VISIBLE);
-        unionLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectDPSAccountForm() {
-        account_nameLinearLayout.setVisibility(View.VISIBLE);
-        account_noLinearLayout.setVisibility(View.VISIBLE);
-        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
-        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
-        districtLinearLayout.setVisibility(View.VISIBLE);
-        id_noLinearLayout.setVisibility(View.VISIBLE);
-        mobile_noLinearLayout.setVisibility(View.VISIBLE);
-        nameLinearLayout.setVisibility(View.VISIBLE);
-        print_dateLinearLayout.setVisibility(View.VISIBLE);
-        sub_districtLinearLayout.setVisibility(View.VISIBLE);
-        villageLinearLayout.setVisibility(View.VISIBLE);
-        unionLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectCashDepositForm() {
-        account_nameLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectFundTransferForm() {
-        account_noLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectREBForm() {
-        account_opening_dateLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectAgentBankingForm() {
-        savings_account_typeLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectRemittanceForm() {
-        districtLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void selectTermDepositForm() {
-        id_noLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            ImageView imageView = null;
-            switch (requestCode) {
-                case PICK_PHOTO:
-                    imageView = (ImageView) findViewById(R.id.photoImageView);
-                    FileHelper.copyFileToExternalCacheDir(this,
-                            new File(FileHelper.getRealPathFromUri(this, data.getData())), photo);
-                    break;
-            }
-            if (imageView != null) {
-                final Bitmap photo;
-                try {
-                    photo = BitmapHelper.getThumbnail(data.getData(), this);
-                    imageView.setImageBitmap(photo);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 }
