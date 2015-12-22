@@ -128,7 +128,36 @@ public class MainActivity extends AppCompatActivity {
                 "#CUSTOMER_NAME_LABEL",
                 "#CUSTOMER_NAME",
                 "#MOBILE_NO_LABEL",
-                "#MOBILE_NO"
+                "#MOBILE_NO",
+
+                "#TITLE",
+                "#ACCOUNT_NO_LABEL",
+                "#ACCOUNT_NUMBER",
+                "#ACCOUNT_TYPE",
+                "#LINK_ACCOUNT_NUMBER_COLON",
+                "#LINK_ACCOUNT_NUMBER_LABEL",
+                "#LINK_ACCOUNT_NUMBER",
+                "#CUSTOMER_ADDRESS",
+                "#T_00_LABEL",
+                "T_00_VALUE",
+                "#T_01_LABEL",
+                "#T_01_VALUE",
+                "#T_10_LABEL",
+                "#T_10_VALUE",
+                "#T_11_LABEL",
+                "#T_11_VALUE",
+                "#T_20_LABEL",
+                "#T_20_COLON",
+                "#T_20_VALUE",
+                "#T_21_LABEL",
+                "#T_21_COLON",
+                "#T_21_VALUE",
+                "#T_30_LABEL",
+                "T_30_COLON",
+                "T_30_VALUE",
+                "#T_31_LABEL",
+                "#T_31_COLON",
+                "#T_31_VALUE"
         };
 
         String[] values = {
@@ -155,7 +184,37 @@ public class MainActivity extends AppCompatActivity {
                 customerNameText,
                 "MD Arif Gazi",
                 mobileNoText,
-                "01617877595"
+                "01617877595",
+
+
+                accountBalanceText,
+                accountNoText,
+                accountNumberValue,
+                savingsAccountTypeValue,
+                emptyText,
+                emptyText,
+                emptyText,
+                customerAddressValue,
+                accountNameText,
+                accountNameValue,
+                balanceDateText,
+                currentDate,
+                balanceAmountText,
+                balanceAmountValue,
+                transactionIdText,
+                transactionCodeValue,
+                inWordsText,
+                colonText,
+                balanceAmountInWordsValue,
+                printDateText,
+                colonText,
+                printDateValue,
+                emptyText,
+                emptyText,
+                emptyText,
+                emptyText,
+                emptyText,
+                emptyText
         };
         return htmlHelper.getHtml(TEMPLATE_HTML, keys, values);
     }
