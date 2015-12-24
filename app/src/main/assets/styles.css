@@ -19,6 +19,7 @@
         overflow: hidden;
         background: #FFF;
         position: relative;
+
     }
 
     .tableMiddle {
@@ -193,7 +194,7 @@ span.colon {
 }
 
 .sixthColumn {
-    width: 105px;
+    width: 95px;
 }
 
 .lastColumn {

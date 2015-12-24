@@ -5,7 +5,7 @@
         url = receipt;
     }
 
-    addStyleSheet('style_sheet/style.css');
+    addStyleSheet('style_sheet/styles.css');
     addStyleSheet('file:///android_asset/styles.css');
     replaceToken(parseInt(url));
 }
