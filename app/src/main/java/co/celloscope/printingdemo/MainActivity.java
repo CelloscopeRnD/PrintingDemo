@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private HtmlHelper htmlHelper;
 
 
-
 //    private static final String template_script = "file:///android_asset/templateScript.js";
 
 //    private static final String agent_banking_logo = "file:///android_asset/agent_banking_logo.png";
@@ -109,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String getHtml() throws IOException {
         String[] keys = {
+                "#RECEIPT"
 //                "TEMPLATE_SCRIPT",
 
 //                "#AGENT_BANKING_LOGO",
@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         String[] values = {
+                "3"
 //                template_script,
 
 //                agent_banking_logo,

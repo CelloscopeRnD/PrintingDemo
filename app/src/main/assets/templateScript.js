@@ -2,7 +2,7 @@
     var url = window.location.search;
     url = url.replace("?", ''); // remove the ?
     if (!url) {
-        url = receipts.ACCOUNT_BALANCE;
+        url = receipt;
     }
 
     addStyleSheet('style_sheet/style.css');
@@ -135,12 +135,6 @@ function replaceToken(receipt) {
     addImage("logo", "file:///android_asset/logo.gif", "images/logo.png");
     addImage("qr", "file:///android_asset/qr.png", "images/qr.png");
     addImage("customerPhoto", "file:///android_asset/photo.png", "images/photo.png");
-
-    //addImage("agent_banking_logo", "file:///android_asset/agent_banking_logo.png");
-    //addImage("logo", "file:///android_asset/logo.gif");
-    //addImage("qr", "file:///android_asset/qr.png");
-    //addImage("customerPhoto", "file:///android_asset/photo.png");
-
 
     addClassText("addressLine1Label", addressLine1Text); //#ADDRESS_LINE_1
     addClassText("addressLine2Label", addressLine2Text); //#ADDRESS_LINE_2
