@@ -131,15 +131,15 @@ var t31ValueId = "t31Value"; //#T_31_VALUE
 
 
 function replaceToken(receipt) {
-    addImage("agent_banking_logo", "images/agent_banking_logo.png");
-    addImage("logo", "images/logo.png");
-    addImage("qr", "images/qr.png");
-    addImage("customerPhoto", "images/photo.png");
+    addImage("agent_banking_logo","file:///android_asset/agent_banking_logo.png", "images/agent_banking_logo.png");
+    addImage("logo", "file:///android_asset/logo.gif", "images/logo.png");
+    addImage("qr", "file:///android_asset/qr.png", "images/qr.png");
+    addImage("customerPhoto", "file:///android_asset/photo.png", "images/photo.png");
 
-    addImage("agent_banking_logo", "file:///android_asset/agent_banking_logo.png");
-    addImage("logo", "file:///android_asset/logo.gif");
-    addImage("qr", "file:///android_asset/qr.png");
-    addImage("customerPhoto", "file:///android_asset/photo.png");
+    //addImage("agent_banking_logo", "file:///android_asset/agent_banking_logo.png");
+    //addImage("logo", "file:///android_asset/logo.gif");
+    //addImage("qr", "file:///android_asset/qr.png");
+    //addImage("customerPhoto", "file:///android_asset/photo.png");
 
 
     addClassText("addressLine1Label", addressLine1Text); //#ADDRESS_LINE_1
@@ -466,12 +466,15 @@ function getTimestampString(date) {
     var sec = date.getSeconds().toString();
     return ((dd[1] ? dd : "0" + dd[0]) + '-' + monthNames[mm] + '-' + yyyy + ' ' + hh + ':' + min + ':' + sec + ' ' + ((hh >= 12) ? "PM" : "AM"));
 };
-function addImage(elementId, path) {
+function addImage(elementId, url, alternateUrl) {
     var elements = document.getElementsByClassName(elementId);
     if (elements != null) {
         for (var i = 0; i < elements.length; i++) {
             if (elements[i].src != null) {
-                elements[i].src = path;
+                elements[i].src = url;
+                elements[i].onerror = function (ele) {
+                    ele.srcElement.src = alternateUrl;
+                }
             }
         }
     }
