@@ -1,11 +1,7 @@
 ﻿@font-face {
-    font-family: "SULEKHA";
-    /*src: url(file:///android_asset/fonts/SULEKHA.TTF) format("truetype");
-    src: url(file:///android_asset/fonts/SULEKHAB.TTF) format("truetype");
-    src: url(file:///android_asset/fonts/SULEKHAI.TTF) format("truetype");*/
-    /*src: url('../Fonts/SULEKHA.TTF') format('truetype');
-    src: url('../Fonts/SULEKHAB.TTF') format('truetype');
-    src: url('../Fonts/SULEKHAI.TTF') format('truetype');*/
+    font-family: "SolaimanLipi";
+    src: url(file:///android_asset/fonts/SolaimanLipi.ttf) format("truetype");
+    /*src: url('../Fonts/SolaimanLipi.ttf') format('truetype');*/
 }
 
 * {
@@ -25,12 +21,12 @@
 }
 
 body {
-    font-family: 'Arial Narrow', SULEKHA;
+    font-family: 'Arial Narrow', SolaimanLipi;
     font-size: 11pt;
 }
 
 .main {
-    width: 100%;
+    width: 7.5in;
     height: 3.0in;
     position: relative;
 }
@@ -43,14 +39,7 @@ body {
 }
 
 .threeColumnTable {
-    /*float: left;*/
     width: 100%;
-}
-
-.agent_banking_logo {
-    width: .85in;
-    max-height: .40in;
-    float: right;
 }
 
 .logo {
@@ -59,27 +48,59 @@ body {
     float: left;
 }
 
+.customerPhoto {
+    width: .75in;
+    height: .75in;
+    float: left;
+    padding: 5px 0 5px 0;
+    filter: gray;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+.tdMiddle {
+    /*width: 60%;*/
+}
+
+.tableMiddle {
+    /*margin: 0 auto;*/
+}
+
+.agent_banking_logo {
+    width: .85in;
+    max-height: .40in;
+    float: right;
+}
+
 table, th, td {
-    border-collapse: collapse;
-    margin: 0px;
-    padding: 0px;
+    /*border-collapse: collapse;
+    border: 1px solid lightgray;*/
 }
 
 tr {
     line-height: 10px;
 }
 
-.tableMiddle {
-    margin: 0 auto;
+.topLabel {
+    font-size: 6pt;
+    font-weight: bold;
 }
-
-
 
 .label {
     font-size: 7pt;
     font-weight: bold;
-    height: 12px;
-    padding-left: 2px;
+    /*height: 12px;*/
+    /*padding-left: 2px;*/
+}
+
+.topFieldValue {
+    font-size: 6pt;
+    text-transform: uppercase;
+}
+
+.fieldValue {
+    font-size: 7pt;
+    text-transform: uppercase;
 }
 
 .cellPadding {
@@ -90,12 +111,6 @@ tr {
     padding-top: 2px;
     padding-bottom: 2px;
 }
-
-
-
-
-
-
 
 table tr td.colon, span.colon {
     width: 7px;
@@ -115,39 +130,10 @@ span.colon {
     font-weight: bold;
 }
 
-.topLabel {
-    font-size: 6pt;
-    font-weight: bold;
-}
-
-.topFieldValue {
-    font-size: 6pt;
-    text-transform: uppercase;
-}
-
-.fieldValue {
-    font-size: 7pt;
-    text-transform: uppercase;
-}
-
 .boldFieldValue {
     font-size: 7pt;
     font-weight: bold;
     text-transform: uppercase;
-}
-
-
-
-
-
-.customerPhoto {
-    width: .75in;
-    height: .75in;
-    float: left;
-    padding: 5px 0 5px 2px;
-    filter: gray;
-    filter: grayscale(1);
-    -webkit-filter: grayscale(1);
 }
 
 .copy {
@@ -156,8 +142,6 @@ span.colon {
     padding: 5px 5px 5px 5px;
     border: 1px solid black;
 }
-
-
 
 .customerAddress {
     vertical-align: top;
@@ -171,23 +155,16 @@ span.colon {
     width: 17%;
 }
 
-.thirdColumn {
-}
-
 .fourthColumn {
     width: 17%;
 }
 
 .sixthColumn {
-    width: 95px;
+    width: 110px;
 }
 
 .lastColumn {
     width: 16%;
-}
-
-.tdMiddle {
-    width: 60%;
 }
 
 .addressDiv {
@@ -201,10 +178,6 @@ span.colon {
     width: .85in;
     height: .75in;
     float: right;
-    vertical-align: top;
-    margin: -4px 6px 0 0;
-}
-
-.trBackground {
-    background: #E6E7E8;
+    /*vertical-align: top;*/
+    margin: -4px 5px 0 0;
 }
