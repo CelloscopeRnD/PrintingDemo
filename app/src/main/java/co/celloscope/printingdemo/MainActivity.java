@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         String[] values = {
-                "3"
+                "1"
 //                template_script,
 
 //                agent_banking_logo,
