@@ -21,12 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private HtmlHelper htmlHelper;
 
 
-    private static final String style_sheet = "file:///android_asset/styles.css";
 
-    private static final String agent_banking_logo = "file:///android_asset/agent_banking_logo.png";
-    private static final String logo = "file:///android_asset/logo.gif";
-    private String photo = "file:///android_asset/photo.png";
-    private String qr = "file:///android_asset/qr.png";
+//    private static final String template_script = "file:///android_asset/templateScript.js";
+
+//    private static final String agent_banking_logo = "file:///android_asset/agent_banking_logo.png";
+//    private static final String logo = "file:///android_asset/logo.gif";
+//    private String photo = "file:///android_asset/photo.png";
+//    private String qr = "file:///android_asset/qr.png";
 
     private Toolbar mToolbar;
 
@@ -108,116 +109,21 @@ public class MainActivity extends AppCompatActivity {
 
     private String getHtml() throws IOException {
         String[] keys = {
-                "#STYLE_SHEET",
+//                "TEMPLATE_SCRIPT",
 
-                "#AGENT_BANKING_LOGO",
-                "#LOGO",
-                "#PHOTO",
-                "#QRCODE",
-
-                "#ADDRESS_LINE_1",
-                "#ADDRESS_LINE_2",
-                "#ADDRESS_LINE_3",
-                "#ADDRESS_LINE_4",
-                "#AGENT_NAME_LABEL",
-                "#AGENT_NAME",
-                "#USER_ID_LABEL",
-                "#USER_ID",
-                "#ADDRESS_LABEL",
-                "#BOOTH_ADDRESS",
-                "#CUSTOMER_ID_LABEL",
-                "#CUSTOMER_ID",
-                "#ACCOUNT_TYPE_LABEL",
-                "#CUSTOMER_NAME_LABEL",
-                "#CUSTOMER_NAME",
-                "#MOBILE_NO_LABEL",
-                "#MOBILE_NO",
-
-                "#TITLE",
-                "#ACCOUNT_NO_LABEL",
-                "#ACCOUNT_NUMBER",
-                "#ACCOUNT_TYPE",
-                "#LINK_ACCOUNT_NUMBER_COLON",
-                "#LINK_ACCOUNT_NUMBER_LABEL",
-                "#LINK_ACCOUNT_NUMBER",
-                "#CUSTOMER_ADDRESS",
-                "#T_00_LABEL",
-                "T_00_VALUE",
-                "#T_01_LABEL",
-                "#T_01_VALUE",
-                "#T_10_LABEL",
-                "#T_10_VALUE",
-                "#T_11_LABEL",
-                "#T_11_VALUE",
-                "#T_20_LABEL",
-                "#T_20_COLON",
-                "#T_20_VALUE",
-                "#T_21_LABEL",
-                "#T_21_COLON",
-                "#T_21_VALUE",
-                "#T_30_LABEL",
-                "#T_30_COLON",
-                "#T_30_VALUE",
-                "#T_31_LABEL",
-                "#T_31_COLON",
-                "#T_31_VALUE"
+//                "#AGENT_BANKING_LOGO",
+//                "#LOGO",
+//                "#PHOTO",
+//                "#QRCODE"
         };
 
         String[] values = {
-                style_sheet,
+//                template_script,
 
-                agent_banking_logo,
-                logo,
-                photo,
-                qr,
-
-                addressLine1Text,
-                addressLine2Text,
-                addressLine3Text,
-                addressLine4Text,
-                agentNameText,
-                "BADRUL ALOM",
-                userText,
-                "615001001 (NAIM ISLAM)",
-                addressText,
-                "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
-                customerIdText,
-                "CB1158500",
-                accountTypeText,
-                customerNameText,
-                "MD Arif Gazi",
-                mobileNoText,
-                "01617877595",
-
-
-                accountBalanceText,
-                accountNoText,
-                accountNumberValue,
-                savingsAccountTypeValue,
-                emptyText,
-                emptyText,
-                emptyText,
-                customerAddressValue,
-                accountNameText,
-                accountNameValue,
-                balanceDateText,
-                currentDate,
-                balanceAmountText,
-                balanceAmountValue,
-                transactionIdText,
-                transactionCodeValue,
-                inWordsText,
-                colonText,
-                balanceAmountInWordsValue,
-                printDateText,
-                colonText,
-                printDateValue,
-                emptyText,
-                emptyText,
-                emptyText,
-                emptyText,
-                emptyText,
-                emptyText
+//                agent_banking_logo,
+//                logo,
+//                photo,
+//                qr
         };
         return htmlHelper.getHtml(TEMPLATE_HTML, keys, values);
     }

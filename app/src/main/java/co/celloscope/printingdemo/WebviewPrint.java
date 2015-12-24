@@ -8,6 +8,7 @@ import android.print.PrintJob;
 import android.print.PrintManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -36,6 +37,8 @@ class WebViewPrint {
 
     void print(@NonNull File file) {
         mWebView = new WebView(context);
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
         mWebView.setWebViewClient(new WebViewClient() {
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
