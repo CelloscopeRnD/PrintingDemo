@@ -31,29 +31,71 @@ body {
     position: relative;
 }
 
-.tblFooter {
+.logo {
+    width: .658in;
+    height: .4in;
+    float: left;
+}
+
+.elmentCtr {
+    margin: 0 auto;
+}
+
+.accountBasic {
+    margin: 10px auto 0;
+}
+
+.agent_banking_logo {
+    width: .85in;
+    max-height: .40in;
+    float: right;
+}
+
+.addressDiv {
+    float: right;
+    font-size: 8px;
+    margin-top: 3px;
+    text-align: right;
+}
+
+.footer {
     font-size: 5pt;
     width: 100%;
     position: absolute;
     bottom: 0;
 }
 
-.title{
-    margin:0 auto;
-    text-align:center;
+.title {
+    margin: 0 auto;
+    text-align: center;
 }
 
-.userInfo{
-    margin:0 auto;
+.phone {
+    position: absolute;
+    left: 0;
+}
+
+.web {
+    position: absolute;
+    right: 0;
+}
+
+.email {
+    text-align: right;
+}
+
+.website {
+    text-align: center;
+}
+
+.footerInfo {
+    text-align: center;
 }
 
 
 
-.logo {
-    width: .658in;
-    height: .4in;
-    float: left;
-}
+
+
 
 .customerPhoto {
     width: .75in;
@@ -67,11 +109,7 @@ body {
 
 
 
-.agent_banking_logo {
-    width: .85in;
-    max-height: .40in;
-    float: right;
-}
+
 
 table, th, td {
     /*border-collapse: collapse;
@@ -168,17 +206,10 @@ span.colon {
     width: 16%;
 }
 
-.addressDiv {
-    float: right;
-    font-size: 8px;
-    margin: 3px 5px 0 0;
-    text-align: right;
-}
 
 .qrCodeImg {
     width: .85in;
     height: .75in;
     float: right;
-    /*vertical-align: top;*/
-    margin: -4px 5px 0 0;
+    margin-top: -4px;
 }

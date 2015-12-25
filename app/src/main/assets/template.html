@@ -11,29 +11,61 @@
 </head>
 <body>
 <div class="main">
-    <div >
-        <img class="logo" alt="logo" />
-        <img class="agent_banking_logo" alt="Agent Banking Logo" />
-        <p class="title">#TITLE</p>
-        <table class="userInfo">
-            <tr>
-                <td class="agentNameLabel topLabel">#AGENT_NAME_LABEL</td>
-                <td class="colon">:</td>
-                <td class="agentName topFieldValue">#AGENT_NAME</td>
-                <td>&nbsp;&nbsp;</td>
-                <td class="userIdLabel topLabel">#USER_ID_LABEL</td>
-                <td class="colon">:</td>
-                <td class="userId topFieldValue">#USER_ID</td>
-            </tr>
-            <tr>
-                <td class="addressLabel topLabel">#ADDRESS_LABEL</td>
-                <td class="colon">:</td>
-                <td colspan="5" class="boothAddress topFieldValue">#BOOTH_ADDRESS</td>
-            </tr>
-        </table>
-    </div>
-    <table class="thirdTable">
+    <img class="logo" alt="logo" />
+    <img class="agent_banking_logo" alt="Agent Banking Logo" />
+    <p class="title">#TITLE</p>
+    <table class="elmentCtr">
         <tr>
+            <td class="agentNameLabel topLabel">#AGENT_NAME_LABEL</td>
+            <td class="colon">:</td>
+            <td class="agentName topFieldValue">#AGENT_NAME</td>
+            <td>&nbsp;&nbsp;</td>
+            <td class="userIdLabel topLabel">#USER_ID_LABEL</td>
+            <td class="colon">:</td>
+            <td class="userId topFieldValue">#USER_ID</td>
+        </tr>
+        <tr>
+            <td class="addressLabel topLabel">#ADDRESS_LABEL</td>
+            <td class="colon">:</td>
+            <td colspan="5" class="boothAddress topFieldValue">#BOOTH_ADDRESS</td>
+        </tr>
+    </table>
+    <img class="customerPhoto" alt="Customer Photo" />
+    <div class="addressDiv">
+        <p class="addressLine1Label">#ADDRESS_LINE_1</p>
+        <p class="addressLine2Label">#ADDRESS_LINE_2</p>
+        <p class="addressLine3Label">#ADDRESS_LINE_3</p>
+        <p class="addressLine4Label">#ADDRESS_LINE_4</p>
+    </div>
+    <table class="accountBasic">
+        <tr>
+            <td class="accountNoLabel label">#ACCOUNT_NO_LABEL</td>
+            <td class="colon">:</td>
+            <td class="accountNumber boldFieldValue">#ACCOUNT_NUMBER</td>
+        </tr>
+        <tr>
+            <td class="customerIdLabel label">#CUSTOMER_ID_LABEL</td>
+            <td class="colon">:</td>
+            <td class="customerId boldFieldValue">#CUSTOMER_ID</td>
+        </tr>
+        <tr>
+            <td class="accountTypeLabel label">#ACCOUNT_TYPE_LABEL</td>
+            <td class="colon">:</td>
+            <td class="accountType boldFieldValue">#ACCOUNT_TYPE</td>
+        </tr>
+        <tr>
+            <td class="linkAccountNumberLabel label">#LINK_ACCOUNT_NUMBER_LABEL</td>
+            <td class="linkAccountNumberColon colon">#LINK_ACCOUNT_NUMBER_COLON</td>
+            <td class="linkAccountNumber boldFieldValue">#LINK_ACCOUNT_NUMBER</td>
+        </tr>
+        <tr>
+            <td class="label">&nbsp;</td>
+            <td class="fieldValue"></td>
+            <td></td>
+        </tr>
+    </table>
+    <table class="thirdTable">
+        <!--<tr>
             <td>
                 <img class="customerPhoto" alt="Customer Photo" />
             </td>
@@ -74,7 +106,7 @@
                     <p class="addressLine4Label">#ADDRESS_LINE_4</p>
                 </div>
             </td>
-        </tr>
+        </tr>-->
         <tr>
             <td colspan="6" class="cellPadding"><hr /></td>
         </tr>
@@ -156,18 +188,20 @@
             <td class="t31Value fieldValue">#T_31_VALUE</td>
         </tr>
     </table>
-    <table class="tblFooter">
-        <tr>
-            <td>ফোন: +৮৮ ০২ ৫৮৮১৩৪৮৩, ৫৮৮১৪৩৭৫, ৫৮৮১৩১২৬</td>
-            <td align="center">সিটি ব্যাংকের এজেন্ট ব্যাংকিং সেবা গ্রহনের জন্য আপনাকে ধন্যবাদ</td>
-            <td align="center">ইমেইল: agent.banking@thecitybank.com</td>
-        </tr>
-        <tr>
-            <td>ফ্যাক্সঃ +৮৮ ০২ ৯৮৮৪৪৬</td>
-            <td align="center">এখানে কোনো স্বাক্ষর করবেন না, আপনার সকল তথ্য কম্পিউটারের মাধ্যমে স্বয়ংক্রিয়ভাবে সংরক্ষিত করা হবে</td>
-            <td align="center">ওয়েবসাইট: www.thecitybank.com</td>
-        </tr>
-    </table>
+    <div class="footer">
+        <div class="phone">
+            <div>ফোন: +৮৮ ০২ ৫৮৮১৩৪৮৩, ৫৮৮১৪৩৭৫, ৫৮৮১৩১২৬</div>
+            <div>ফ্যাক্সঃ +৮৮ ০২ ৯৮৮৪৪৬</div>
+        </div>
+        <div class="web">
+            <div class="email">ইমেইল: agent.banking@thecitybank.com</div>
+            <div class="website">ওয়েবসাইট: www.thecitybank.com</div>
+        </div>
+        <div class="footerInfo">
+            <div>সিটি ব্যাংকের এজেন্ট ব্যাংকিং সেবা গ্রহনের জন্য আপনাকে ধন্যবাদ</div>
+            <div>এখানে কোনো স্বাক্ষর করবেন না, আপনার সকল তথ্য কম্পিউটারের মাধ্যমে স্বয়ংক্রিয়ভাবে সংরক্ষিত করা হবে</div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
