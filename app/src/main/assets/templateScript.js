@@ -131,7 +131,7 @@ var t31ValueId = "t31Value"; //#T_31_VALUE
 
 
 function replaceToken(receipt) {
-    addImage("agent_banking_logo","file:///android_asset/agent_banking_logo.png", "images/agent_banking_logo.png");
+    addImage("agent_banking_logo", "file:///android_asset/AGENT-BANKING-LOGO_Small.png", "images/AGENT-BANKING-LOGO_Small.png");
     addImage("logo", "file:///android_asset/logo.gif", "images/logo.png");
     addImage("qr", "file:///android_asset/qr.png", "images/qr.png");
     addImage("customerPhoto", "file:///android_asset/photo.png", "images/photo.png");

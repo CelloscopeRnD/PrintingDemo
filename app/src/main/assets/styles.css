@@ -68,6 +68,7 @@ body {
 .title {
     margin: 0 auto;
     text-align: center;
+    font-weight: bold;
 }
 
 .phone {
@@ -92,11 +93,6 @@ body {
     text-align: center;
 }
 
-
-
-
-
-
 .customerPhoto {
     width: .75in;
     height: .75in;
@@ -106,10 +102,6 @@ body {
     filter: grayscale(1);
     -webkit-filter: grayscale(1);
 }
-
-
-
-
 
 table, th, td {
     /*border-collapse: collapse;
@@ -128,8 +120,6 @@ tr {
 .label {
     font-size: 7pt;
     font-weight: bold;
-    /*height: 12px;*/
-    /*padding-left: 2px;*/
 }
 
 .topFieldValue {
@@ -187,7 +177,11 @@ span.colon {
 }
 
 .thirdTable {
-    width: 100%;
+    width: 85%;
+}
+
+.container {
+    overflow: hidden;
 }
 
 .firstColumn {
@@ -206,10 +200,8 @@ span.colon {
     width: 16%;
 }
 
-
 .qrCodeImg {
     width: .85in;
     height: .75in;
     float: right;
-    margin-top: -4px;
 }
