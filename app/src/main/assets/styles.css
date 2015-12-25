@@ -1,7 +1,7 @@
 ﻿@font-face {
     font-family: "SolaimanLipi";
-    src: url(file:///android_asset/fonts/SolaimanLipi.ttf) format("truetype");
-    /*src: url('../Fonts/SolaimanLipi.ttf') format('truetype');*/
+    /*src: url(file:///android_asset/fonts/SolaimanLipi_22-02-2012.ttf) format("truetype");*/
+    src: url('../Fonts/SolaimanLipi_22-02-2012.ttf') format('truetype');
 }
 
 * {
@@ -38,9 +38,16 @@ body {
     bottom: 0;
 }
 
-.threeColumnTable {
-    width: 100%;
+.title{
+    margin:0 auto;
+    text-align:center;
 }
+
+.userInfo{
+    margin:0 auto;
+}
+
+
 
 .logo {
     width: .658in;
@@ -58,13 +65,7 @@ body {
     -webkit-filter: grayscale(1);
 }
 
-.tdMiddle {
-    /*width: 60%;*/
-}
 
-.tableMiddle {
-    /*margin: 0 auto;*/
-}
 
 .agent_banking_logo {
     width: .85in;
