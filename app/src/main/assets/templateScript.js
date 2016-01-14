@@ -68,30 +68,67 @@ var userText = "ইউজার";
 var withdrawAmountText = "উত্তোলনের পরিমান";
 var withdrawDateText = "উত্তোলনের তারিখ";
 
-var accountNameValue = "MD Arif Gazi";
-var accountNumberValue = "2001158500126";
-var balanceAmountValue = "BDT 80,550.00";
-var balanceAmountInWordsValue = "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY";
-var chargeVaue = "BDT 7.50";
+//var accountNameValue = "MD Arif Gazi";
+//var accountNumberValue = "2001158500126";
+//var balanceAmountValue = "BDT 80,550.00";
+//var balanceAmountInWordsValue = "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY";
+//var chargeVaue = "BDT 7.50";
+//var today = new Date();
+//var data.transactionDateValue = getDateString(today);
+//var customerAddressValue = "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA";
+//var depositAmountInWordsValue = "THREE THOUSAND ONLY";
+//var depositAmountValue = "BDT 3,000.00";
+//var dpsAccountTypeValue = "DPS";
+//var linkAccountNumberValue = "2005246987526";
+//var maturityAmountValue = "BDT 2,26,047.00";
+//var maturityDate = getDateString(new Date(today.getFullYear() + 5, today.getMonth(), today.getDate()));
+//var principalAmountValue = "BDT 1,00,000.00";
+//var printDateValue = getTimestampString(new Date());
+//var productTenorValue = "5 Years";
+//var profitRateValue = "8.85% (Yearly)";
+//var receiverAccountNameValue = "SUJON PATWARY";
+//var termDepositAccountTypeValue = "TERM DEPOSIT";
+//var savingsAccountTypeValue = "Savings";
+//var transactionCodeValue = "TR222369";
+//var withdrawAmountValue = "BDT 3,000.00 + 7.5 (Charge)";
+//var withdrawsAmountInWordsValue = "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY";
+
+
 var today = new Date();
 var currentDate = getDateString(today);
-var customerAddressValue = "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA";
-var depositAmountInWordsValue = "THREE THOUSAND ONLY";
-var depositAmountValue = "BDT 3,000.00";
-var dpsAccountTypeValue = "DPS";
-var linkAccountNumberValue = "2005246987526";
-var maturityAmountValue = "BDT 2,26,047.00";
-var maturityDate = getDateString(new Date(today.getFullYear() + 5, today.getMonth(), today.getDate()));
-var principalAmountValue = "BDT 1,00,000.00";
-var printDateValue = getTimestampString(new Date());
-var productTenorValue = "5 Years";
-var profitRateValue = "8.85% (Yearly)";
-var receiverAccountNameValue = "SUJON PATWARY";
-var termDepositAccountTypeValue = "TERM DEPOSIT";
-var savingsAccountTypeValue = "Savings";
-var transactionCodeValue = "TR222369";
-var withdrawAmountValue = "BDT 3,000.00 + 7.5 (Charge)";
-var withdrawsAmountInWordsValue = "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY";
+
+var data = {
+    "accountName": "MD Arif Gazi",
+    "accountNumber": "2001158500126",
+    "agentName": "BADRUL ALOM",
+    "balanceAmount": "BDT 80,550.00",
+    "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+    "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+    "charge": "BDT 7.50",
+    "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+    "customerId": "CB1158500",
+    "customerName": "Md. Arif Gazi",
+    "depositAmountInWords": "THREE THOUSAND ONLY",
+    "depositAmount": "BDT 3,000.00",
+    "dpsAccountType": "DPS",
+    "linkAccountNumber": "2005246987526",
+    "maturityAmount": "BDT 2,26,047.00",
+    "maturityDate": getDateString(new Date(today.getFullYear() + 5, today.getMonth(), today.getDate())),
+    "mobileNo": "01617877595",
+    "principalAmount": "BDT 1,00,000.00",
+    "printDate": getTimestampString(new Date()),
+    "productTenor": "5 Years",
+    "profitRate": "8.85% (Yearly)",
+    "receiverAccountName": "SUJON PATWARY",
+    "termDepositAccountType": "TERM DEPOSIT",
+    "transactionDate": currentDate,
+    "savingsAccountType": "Savings",
+    "transactionCode": "TR222369",
+    "userId": "615001001 (NAIM ISLAM)",
+    "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+    "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+};
+
 
 
 var accountNoLabelId = "accountNoLabel";
@@ -142,18 +179,18 @@ function replaceToken(receipt) {
     addClassText("addressLine4Label", addressLine4Text); //#ADDRESS_LINE_4
 
     addClassText("agentNameLabel", agentNameText); //#AGENT_NAME_LABEL
-    addClassText("agentName", "BADRUL ALOM"); //#AGENT_NAME
+    addClassText("agentName", data.agentName); //#AGENT_NAME
     addClassText("userIdLabel", userText); //#USER_ID_LABEL
-    addClassText("userId", "615001001 (NAIM ISLAM)"); //#USER_ID
+    addClassText("userId", data.userId); //#USER_ID
     addClassText("addressLabel", addressText); //#ADDRESS_LABEL
-    addClassText("boothAddress", "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI"); //#BOOTH_ADDRESS
+    addClassText("boothAddress", data.boothAddress); //#BOOTH_ADDRESS
     addClassText("customerIdLabel", customerIdText); //#CUSTOMER_ID_LABEL,
-    addClassText("customerId", "CB1158500"); //#CUSTOMER_ID, ID will be 7 characters
+    addClassText("customerId", data.customerId); //#CUSTOMER_ID, ID will be 7 characters
     addClassText("accountTypeLabel", accountTypeText); //#ACCOUNT_TYPE_LABEL
     addClassText("customerNameLabel", customerNameText); //#CUSTOMER_NAME_LABEL
-    addClassText("customerName", "MD Arif Gazi"); //#CUSTOMER_NAME
+    addClassText("customerName", data.customerName); //#CUSTOMER_NAME
     addClassText("mobileNoLabel", mobileNoText); //#MOBILE_NO_LABEL
-    addClassText("mobileNo", "01617877595"); //#MOBILE_NO
+    addClassText("mobileNo", data.mobileNo); //#MOBILE_NO
 
 
     switch (receipt) {
@@ -186,30 +223,30 @@ function setAccountBalance() {
     addClassText(titleId, accountBalanceText);
 
     addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, accountNumberValue);
-    addClassText(accountTypeId, savingsAccountTypeValue);
+    addClassText(accountNumberId, data.accountNumber);
+    addClassText(accountTypeId, data.savingsAccountType);
     addClassText(linkAccountNumberColonId, emptyText);
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
-    addClassText(customerAddressId, customerAddressValue);
+    addClassText(customerAddressId, data.customerAddress);
 
     addClassText(t00LabelId, accountNameText);
-    addClassText(t00ValueId, accountNameValue);
+    addClassText(t00ValueId, data.accountName);
     addClassText(t01LabelId, balanceDateText);
-    addClassText(t01ValueId, currentDate);
+    addClassText(t01ValueId, data.transactionDate);
 
     addClassText(t10LabelId, balanceAmountText);
-    addClassText(t10ValueId, balanceAmountValue);
+    addClassText(t10ValueId, data.balanceAmount);
     addClassText(t11LabelId, transactionIdText);
-    addClassText(t11ValueId, transactionCodeValue);
+    addClassText(t11ValueId, data.transactionCode);
 
     addClassText(t20LabelId, inWordsText);
     addClassText(t20ColonId, colonText);
-    addClassText(t20ValueId, balanceAmountInWordsValue);
+    addClassText(t20ValueId, data.balanceAmountInWords);
     addClassText(t21LabelId, printDateText);
     addClassText(t21ColonId, colonText);
-    addClassText(t21ValueId, printDateValue);
+    addClassText(t21ValueId, data.printDate);
 
     addClassText(t30LabelId, emptyText);
     addClassText(t30ColonId, emptyText);
@@ -222,30 +259,30 @@ function setCashDeposit() {
     addClassText("title", cashDepositText); //#TITLE
 
     addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, accountNumberValue);
-    addClassText(accountTypeId, savingsAccountTypeValue);
+    addClassText(accountNumberId, data.accountNumber);
+    addClassText(accountTypeId, data.savingsAccountType);
     addClassText(linkAccountNumberColonId, emptyText);
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
-    addClassText(customerAddressId, customerAddressValue);
+    addClassText(customerAddressId, data.customerAddress);
 
     addClassText(t00LabelId, accountNameText);
-    addClassText(t00ValueId, accountNameValue);
+    addClassText(t00ValueId, data.accountName);
     addClassText(t01LabelId, depositDateText);
-    addClassText(t01ValueId, currentDate);
+    addClassText(t01ValueId, data.transactionDate);
 
     addClassText(t10LabelId, depositAmountText);
-    addClassText(t10ValueId, depositAmountValue);
+    addClassText(t10ValueId, data.depositAmount);
     addClassText(t11LabelId, transactionIdText);
-    addClassText(t11ValueId, transactionCodeValue);
+    addClassText(t11ValueId, data.transactionCode);
 
     addClassText(t20LabelId, inWordsText);
     addClassText(t20ColonId, colonText);
-    addClassText(t20ValueId, depositAmountInWordsValue);
+    addClassText(t20ValueId, data.depositAmountInWords);
     addClassText(t21LabelId, printDateText);
     addClassText(t21ColonId, colonText);
-    addClassText(t21ValueId, printDateValue);
+    addClassText(t21ValueId, data.printDate);
 
     addClassText(t30LabelId, emptyText);
     addClassText(t30ColonId, emptyText);
@@ -258,34 +295,34 @@ function setCashWithdraw() {
     addClassText("title", cashWithdrawText); //#TITLE
 
     addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, accountNumberValue);
-    addClassText(accountTypeId, savingsAccountTypeValue);
+    addClassText(accountNumberId, data.accountNumber);
+    addClassText(accountTypeId, data.savingsAccountType);
     addClassText(linkAccountNumberColonId, emptyText);
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
-    addClassText(customerAddressId, customerAddressValue);
+    addClassText(customerAddressId, data.customerAddress);
 
     addClassText(t00LabelId, accountNameText);
-    addClassText(t00ValueId, accountNameValue);
+    addClassText(t00ValueId, data.accountName);
     addClassText(t01LabelId, withdrawDateText);
-    addClassText(t01ValueId, currentDate);
+    addClassText(t01ValueId, data.transactionDate);
 
     addClassText(t10LabelId, withdrawAmountText);
-    addClassText(t10ValueId, depositAmountValue);
+    addClassText(t10ValueId, data.depositAmount);
     addClassText(t11LabelId, transactionIdText);
-    addClassText(t11ValueId, transactionCodeValue);
+    addClassText(t11ValueId, data.transactionCode);
 
     addClassText(t20LabelId, inWordsText);
     addClassText(t20ColonId, colonText);
-    addClassText(t20ValueId, depositAmountInWordsValue);
+    addClassText(t20ValueId, data.depositAmountInWords);
     addClassText(t21LabelId, printDateText);
     addClassText(t21ColonId, colonText);
-    addClassText(t21ValueId, printDateValue);
+    addClassText(t21ValueId, data.printDate);
 
     addClassText(t30LabelId, chargeText);
     addClassText(t30ColonId, colonText);
-    addClassText(t30ValueId, chargeVaue);
+    addClassText(t30ValueId, data.charge);
     addClassText(t31LabelId, emptyText);
     addClassText(t31ColonId, emptyText);
     addClassText(t31ValueId, emptyText);
@@ -295,33 +332,33 @@ function setDPSAccount() {
 
     addClassText(accountNoLabelId, accountNoText);
     addClassText(accountNumberId, emptyText);
-    addClassText(accountTypeId, dpsAccountTypeValue);
+    addClassText(accountTypeId, data.dpsAccountType);
     addClassText(linkAccountNumberLabelId, linkAccountNumberText);
     addClassText(linkAccountNumberColonId, colonText);
-    addClassText(linkAccountNumberId, linkAccountNumberValue);
+    addClassText(linkAccountNumberId, data.linkAccountNumber);
 
-    addClassText(customerAddressId, customerAddressValue);
+    addClassText(customerAddressId, data.customerAddress);
 
     addClassText(t00LabelId, accountNameText);
-    addClassText(t00ValueId, accountNameValue);
+    addClassText(t00ValueId, data.accountName);
     addClassText(t01LabelId, productTenorText);
-    addClassText(t01ValueId, productTenorValue);
+    addClassText(t01ValueId, data.productTenor);
 
     addClassText(t10LabelId, accountOpeningDateText);
-    addClassText(t10ValueId, currentDate);
+    addClassText(t10ValueId, data.transactionDate);
     addClassText(t11LabelId, maturityDateText);
-    addClassText(t11ValueId, maturityDate);
+    addClassText(t11ValueId, data.maturityDate);
 
     addClassText(t20LabelId, monthlyDepositText);
     addClassText(t20ColonId, colonText);
-    addClassText(t20ValueId, depositAmountValue);
+    addClassText(t20ValueId, data.depositAmount);
     addClassText(t21LabelId, printDateText);
     addClassText(t21ColonId, colonText);
-    addClassText(t21ValueId, printDateValue);
+    addClassText(t21ValueId, data.printDate);
 
     addClassText(t30LabelId, maturityAmountText);
     addClassText(t30ColonId, colonText);
-    addClassText(t30ValueId, maturityAmountValue);
+    addClassText(t30ValueId, data.maturityAmount);
     addClassText(t31LabelId, emptyText);
     addClassText(t31ColonId, emptyText);
     addClassText(t31ValueId, emptyText);
@@ -331,95 +368,95 @@ function setFixedDeposit() {
 
     addClassText(accountNoLabelId, accountNoText);
     addClassText(accountNumberId, emptyText);
-    addClassText(accountTypeId, termDepositAccountTypeValue);
+    addClassText(accountTypeId, data.termDepositAccountType);
     addClassText(linkAccountNumberLabelId, linkAccountNumberText);
     addClassText(linkAccountNumberColonId, colonText);
-    addClassText(linkAccountNumberId, linkAccountNumberValue);
+    addClassText(linkAccountNumberId, data.linkAccountNumber);
 
-    addClassText(customerAddressId, customerAddressValue);
+    addClassText(customerAddressId, data.customerAddress);
 
     addClassText(t00LabelId, accountNameText);
-    addClassText(t00ValueId, accountNameValue);
+    addClassText(t00ValueId, data.accountName);
     addClassText(t01LabelId, productTenorText);
-    addClassText(t01ValueId, productTenorValue);
+    addClassText(t01ValueId, data.productTenor);
 
     addClassText(t10LabelId, accountOpeningDateText);
-    addClassText(t10ValueId, currentDate);
+    addClassText(t10ValueId, data.transactionDate);
     addClassText(t11LabelId, maturityDateText);
-    addClassText(t11ValueId, maturityDate);
+    addClassText(t11ValueId, data.maturityDate);
 
     addClassText(t20LabelId, profitRateText);
     addClassText(t20ColonId, colonText);
-    addClassText(t20ValueId, profitRateValue);
+    addClassText(t20ValueId, data.profitRate);
     addClassText(t21LabelId, maturityAmountText);
     addClassText(t21ColonId, colonText);
-    addClassText(t21ValueId, maturityAmountValue);
+    addClassText(t21ValueId, data.maturityAmount);
 
     addClassText(t30LabelId, principalAmountText);
     addClassText(t30ColonId, colonText);
-    addClassText(t30ValueId, principalAmountValue);
+    addClassText(t30ValueId, data.principalAmount);
     addClassText(t31LabelId, printDateText);
     addClassText(t31ColonId, colonText);
-    addClassText(t31ValueId, printDateValue);
+    addClassText(t31ValueId, data.printDate);
 }
 function setFundTransfer() {
     addClassText("title", fundTransferText); //#TITLE
 
     addClassText(accountNoLabelId, senderAccountNoText);
-    addClassText(accountNumberId, accountNumberValue);
-    addClassText(accountNumberId, accountNumberValue);
-    addClassText(accountTypeId, savingsAccountTypeValue);
+    addClassText(accountNumberId, data.accountNumber);
+    addClassText(accountNumberId, data.accountNumber);
+    addClassText(accountTypeId, data.savingsAccountType);
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberColonId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
-    addClassText(customerAddressId, customerAddressValue);
+    addClassText(customerAddressId, data.customerAddress);
 
     addClassText(t00LabelId, sendrAccountNameText);
-    addClassText(t00ValueId, accountNameValue);
+    addClassText(t00ValueId, data.accountName);
     addClassText(t01LabelId, fundTransferDateText);
-    addClassText(t01ValueId, currentDate);
+    addClassText(t01ValueId, data.transactionDate);
 
     addClassText(t10LabelId, receiverAccountNameText);
-    addClassText(t10ValueId, receiverAccountNameValue);
+    addClassText(t10ValueId, data.receiverAccountName);
     addClassText(t11LabelId, receiverAccountNoText);
-    addClassText(t11ValueId, linkAccountNumberValue);
+    addClassText(t11ValueId, data.linkAccountNumber);
 
     addClassText(t20LabelId, transferAmountText);
     addClassText(t20ColonId, colonText);
-    addClassText(t20ValueId, depositAmountValue);
+    addClassText(t20ValueId, data.depositAmount);
     addClassText(t21LabelId, transactionIdText);
     addClassText(t21ColonId, colonText);
-    addClassText(t21ValueId, transactionCodeValue);
+    addClassText(t21ValueId, data.transactionCode);
 
     addClassText(t30LabelId, inWordsText);
     addClassText(t30ColonId, colonText);
-    addClassText(t30ValueId, depositAmountInWordsValue);
+    addClassText(t30ValueId, data.depositAmountInWords);
     addClassText(t31LabelId, printDateText);
     addClassText(t31ColonId, colonText);
-    addClassText(t31ValueId, printDateValue);
+    addClassText(t31ValueId, data.printDate);
 }
 function setSavingsAccount() {
     addClassText("title", cityAgentSavingsAccountText); //#TITLE
 
     addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, accountNumberValue);
-    addClassText(accountTypeId, savingsAccountTypeValue);
+    addClassText(accountNumberId, data.accountNumber);
+    addClassText(accountTypeId, data.savingsAccountType);
     addClassText(linkAccountNumberColonId, emptyText);
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
-    addClassText(customerAddressId, emptyText);
+    addClassText(customerAddressId, data.customerAddress);
 
     addClassText(t00LabelId, accountNameText);
-    addClassText(t00ValueId, accountNameValue);
+    addClassText(t00ValueId, data.accountName);
     addClassText(t01LabelId, initialDepositText);
-    addClassText(t01ValueId, depositAmountValue);
+    addClassText(t01ValueId, data.depositAmount);
 
     addClassText(t10LabelId, accountOpeningDateText);
-    addClassText(t10ValueId, currentDate);
+    addClassText(t10ValueId, data.transactionDate);
     addClassText(t11LabelId, printDateText);
-    addClassText(t11ValueId, printDateValue);
+    addClassText(t11ValueId, data.printDate);
 
     addClassText(t20LabelId, emptyText);
     addClassText(t20ColonId, emptyText);
