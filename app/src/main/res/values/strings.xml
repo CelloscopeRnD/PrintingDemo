@@ -21,11 +21,12 @@
     <string name="print_date">Print Date</string>
     <string name="account_opening_date">Account Opening Date</string>
     <string name="savings_account">Savings Account</string>
-    <string name="current_account">Current Account</string>
+    <string name="account_balance">Account Balance</string>
     <string name="dps_account">DPS Account</string>
     <string name="cash_deposit">Cash Deposit</string>
     <string name="cash_withdraw">Cash Withdraw</string>
     <string name="fund_transfer">Fund Transfer</string>
+    <string name="fixed_deposit">Fixed Deposit</string>
     <string name="reb">REB</string>
     <string name="agent_banking">Agent Banking</string>
 

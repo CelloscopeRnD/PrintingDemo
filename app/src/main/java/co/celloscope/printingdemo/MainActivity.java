@@ -12,16 +12,36 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private enum Receipts {
+        ACCOUNT_BALANCE("1"),
+        CASH_DEPOSIT("2"),
+        CASH_WITHDRAW("3"),
+        DPS_ACCOUNT("4"),
+        FIXED_DEPOSIT("5"),
+        FUND_TRANSFER("6"),
+        SAVINGS_ACCOUNT("7");
+
+        private final String receiptNo;
+
+        Receipts(String no) {
+            this.receiptNo = no;
+        }
+    }
+
+    private Receipts receipt = Receipts.ACCOUNT_BALANCE;
     private static final String TEMPLATE_HTML = "template.html";
     private HtmlHelper htmlHelper;
+
+
     private Toolbar mToolbar;
+
     private String getHtml() throws IOException {
         String[] keys = {
                 "#RECEIPT"
         };
 
         String[] values = {
-                "1"
+                receipt.receiptNo
         };
         return htmlHelper.getHtml(TEMPLATE_HTML, keys, values);
     }
@@ -60,30 +80,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.savings_account:
-                return true;
-            case R.id.current_account:
-                return true;
-            case R.id.dps_account:
+            case R.id.account_balance:
+                receipt = Receipts.ACCOUNT_BALANCE;
                 return true;
             case R.id.cash_deposit:
+                receipt = Receipts.CASH_DEPOSIT;
                 return true;
             case R.id.cash_withdraw:
+                receipt = Receipts.CASH_WITHDRAW;
+                return true;
+            case R.id.dps_account:
+                receipt = Receipts.DPS_ACCOUNT;
+                return true;
+            case R.id.fixed_deposit:
+                receipt = Receipts.FIXED_DEPOSIT;
                 return true;
             case R.id.fund_transfer:
+                receipt = Receipts.FUND_TRANSFER;
                 return true;
-            case R.id.reb:
-                return true;
-            case R.id.agent_banking:
-                return true;
-            case R.id.remittance:
-                return true;
-            case R.id.term_deposit:
+            case R.id.savings_account:
+                receipt = Receipts.SAVINGS_ACCOUNT;
                 return true;
             default:
-                return super.onOptionsItemSelected(item);
+                receipt = Receipts.ACCOUNT_BALANCE;
+                return true;
         }
     }
-
-
 }
