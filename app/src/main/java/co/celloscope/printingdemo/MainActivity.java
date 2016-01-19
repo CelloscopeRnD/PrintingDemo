@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    private static final String RECEIPT_TYPE = "ReceiptType";
+    private static final String JSON_DATA = "JsonData";
+
     private Receipts receipt = Receipts.ACCOUNT_BALANCE;
     private static final String TEMPLATE_HTML = "template.html";
     private HtmlHelper htmlHelper;
@@ -42,8 +47,11 @@ public class MainActivity extends AppCompatActivity {
         };
 
         String[] values = {
-                receipt.receiptNo,
-                "{            \"accountName\": \"MD Arif Gazi\",            \"accountNumber\": \"2001158500126\",            \"agentName\": \"BADRUL ALOM\",            \"balanceAmount\": \"BDT 80,550.00\",            \"balanceAmountInWords\": \"EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY\",            \"boothAddress\": \"VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI\",            \"charge\": \"BDT 7.50\",            \"customerAddress\": \"GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA\",            \"customerId\": \"CB1158500\",            \"customerName\": \"Md. Arif Gazi\",            \"depositAmountInWords\": \"THREE THOUSAND ONLY\",            \"depositAmount\": \"BDT 3,000.00\",            \"dpsAccountType\": \"DPS\",            \"linkAccountNumber\": \"2005246987526\",            \"maturityAmount\": \"BDT 2,26,047.00\",            \"maturityDate\": \"19-JAN-2021\",            \"mobileNo\": \"01617877595\",            \"principalAmount\": \"BDT 1,00,000.00\",            \"printDate\": \"19-JAN-2016 13:13:15 PM\",            \"productTenor\": \"5 Years\",            \"profitRate\": \"8.85% (Yearly)\",            \"receiverAccountName\": \"SUJON PATWARY\",            \"termDepositAccountType\": \"TERM DEPOSIT\",            \"transactionDate\": \"19-JAN-2016\",            \"savingsAccountType\": \"Savings\",            \"transactionCode\": \"TR222369\",            \"userId\": \"615001001 (NAIM ISLAM)\",            \"withdrawAmount\": \"BDT 3,000.00 + 7.5 (Charge)\",            \"withdrawsAmountInWords\": \"THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY\"       }"
+//                receipt.receiptNo,
+//                "{            \"accountName\": \"MD Arif Gazi\",            \"accountNumber\": \"2001158500126\",            \"agentName\": \"BADRUL ALOM\",            \"balanceAmount\": \"BDT 80,550.00\",            \"balanceAmountInWords\": \"EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY\",            \"boothAddress\": \"VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI\",            \"charge\": \"BDT 7.50\",            \"customerAddress\": \"GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA\",            \"customerId\": \"CB1158500\",            \"customerName\": \"Md. Arif Gazi\",            \"depositAmountInWords\": \"THREE THOUSAND ONLY\",            \"depositAmount\": \"BDT 3,000.00\",            \"dpsAccountType\": \"DPS\",            \"linkAccountNumber\": \"2005246987526\",            \"maturityAmount\": \"BDT 2,26,047.00\",            \"maturityDate\": \"19-JAN-2021\",            \"mobileNo\": \"01617877595\",            \"principalAmount\": \"BDT 1,00,000.00\",            \"printDate\": \"19-JAN-2016 13:13:15 PM\",            \"productTenor\": \"5 Years\",            \"profitRate\": \"8.85% (Yearly)\",            \"receiverAccountName\": \"SUJON PATWARY\",            \"termDepositAccountType\": \"TERM DEPOSIT\",            \"transactionDate\": \"19-JAN-2016\",            \"savingsAccountType\": \"Savings\",            \"transactionCode\": \"TR222369\",            \"userId\": \"615001001 (NAIM ISLAM)\",            \"withdrawAmount\": \"BDT 3,000.00 + 7.5 (Charge)\",            \"withdrawsAmountInWords\": \"THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY\"       }"
+
+                this.getIntent().getStringExtra(RECEIPT_TYPE),
+                this.getIntent().getStringExtra(JSON_DATA)
         };
         return htmlHelper.getHtml(TEMPLATE_HTML, keys, values);
     }
@@ -55,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         htmlHelper = new HtmlHelper(this);
+        try {
+            new WebViewPrint(MainActivity.this)
+                    .print(getHtmlFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         findViewById(R.id.webViewPrintButton).setOnClickListener(new View.OnClickListener() {
             @Override
