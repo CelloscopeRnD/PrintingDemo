@@ -6,6 +6,7 @@
         window.data = JSON.parse(window.stringData);
     } else {
         window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY" };
+        window.data = { "agentName": "Badrul Alam", "accountName": "MD.ARIF ZIGA", "boothAddress": "Malibag", "accountNumber": "2001158500126", "savingsAccountType": "Savings", "customerName": "MD.ARIF GAZI", "customerId": "CB1158500", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "charge": "7.5%", "transactionDate": "15-DEC-2016", "transactionCode": "TR222369", "userId": "676666011(NAIM ISLAM)", "printDate": "15-DEC-2016 7:09 PM", "customerAddress": "KALLAYANPUR", "mobileNo": "01617877595" };
     }
     //console.log(window);
 
@@ -262,13 +263,13 @@ function setCashWithdraw() {
     addClassText(t01ValueId, data.transactionDate);
 
     addClassText(t10LabelId, withdrawAmountText);
-    addClassText(t10ValueId, data.depositAmount);
+    addClassText(t10ValueId, data.withdrawAmount);
     addClassText(t11LabelId, transactionIdText);
     addClassText(t11ValueId, data.transactionCode);
 
     addClassText(t20LabelId, inWordsText);
     addClassText(t20ColonId, colonText);
-    addClassText(t20ValueId, data.depositAmountInWords);
+    addClassText(t20ValueId, data.withdrawsAmountInWords);
     addClassText(t21LabelId, printDateText);
     addClassText(t21ColonId, colonText);
     addClassText(t21ValueId, data.printDate);

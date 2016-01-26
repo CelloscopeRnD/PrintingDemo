@@ -2,6 +2,7 @@ package co.celloscope.printingdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+        Toast.makeText(MainActivity.this, "onResume", Toast.LENGTH_SHORT).show();
     }
 
     private File getHtmlFile() throws IOException {
