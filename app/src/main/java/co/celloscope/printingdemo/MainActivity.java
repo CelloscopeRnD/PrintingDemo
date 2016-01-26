@@ -1,5 +1,6 @@
 package co.celloscope.printingdemo;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.print.PrintJob;
@@ -55,12 +56,15 @@ public class MainActivity extends AppCompatActivity {
         int state = webViewPrint.getState();
         switch (state) {
             case PrintJobInfo.STATE_BLOCKED:
+                setResult(MainActivity.RESULT_CANCELED, new Intent());
                 finish();
                 break;
             case PrintJobInfo.STATE_CANCELED:
+                setResult(MainActivity.RESULT_CANCELED, new Intent());
                 finish();
                 break;
             case PrintJobInfo.STATE_COMPLETED:
+                setResult(MainActivity.RESULT_OK, new Intent());
                 finish();
                 break;
             case PrintJobInfo.STATE_CREATED:
@@ -72,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 test();
                 break;
             case PrintJobInfo.STATE_FAILED:
+                setResult(MainActivity.RESULT_CANCELED, new Intent());
                 finish();
                 break;
             case PrintJobInfo.STATE_QUEUED:
