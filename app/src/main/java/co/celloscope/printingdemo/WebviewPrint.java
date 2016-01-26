@@ -73,4 +73,8 @@ class WebViewPrint {
         // Save the job object for later status checking
         mPrintJobs.add(printJob);
     }
+
+    public int getState() {
+        return mPrintJobs.get(0).getInfo().getState();
+    }
 }

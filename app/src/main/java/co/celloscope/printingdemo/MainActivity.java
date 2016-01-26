@@ -1,8 +1,11 @@
 package co.celloscope.printingdemo;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.print.PrintJob;
+import android.print.PrintJobInfo;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,15 +15,20 @@ public class MainActivity extends AppCompatActivity {
     private static final String RECEIPT_TYPE = "ReceiptType";
     private static final String JSON_DATA = "JsonData";
     private static final String TEMPLATE_HTML = "template.html";
+    private WebViewPrint webViewPrint;
+    private TextView statusTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+        statusTextView = (TextView) findViewById(R.id.statusTextView);
 
         try {
-            new WebViewPrint(MainActivity.this)
-                    .print(getHtmlFile());
+            webViewPrint = new WebViewPrint(MainActivity.this);
+            webViewPrint.print(getHtmlFile());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,9 +41,56 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         if (isResumeOnce) {
-            finish();
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    test();
+                }
+            });
         }
         isResumeOnce = true;
+    }
+
+    private void test() {
+        int state = webViewPrint.getState();
+        switch (state) {
+            case PrintJobInfo.STATE_BLOCKED:
+                finish();
+                break;
+            case PrintJobInfo.STATE_CANCELED:
+                finish();
+                break;
+            case PrintJobInfo.STATE_COMPLETED:
+                finish();
+                break;
+            case PrintJobInfo.STATE_CREATED:
+                statusTextView.post(new Runnable() {
+                    public void run() {
+                        statusTextView.setText(R.string.printing);
+                    }
+                });
+                test();
+                break;
+            case PrintJobInfo.STATE_FAILED:
+                finish();
+                break;
+            case PrintJobInfo.STATE_QUEUED:
+                statusTextView.post(new Runnable() {
+                    public void run() {
+                        statusTextView.setText(R.string.printJobQueued);
+                    }
+                });
+                test();
+                break;
+            case PrintJobInfo.STATE_STARTED:
+                statusTextView.post(new Runnable() {
+                    public void run() {
+                        statusTextView.setText(R.string.printingStarted);
+                    }
+                });
+                test();
+                break;
+        }
     }
 
     private File getHtmlFile() throws IOException {

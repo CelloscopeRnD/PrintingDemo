@@ -77,4 +77,7 @@
     <string name="userText">ইউজার</string>
     <string name="withdrawAmountText">উত্তোলনের পরিমান</string>
     <string name="withdrawDateText">উত্তোলনের তারিখ</string>
+    <string name="printing">Printing...</string>
+    <string name="printingStarted">Printing Started</string>
+    <string name="printJobQueued">Print Job Queued</string>
 </resources>
