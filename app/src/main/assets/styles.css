@@ -104,8 +104,8 @@ body {
 }
 
 table, th, td {
-    /*border-collapse: collapse;
-    border: 1px solid lightgray;*/
+    border-collapse: collapse;
+    /*border: 1px solid lightgray;*/
 }
 
 tr {
