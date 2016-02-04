@@ -176,7 +176,7 @@ span.colon {
     vertical-align: top;
 }
 
-.thirdTable {
+.thirdTable, .fourthTable {
     width: 85%;
 }
 
