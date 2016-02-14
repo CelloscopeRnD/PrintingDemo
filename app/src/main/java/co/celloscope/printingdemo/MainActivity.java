@@ -11,6 +11,9 @@ import android.print.PrintJobInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,6 +49,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private Bitmap getQRBitmap() {
+        String qrData = "Data I want to encode in QR code";
+        int qrCodeDimention = 500;
+
+        QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(qrData, null,
+                Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString(), qrCodeDimention);
+
+        Bitmap bitmap = null;
+        try {
+            bitmap = qrCodeEncoder.encodeAsBitmap();
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
     private void createPhoto() throws JSONException {
         String imageString;
         if (getJsonString() == null) {
@@ -60,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createQR() {
-        Bitmap b = getBitmapFromAsset(MainActivity.this, "qr.png");
+//        Bitmap b = getBitmapFromAsset(MainActivity.this, "qr.png");
+        Bitmap b = getQRBitmap();
         FileHelper.saveBitmapFileToExternalCacheDirectory(MainActivity.this, b, "qr.png");
     }
 
