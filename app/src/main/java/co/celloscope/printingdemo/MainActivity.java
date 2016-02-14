@@ -1,6 +1,8 @@
 package co.celloscope.printingdemo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             createPhoto();
+            createQR();
             webViewPrint = new WebViewPrint(MainActivity.this);
             webViewPrint.print(getHtmlFile());
 
@@ -52,8 +55,25 @@ public class MainActivity extends AppCompatActivity {
         }
         if (imageString != null) {
             Bitmap b = createImageFromString(imageString);
-            FileHelper.createPhotoInExternalCacheDirectory(MainActivity.this, b, "photo.png");
+            FileHelper.saveBitmapFileToExternalCacheDirectory(MainActivity.this, b, "photo.png");
         }
+    }
+
+    private void createQR() {
+        Bitmap b = getBitmapFromAsset(MainActivity.this, "qr.png");
+        FileHelper.saveBitmapFileToExternalCacheDirectory(MainActivity.this, b, "qr.png");
+    }
+
+    public static Bitmap getBitmapFromAsset(Context context, String filePath) {
+        Bitmap bitmap = null;
+        try {
+            InputStream inputStream = context.getAssets().open(filePath);
+            bitmap = BitmapFactory.decodeStream(inputStream);
+        } catch (IOException e) {
+            // handle exception
+        }
+
+        return bitmap;
     }
 
     boolean isResumeOnce = false;

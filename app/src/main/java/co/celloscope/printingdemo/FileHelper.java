@@ -36,7 +36,7 @@ public class FileHelper {
         return tempFile;
     }
 
-    static boolean createPhotoInExternalCacheDirectory(Context context, Bitmap bitmap, String destinationFileName) {
+    static boolean saveBitmapFileToExternalCacheDirectory(Context context, Bitmap bitmap, String destinationFileName) {
         try {
             File dest = new File(getDestinationDirectory(context), destinationFileName);
             java.io.FileOutputStream destinationFile = new FileOutputStream(dest);
