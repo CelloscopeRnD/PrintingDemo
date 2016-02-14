@@ -1,6 +1,8 @@
 package co.celloscope.printingdemo;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.print.PrintJob;
@@ -8,8 +10,11 @@ import android.print.PrintJobInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private WebViewPrint webViewPrint;
     private TextView statusTextView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
         statusTextView = (TextView) findViewById(R.id.statusTextView);
 
         try {
+            InputStream inputStream = MainActivity.this.getAssets().open("rocky.png");
+            byte[] bytes = convertFileToByte(inputStream);
+            String imageString = bytesToHexString(bytes);
+            Bitmap b = createImageFromString(imageString);
+            FileHelper.createPhotoInExternalCacheDirectory(MainActivity.this, b, "photo.png");
             webViewPrint = new WebViewPrint(MainActivity.this);
             webViewPrint.print(getHtmlFile());
 
@@ -34,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
     boolean isResumeOnce = false;
 
@@ -50,6 +58,83 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         isResumeOnce = true;
+    }
+
+    public static Bitmap createImageFromString(String hexString) {
+        Bitmap bmp = null;
+        try {
+            byte[] barray = hexStringToByteArray2(hexString);
+            bmp = BitmapFactory.decodeByteArray(barray, 0, barray.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bmp;
+    }
+
+    public static final byte[] hexStringToByteArray2(final String hex) {
+        byte[] bytes = new byte[(hex.length() / 2)];
+        int j = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            j = i * 2;
+            String hex_pair = hex.substring(j, j + 2);
+            byte b = (byte) (Integer.parseInt(hex_pair, 16) & 0xFF);
+            bytes[i] = b;
+        }
+        return bytes;
+    }
+
+    public static String bytesToHexString(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b & 0xff));
+        }
+        return sb.toString();
+    }
+
+    public static byte[] convertFileToByte(InputStream is) {
+
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        int nRead;
+        byte[] data = new byte[16384];
+
+        try {
+            while ((nRead = is.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
+            buffer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return buffer.toByteArray();
+    }
+
+    public static byte[] convertFileToByte(String filePath) {
+        FileInputStream fileInputStream = null;
+
+        // File file = new File("d:\\uploaded\\Redis_Cluster.pdf");
+        File file = new File(filePath);
+
+        byte[] bFile = new byte[(int) file.length()];
+
+        try {
+            // convert file into array of bytes
+            fileInputStream = new FileInputStream(file);
+            fileInputStream.read(bFile);
+            fileInputStream.close();
+
+            for (int i = 0; i < bFile.length; i++) {
+                System.out.print((char) bFile[i]);
+            }
+
+            System.out.println("Done");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return bFile;
     }
 
     private void test() {

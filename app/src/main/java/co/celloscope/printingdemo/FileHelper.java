@@ -2,6 +2,7 @@ package co.celloscope.printingdemo;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 
@@ -33,6 +34,21 @@ public class FileHelper {
         bw.write(data);
         bw.close();
         return tempFile;
+    }
+
+    static boolean createPhotoInExternalCacheDirectory(Context context, Bitmap bitmap, String destinationFileName) {
+        try {
+            File dest = new File(getDestinationDirectory(context), destinationFileName);
+            java.io.FileOutputStream destinationFile = new FileOutputStream(dest);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 85, destinationFile);
+            destinationFile.flush();
+            destinationFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false; // Erreur
+        }
+
+        return true; // Rsultat OK
     }
 
     static String getRealPathFromUri(Context context, Uri contentUri) {
@@ -89,7 +105,7 @@ public class FileHelper {
     static void deleteDestinationDirectory(Context context) {
         for (File f :
                 getDestinationDirectory(context).listFiles()) {
-            f.delete();
+//            f.delete();
         }
     }
 }
