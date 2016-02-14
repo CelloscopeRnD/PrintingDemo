@@ -186,6 +186,9 @@ function replaceToken(receipt) {
         case 16:
             setChequeStopPaymentRangeCancel();
             break;
+        case 17:
+            setMiniStatement();
+            break;
         default:
             break;
     }
@@ -527,6 +530,35 @@ function setChequeStopPaymentRangeCancel() {
         [[emptyText, emptyText], [emptyText, emptyText]]
     ];
     replaceTableData(tableData);
+}
+
+function setMiniStatement() {
+    addClassText("title", cityAgentSavingsAccountText);
+
+    addClassText(accountNoLabelId, accountNoText);
+    addClassText(accountNumberId, data.accountNumber);
+    addClassText(accountTypeId, data.savingsAccountType);
+    addClassText(linkAccountNumberColonId, emptyText);
+    addClassText(linkAccountNumberLabelId, emptyText);
+    addClassText(linkAccountNumberId, emptyText);
+
+    addClassText(customerAddressId, data.customerAddress);
+
+    var tableData = [
+           ['Date', 'Description', 'Deposit', 'Withdraw', 'Balance'],
+           ['15-Dec-2016', 'FT-School Fee', '', '500.00', '4500.00'],
+           ['14-Dec-2016', 'DEP Cash', '1500.00', '', '6000.00'],
+           ['14-Dec-2016', 'WDL-Cash', '', '2000.00', '4000.00'],
+           ['13-Dec-2016', 'FT-Other Bank', '', '2000.00', '2000.00'],
+           ['12-Dec-2016', 'DEP-Personal A/C', '7000.00', '', '9000.00'],
+    ];
+
+    var fourthTable = document.getElementsByClassName('fourthTable')[0];
+    for (var r in tableData) {
+        for (var c in tableData[r]) {
+            fourthTable.rows[r].cells[c].innerHTML = tableData[r][c];
+        }
+    }
 }
 
 function replaceTableData(tableData) {
