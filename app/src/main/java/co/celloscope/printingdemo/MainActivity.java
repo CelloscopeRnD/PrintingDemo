@@ -50,7 +50,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Bitmap getQRBitmap() {
-        String qrData = "Data I want to encode in QR code";
+        String qrData = "";
+        String transactionCode = null;
+        String requestId = null;
+        try {
+            if (getJsonString() == null) {
+                transactionCode = new JSONObject(getDummyJsonString()).getString("transactionCode");
+                requestId = new JSONObject(getDummyJsonString()).getString("requestId");
+            } else {
+                transactionCode = new JSONObject(getJsonString()).getString("transactionCode");
+                requestId = new JSONObject(getJsonString()).getString("requestId");
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (requestId != null) {
+            qrData += requestId;
+        }
+        if (transactionCode != null) {
+            qrData += ":" + transactionCode;
+        }
+
         int qrCodeDimention = 500;
 
         QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(qrData, null,
@@ -79,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createQR() {
-//        Bitmap b = getBitmapFromAsset(MainActivity.this, "qr.png");
         Bitmap b = getQRBitmap();
         FileHelper.saveBitmapFileToExternalCacheDirectory(MainActivity.this, b, "qr.png");
     }
@@ -247,6 +267,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getDummyJsonString() {
-        return "{ \"accountName\": \"MD Arif Gazi\", \"accountNumber\": \"2001158500126\", \"agentName\": \"BADRUL ALOM\", \"balanceAmount\": \"BDT 80,550.00\", \"balanceAmountInWords\": \"EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY\", \"boothAddress\": \"VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI\", \"charge\": \"BDT 7.50\", \"customerAddress\": \"GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA\", \"customerId\": \"CB1158500\", \"customerName\": \"Md. Arif Gazi\", \"depositAmountInWords\": \"THREE THOUSAND ONLY\", \"depositAmount\": \"BDT 3,000.00\", \"dpsAccountType\": \"DPS\", \"linkAccountNumber\": \"2005246987526\", \"maturityAmount\": \"BDT 2,26,047.00\", \"maturityDate\": \"19-JAN-2021\", \"mobileNo\": \"01617877595\", \"principalAmount\": \"BDT 1,00,000.00\", \"printDate\": \"19-JAN-2016 13:13:15 PM\", \"productTenor\": \"5 Years\", \"profitRate\": \"8.85% (Yearly)\", \"receiverAccountName\": \"SUJON PATWARY\", \"termDepositAccountType\": \"TERM DEPOSIT\", \"transactionDate\": \"19-JAN-2016\", \"savingsAccountType\": \"Savings\", \"transactionCode\": \"TR222369\", \"userId\": \"615001001 (NAIM ISLAM)\", \"withdrawAmount\": \"BDT 3,000.00 + 7.5 (Charge)\", \"withdrawsAmountInWords\": \"THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY\", \"photo\": \"\" }";
+        return "{ \"accountName\": \"MD Arif Gazi\", \"accountNumber\": \"2001158500126\", \"agentName\": \"BADRUL ALOM\", \"balanceAmount\": \"BDT 80,550.00\", \"balanceAmountInWords\": \"EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY\", \"boothAddress\": \"VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI\", \"charge\": \"BDT 7.50\", \"customerAddress\": \"GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA\", \"customerId\": \"CB1158500\", \"customerName\": \"Md. Arif Gazi\", \"depositAmountInWords\": \"THREE THOUSAND ONLY\", \"depositAmount\": \"BDT 3,000.00\", \"dpsAccountType\": \"DPS\", \"linkAccountNumber\": \"2005246987526\", \"maturityAmount\": \"BDT 2,26,047.00\", \"maturityDate\": \"19-JAN-2021\", \"mobileNo\": \"01617877595\", \"principalAmount\": \"BDT 1,00,000.00\", \"printDate\": \"19-JAN-2016 13:13:15 PM\", \"productTenor\": \"5 Years\", \"profitRate\": \"8.85% (Yearly)\", \"receiverAccountName\": \"SUJON PATWARY\", \"termDepositAccountType\": \"TERM DEPOSIT\", \"transactionDate\": \"19-JAN-2016\", \"savingsAccountType\": \"Savings\", \"transactionCode\": \"TR222369\", \"userId\": \"615001001 (NAIM ISLAM)\", \"withdrawAmount\": \"BDT 3,000.00 + 7.5 (Charge)\", \"withdrawsAmountInWords\": \"THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY\", \"photo\": \"\" , \"requestId\": \"7E:B6:46:65:82:26/7E:B6:46:65:82:26###20160116153100\"}";
     }
 }
