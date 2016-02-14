@@ -51,53 +51,6 @@ public class FileHelper {
         return true; // Rsultat OK
     }
 
-    static String getRealPathFromUri(Context context, Uri contentUri) {
-        Cursor cursor = null;
-        try {
-            String[] proj = {MediaStore.Images.Media.DATA};
-            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-    }
-
-    static boolean copyFileToExternalCacheDir(Context context, File source, String destinationFileName) {
-        try {
-            FileInputStream sourceFile = new FileInputStream(source);
-            File dest = new File(getDestinationDirectory(context), destinationFileName);
-
-            try {
-                java.io.FileOutputStream destinationFile = null;
-
-                try {
-                    destinationFile = new FileOutputStream(dest);
-
-                    // Lecture par segment de 0.5Mo
-                    byte buffer[] = new byte[512 * 1024];
-                    int nbLecture;
-
-                    while ((nbLecture = sourceFile.read(buffer)) != -1) {
-                        destinationFile.write(buffer, 0, nbLecture);
-                    }
-                } finally {
-                    destinationFile.close();
-                }
-            } finally {
-                sourceFile.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false; // Erreur
-        }
-
-        return true; // Rsultat OK
-    }
-
     static File getDestinationDirectory(Context context) {
         return context.getExternalCacheDir();
     }
@@ -105,7 +58,7 @@ public class FileHelper {
     static void deleteDestinationDirectory(Context context) {
         for (File f :
                 getDestinationDirectory(context).listFiles()) {
-//            f.delete();
+            f.delete();
         }
     }
 }

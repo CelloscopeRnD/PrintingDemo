@@ -5,14 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.print.PrintJob;
 import android.print.PrintJobInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -31,16 +32,27 @@ public class MainActivity extends AppCompatActivity {
         statusTextView = (TextView) findViewById(R.id.statusTextView);
 
         try {
-            InputStream inputStream = MainActivity.this.getAssets().open("rocky.png");
-            byte[] bytes = convertFileToByte(inputStream);
-            String imageString = bytesToHexString(bytes);
-            Bitmap b = createImageFromString(imageString);
-            FileHelper.createPhotoInExternalCacheDirectory(MainActivity.this, b, "photo.png");
+            createPhoto();
             webViewPrint = new WebViewPrint(MainActivity.this);
             webViewPrint.print(getHtmlFile());
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createPhoto() throws JSONException {
+        String imageString;
+        if (getJsonString() == null) {
+            imageString = getDummyHexStringForPhoto();
+        } else {
+            imageString = new JSONObject(getJsonString()).getString("photo");
+        }
+        if (imageString!=null){
+            Bitmap b = createImageFromString(imageString);
+            FileHelper.createPhotoInExternalCacheDirectory(MainActivity.this, b, "photo.png");
         }
     }
 
@@ -111,32 +123,6 @@ public class MainActivity extends AppCompatActivity {
         return buffer.toByteArray();
     }
 
-    public static byte[] convertFileToByte(String filePath) {
-        FileInputStream fileInputStream = null;
-
-        // File file = new File("d:\\uploaded\\Redis_Cluster.pdf");
-        File file = new File(filePath);
-
-        byte[] bFile = new byte[(int) file.length()];
-
-        try {
-            // convert file into array of bytes
-            fileInputStream = new FileInputStream(file);
-            fileInputStream.read(bFile);
-            fileInputStream.close();
-
-            for (int i = 0; i < bFile.length; i++) {
-                System.out.print((char) bFile[i]);
-            }
-
-            System.out.println("Done");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return bFile;
-    }
-
     private void test() {
         int state = webViewPrint.getState();
         switch (state) {
@@ -192,12 +178,35 @@ public class MainActivity extends AppCompatActivity {
                 "#RECEIPT",
                 "#JSONDATA"
         };
-        String receiptType = this.getIntent().getStringExtra(RECEIPT_TYPE);
-        String jsonData = this.getIntent().getStringExtra(JSON_DATA);
+        String receiptType = getReceiptType();
+        String jsonData = getJsonString();
         String[] values = {
                 receiptType != null ? receiptType : "1",
-                jsonData != null ? jsonData : "{ \"accountName\": \"MD Arif Gazi\", \"accountNumber\": \"2001158500126\", \"agentName\": \"BADRUL ALOM\", \"balanceAmount\": \"BDT 80,550.00\", \"balanceAmountInWords\": \"EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY\", \"boothAddress\": \"VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI\", \"charge\": \"BDT 7.50\", \"customerAddress\": \"GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA\", \"customerId\": \"CB1158500\", \"customerName\": \"Md. Arif Gazi\", \"depositAmountInWords\": \"THREE THOUSAND ONLY\", \"depositAmount\": \"BDT 3,000.00\", \"dpsAccountType\": \"DPS\", \"linkAccountNumber\": \"2005246987526\", \"maturityAmount\": \"BDT 2,26,047.00\", \"maturityDate\": \"19-JAN-2021\", \"mobileNo\": \"01617877595\", \"principalAmount\": \"BDT 1,00,000.00\", \"printDate\": \"19-JAN-2016 13:13:15 PM\", \"productTenor\": \"5 Years\", \"profitRate\": \"8.85% (Yearly)\", \"receiverAccountName\": \"SUJON PATWARY\", \"termDepositAccountType\": \"TERM DEPOSIT\", \"transactionDate\": \"19-JAN-2016\", \"savingsAccountType\": \"Savings\", \"transactionCode\": \"TR222369\", \"userId\": \"615001001 (NAIM ISLAM)\", \"withdrawAmount\": \"BDT 3,000.00 + 7.5 (Charge)\", \"withdrawsAmountInWords\": \"THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY\" }"
+                jsonData != null ? jsonData : getDummyJsonString()
         };
         return new HtmlHelper(this).getHtml(TEMPLATE_HTML, keys, values);
+    }
+
+    private String getReceiptType() {
+        return this.getIntent().getStringExtra(RECEIPT_TYPE);
+    }
+
+    private String getJsonString() {
+        return this.getIntent().getStringExtra(JSON_DATA);
+    }
+
+    private String getDummyHexStringForPhoto() {
+        InputStream inputStream = null;
+        try {
+            inputStream = MainActivity.this.getAssets().open("photo.png");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] bytes = convertFileToByte(inputStream);
+        return bytesToHexString(bytes);
+    }
+
+    private String getDummyJsonString() {
+        return "{ \"accountName\": \"MD Arif Gazi\", \"accountNumber\": \"2001158500126\", \"agentName\": \"BADRUL ALOM\", \"balanceAmount\": \"BDT 80,550.00\", \"balanceAmountInWords\": \"EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY\", \"boothAddress\": \"VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI\", \"charge\": \"BDT 7.50\", \"customerAddress\": \"GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA\", \"customerId\": \"CB1158500\", \"customerName\": \"Md. Arif Gazi\", \"depositAmountInWords\": \"THREE THOUSAND ONLY\", \"depositAmount\": \"BDT 3,000.00\", \"dpsAccountType\": \"DPS\", \"linkAccountNumber\": \"2005246987526\", \"maturityAmount\": \"BDT 2,26,047.00\", \"maturityDate\": \"19-JAN-2021\", \"mobileNo\": \"01617877595\", \"principalAmount\": \"BDT 1,00,000.00\", \"printDate\": \"19-JAN-2016 13:13:15 PM\", \"productTenor\": \"5 Years\", \"profitRate\": \"8.85% (Yearly)\", \"receiverAccountName\": \"SUJON PATWARY\", \"termDepositAccountType\": \"TERM DEPOSIT\", \"transactionDate\": \"19-JAN-2016\", \"savingsAccountType\": \"Savings\", \"transactionCode\": \"TR222369\", \"userId\": \"615001001 (NAIM ISLAM)\", \"withdrawAmount\": \"BDT 3,000.00 + 7.5 (Charge)\", \"withdrawsAmountInWords\": \"THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY\", \"photo\": \"\" }";
     }
 }
