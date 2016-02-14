@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             imageString = new JSONObject(getJsonString()).getString("photo");
         }
-        if (imageString!=null){
+        if (imageString != null) {
             Bitmap b = createImageFromString(imageString);
             FileHelper.createPhotoInExternalCacheDirectory(MainActivity.this, b, "photo.png");
         }
