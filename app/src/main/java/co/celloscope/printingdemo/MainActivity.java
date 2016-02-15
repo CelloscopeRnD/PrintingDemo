@@ -232,10 +232,10 @@ public class MainActivity extends AppCompatActivity {
         String receiptType = getReceiptType();
         String jsonData = getJsonString();
         String[] values = {
-                receiptType != null ? receiptType : "3",
+                receiptType != null ? receiptType : "17",
                 jsonData != null ? jsonData : getDummyJsonString()
         };
-        if (receiptType == "17") {
+        if (values[0] == "17") {
             return new HtmlHelper(this).getHtml(MINI_STATEMENT_TEMPLATE_HTML, keys, values);
         } else {
             return new HtmlHelper(this).getHtml(TEMPLATE_HTML, keys, values);
