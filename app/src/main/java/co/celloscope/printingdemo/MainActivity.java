@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         String receiptType = getReceiptType();
         String jsonData = getJsonString();
         String[] values = {
-                receiptType != null ? receiptType : "2",
+                receiptType != null ? receiptType : "3",
                 jsonData != null ? jsonData : getDummyJsonString()
         };
         return new HtmlHelper(this).getHtml(TEMPLATE_HTML, keys, values);
