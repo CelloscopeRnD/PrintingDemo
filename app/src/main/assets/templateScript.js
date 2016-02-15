@@ -19,15 +19,17 @@
             "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA",
             "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00",
             "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost",
-            "photo": ""
+            "photo": "", "statement": [
+                ['Date', 'Description', 'Deposit', 'Withdraw', 'Balance'],
+                ['15-Dec-2016', 'FT-School Fee', '', '500.00', '4500.00'],
+                ['14-Dec-2016', 'DEP Cash', '1500.00', '', '6000.00'],
+                ['14-Dec-2016', 'WDL-Cash', '', '2000.00', '4000.00'],
+                ['13-Dec-2016', 'FT-Other Bank', '', '2000.00', '2000.00'],
+                ['12-Dec-2016', 'DEP-Personal A/C', '7000.00', '', '9000.00']]
         };
-        //window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA", "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00", "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost" };
     }
-    //console.log(window);
 
-
-    addStyleSheet('style_sheet/styles.css');
-    addStyleSheet('file:///android_asset/styles.css');
+    addStyleSheet('style_sheet/styles.css'); addStyleSheet('file:///android_asset/styles.css');
     replaceToken(parseInt(url));
 }
 
@@ -544,14 +546,7 @@ function setMiniStatement() {
 
     addClassText(customerAddressId, data.customerAddress);
 
-    var tableData = [
-           ['Date', 'Description', 'Deposit', 'Withdraw', 'Balance'],
-           ['15-Dec-2016', 'FT-School Fee', '', '500.00', '4500.00'],
-           ['14-Dec-2016', 'DEP Cash', '1500.00', '', '6000.00'],
-           ['14-Dec-2016', 'WDL-Cash', '', '2000.00', '4000.00'],
-           ['13-Dec-2016', 'FT-Other Bank', '', '2000.00', '2000.00'],
-           ['12-Dec-2016', 'DEP-Personal A/C', '7000.00', '', '9000.00'],
-    ];
+    var tableData = data.statement;
 
     var fourthTable = document.getElementsByClassName('fourthTable')[0];
     for (var r in tableData) {
