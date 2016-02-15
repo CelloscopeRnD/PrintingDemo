@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String RECEIPT_TYPE = "ReceiptType";
     private static final String JSON_DATA = "JsonData";
     private static final String TEMPLATE_HTML = "template.html";
+    private static final String MINI_STATEMENT_TEMPLATE_HTML = "miniStatementTemplate.html";
     private WebViewPrint webViewPrint;
     private TextView statusTextView;
 
@@ -231,10 +232,14 @@ public class MainActivity extends AppCompatActivity {
         String receiptType = getReceiptType();
         String jsonData = getJsonString();
         String[] values = {
-                receiptType != null ? receiptType : "3",
+                receiptType != null ? receiptType : "17",
                 jsonData != null ? jsonData : getDummyJsonString()
         };
-        return new HtmlHelper(this).getHtml(TEMPLATE_HTML, keys, values);
+        if (receiptType == "17") {
+            return new HtmlHelper(this).getHtml(MINI_STATEMENT_TEMPLATE_HTML, keys, values);
+        } else {
+            return new HtmlHelper(this).getHtml(TEMPLATE_HTML, keys, values);
+        }
     }
 
     private String getReceiptType() {
