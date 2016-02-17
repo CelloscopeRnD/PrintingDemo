@@ -33,108 +33,174 @@
     replaceToken(parseInt(url));
 }
 
-var accountNoLabelId = "accountNoLabel";
-var accountNumberId = "accountNumber";
-var accountTypeId = "accountType";
-var customerAddressId = "customerAddress";
-var linkAccountNumberColonId = "linkAccountNumberColon";
-var linkAccountNumberLabelId = "linkAccountNumberLabel";
-var linkAccountNumberId = "linkAccountNumber";
-var titleId = "title";
+function setData() {
+    switch (receipt) {
+        case 1:
+            setAccountBalance();
+            break;
+        case 2:
+            setCashDeposit();
+            break;
+        case 3:
+            setCashWithdraw();
+            break;
+        case 4:
+            setDPSAccount();
+            break;
+        case 5:
+            setFixedDeposit();
+            break;
+        case 6:
+            setFundTransfer();
+            break;
+        case 7:
+            setSavingsAccount();
+            break;
+        case 8:
+            setATMDebitCardRequest();
+            break;
+        case 9:
+            setATMDebitCardDelivery();
+            break;
+        case 10:
+            setATMDebitCardCancel();
+            break;
+        case 11:
+            setChequeBookRequisition();
+            break;
+        case 12:
+            setChequeBookDelivery();
+            break;
+        case 13:
+            setChequeStopPaymentSingle();
+            break;
+        case 14:
+            setChequeStopPaymentRange();
+            break;
+        case 15:
+            setChequeStopPaymentSingleCancel();
+            break;
+        case 16:
+            setChequeStopPaymentRangeCancel();
+            break;
+        case 17:
+            setMiniStatement();
+            break;
+        case 18:
+            setRemittanceRequest();
+            break;
+        case 19:
+            setRemittanceWithdraw();
+            break;
+        default:
+            break;
+    }
+}
 
-var accountNoText = "হিসাব নম্বর";
-var accountNameText = "হিসাব নাম";
-var accountBalanceText = "ব্যালান্স";
-var accountOpeningDateText = "হিসাব খোলার তারিখ";
-var accountTypeText = "হিসাবের ধরন";
-var addressLine1Text = "এজেন্ট ব্যাংকিং ডিভিশন";
-var addressLine2Text = "সিটি ব্যাংক লিঃ";
-var addressLine3Text = "সিটি ব্যাংক  সেন্টার ১৩৬";
-var addressLine4Text = "গুলশান এভিনিউ, ঢাকা-১২১২";
-var addressText = "ঠিকানা";
-var agentNameText = "এজেন্টের নাম";
-var atmDebitCardCancelText = "এটিএম / ডেবিট কার্ড বাতিলকরন";
-var atmDebitCardDeliveryText = "এটিএম / ডেবিট কার্ড হস্তান্তর";
-var atmDebitCardRequestText = "এটিএম / ডেবিটি কার্ডের অনুরোধ";
-var balanceAmountText = "ব্যালান্সের পরিমান";
-var balanceDateText = "ব্যালান্সের তারিখ";
-var chargeText = "চার্জ";
-var cashDepositText = "নগদ জমা";
-var cashWithdrawText = "নগদ উত্তোলন";
-var chequeBookDeliveryText = "চেক বই হস্তান্তর";
-var chequeBookRequisitionText = "চেক বই প্রদানের অনুরোধ";
-var chequeStopPaymentSingleCancelText = "চেক স্টপ পেমেন্ট - সিঙ্গেল নির্দেশনা বাতিলকরন";
-var chequeStopPaymentRangeCancelText = "চেক স্টপ পেমেন্ট - রেঞ্জ নির্দেশনা বাতিলকরন";
-var chequeStopPaymentRangeText = "চেক স্টপ পেমেন্ট নির্দেশনা - রেঞ্জ";
-var chequeStopPaymentSingleText = "চেক স্টপ পেমেন্ট নির্দেশনা - সিঙ্গেল";
-var cityAgentFixedDepositText = "সিটি এজেন্ট ফিক্সড ডিপোজিট";
-var cityAgentSavingsAccountText = "সিটি এজেন্ট সেভিংস হিসাব";
-var colonText = ":";
-var customerIdText = "গ্রাহক আইডি";
-var customerNameText = "গ্রাহকের নাম";
-var depositAmountText = "জমার পরিমান";
-var depositDateText = "জমার তারিখ";
-var emptyText = "";
-var fundTransferDateText = "ফান্ড ট্রান্সফারের তারিখ"
-var fundTransferText = "ফান্ড ট্রান্সফার";
-var generalDPSAccountText = "সাধারন ডিপিএস হিসাব";
-var initialDepositText = "প্রারম্ভিক জমার পরিমান";
-var inWordsText = "কথায়";
-var linkAccountNumberText = "লিংক হিসাব নম্বর";
-var maturityAmountText = "মেয়াদান্তে টাকার পরিমান";
-var maturityDateText = "মেয়াদান্তের তারিখ";
-var mobileNoText = "মোবাইল নং";
-var monthlyDepositText = "মাসিক জমা";
-var profitRateText = "মুনাফার হার";
-var printDateText = "প্রিন্টের তারিখ";
-var principalAmountText = "আসল টাকার পরিমান";
-var productTenorText = "মেয়াদ";
-var receiverAccountNoText = "প্রাপকের হিসাব নম্বর";
-var receiverAccountNameText = "প্রাপকের হিসাব নাম";
-var senderAccountNoText = "প্রেরকের হিসাব নম্বর";
-var sendrAccountNameText = "প্রেরকের হিসাব নাম";
-var transferAmountText = "ট্রান্সফারের পরিমান";
-var transactionIdText = "লেনদেন আইডি";
-var userText = "ইউজার";
-var withdrawAmountText = "উত্তোলনের পরিমান";
-var withdrawDateText = "উত্তোলনের তারিখ";
+var labelText = {
 
-var cardTypeText = "কার্ডের ধরণ";
-var requestReceiveTimeText = "অনুরোধ গ্রহনের সময়";
-var requestIdText = "অনুরোধ আইডি";
-var cardTitleText = "কার্ড টাইটেল";
-var cardBrandText = "কার্ডের ব্রান্ড";
-var cardNumberText = "কার্ড নম্বর";
-var deliveryDateText = "হস্তান্তরের তারিখ";
-var noOfLeaveText = "পাতার সংখ্যা";
-var chequeLostReasonText = "চেকটি";
-var chequeLeafNumberText = "চেক পাতার নম্বর";
-var amountOfTkText = "টাকার পরিমান";
-var receiverNameText = "প্রাপকের নাম";
-var retrieveFromText = "পুনরুদ্ধার হয়েছে";
+    accountNoLabelId: "accountNoLabel",
+    accountNumberId: "accountNumber",
+    accountTypeId: "accountType",
+    customerAddressId: "customerAddress",
+    linkAccountNumberColonId: "linkAccountNumberColon",
+    linkAccountNumberLabelId: "linkAccountNumberLabel",
+    linkAccountNumberId: "linkAccountNumber",
+    titleId: "title",
 
-var addressTextEnglish = "Address";
-var agentNameTextEnglish = "Agent Name";
-var amountInWordsTextEnglish = "Amount in Words";
-var apprxAmountTextEnglish = "Apprx.  Amount";
-var currencyTextEnglish = "Currency";
-var exchangeRateTextEnglish = "Exchange Rate";
-var fxAmountTextEnglish = "Fx Amount";
-var iDTypeTextEnglish = "ID Type";
-var iDNumberTextEnglish = "ID Number";
-var inwardForeignRemittanceRequestTextEnglish = "Inward Foreign Remittance Request";
-var inwardForeignRemittanceWithdrawTextEnglish = "Inward Foreign Remittance Withdraw";
-var mobileNoTextEnglish = "Mobile No";
-var exchangeHouseNameEnglish = "Exchange House Name";
-var payableAmountTextEnglish = "Payable Amount";
-var pinNoTextEnglish = "Pin No";
-var printDateTextEnglish = "Print Date";
-var payableAmountTextEnglish = "Payable Amount";
-var recipientNameTextEnglish = "Recipient Name";
-var senderCountryTextEnglish = "Sender Country";
-var senderNameTextEnglish = "Sender Name";
-var transactionIdTextEnglish = "Transaction Id";
-var userTextEnglish = "User";
+    titleId: "হিসাব নম্বর",
+    accountNameText: "হিসাব নাম",
+    accountBalanceText: "ব্যালান্স",
+    accountOpeningDateText: "হিসাব খোলার তারিখ",
+    accountTypeText: "হিসাবের ধরন",
+    addressLine1Text: "এজেন্ট ব্যাংকিং ডিভিশন",
+    addressLine2Text: "সিটি ব্যাংক লিঃ",
+    addressLine3Text: "সিটি ব্যাংক  সেন্টার ১৩৬",
+    addressLine4Text: "গুলশান এভিনিউ, ঢাকা-১২১২",
+    addressText: "ঠিকানা",
+    agentNameText: "এজেন্টের নাম",
+    atmDebitCardCancelText: "এটিএম / ডেবিট কার্ড বাতিলকরন",
+    atmDebitCardDeliveryText: "এটিএম / ডেবিট কার্ড হস্তান্তর",
+    atmDebitCardRequestText: "এটিএম / ডেবিটি কার্ডের অনুরোধ",
+    balanceAmountText: "ব্যালান্সের পরিমান",
+    balanceDateText: "ব্যালান্সের তারিখ",
+    chargeText: "চার্জ",
+    cashDepositText: "নগদ জমা",
+    cashWithdrawText: "নগদ উত্তোলন",
+    chequeBookDeliveryText: "চেক বই হস্তান্তর",
+    chequeBookRequisitionText: "চেক বই প্রদানের অনুরোধ",
+    chequeStopPaymentSingleCancelText: "চেক স্টপ পেমেন্ট - সিঙ্গেল নির্দেশনা বাতিলকরন",
+    chequeStopPaymentRangeCancelText: "চেক স্টপ পেমেন্ট - রেঞ্জ নির্দেশনা বাতিলকরন",
+    chequeStopPaymentRangeText: "চেক স্টপ পেমেন্ট নির্দেশনা - রেঞ্জ",
+    chequeStopPaymentSingleText: "চেক স্টপ পেমেন্ট নির্দেশনা - সিঙ্গেল",
+    cityAgentFixedDepositText: "সিটি এজেন্ট ফিক্সড ডিপোজিট",
+    cityAgentSavingsAccountText: "সিটি এজেন্ট সেভিংস হিসাব",
+    colonText: ":",
+    customerIdText: "গ্রাহক আইডি",
+    customerNameText: "গ্রাহকের নাম",
+    depositAmountText: "জমার পরিমান",
+    depositDateText: "জমার তারিখ",
+    emptyText: "",
+    fundTransferDateText: "ফান্ড ট্রান্সফারের তারিখ",
+    fundTransferText: "ফান্ড ট্রান্সফার",
+    generalDPSAccountText: "সাধারন ডিপিএস হিসাব",
+    initialDepositText: "প্রারম্ভিক জমার পরিমান",
+    inWordsText: "কথায়",
+    linkAccountNumberText: "লিংক হিসাব নম্বর",
+    maturityAmountText: "মেয়াদান্তে টাকার পরিমান",
+    maturityDateText: "মেয়াদান্তের তারিখ",
+    mobileNoText: "মোবাইল নং",
+    monthlyDepositText: "মাসিক জমা",
+    profitRateText: "মুনাফার হার",
+    printDateText: "প্রিন্টের তারিখ",
+    principalAmountText: "আসল টাকার পরিমান",
+    productTenorText: "মেয়াদ",
+    receiverAccountNoText: "প্রাপকের হিসাব নম্বর",
+    receiverAccountNameText: "প্রাপকের হিসাব নাম",
+    senderAccountNoText: "প্রেরকের হিসাব নম্বর",
+    sendrAccountNameText: "প্রেরকের হিসাব নাম",
+    transferAmountText: "ট্রান্সফারের পরিমান",
+    transactionIdText: "লেনদেন আইডি",
+    userText: "ইউজার",
+    withdrawAmountText: "উত্তোলনের পরিমান",
+    withdrawDateText: "উত্তোলনের তারিখ",
+
+    cardTypeText: "কার্ডের ধরণ",
+    requestReceiveTimeText: "অনুরোধ গ্রহনের সময়",
+    requestIdText: "অনুরোধ আইডি",
+    cardTitleText: "কার্ড টাইটেল",
+    cardBrandText: "কার্ডের ব্রান্ড",
+    cardNumberText: "কার্ড নম্বর",
+    deliveryDateText: "হস্তান্তরের তারিখ",
+    noOfLeaveText: "পাতার সংখ্যা",
+    chequeLostReasonText: "চেকটি",
+    chequeLeafNumberText: "চেক পাতার নম্বর",
+    amountOfTkText: "টাকার পরিমান",
+    receiverNameText: "প্রাপকের নাম",
+    retrieveFromText: "পুনরুদ্ধার হয়েছে",
+
+    addressTextEnglish: "Address",
+    agentNameTextEnglish: "Agent Name",
+    amountInWordsTextEnglish: "Amount in Words",
+    apprxAmountTextEnglish: "Apprx.  Amount",
+    currencyTextEnglish: "Currency",
+    exchangeRateTextEnglish: "Exchange Rate",
+    fxAmountTextEnglish: "Fx Amount",
+    iDTypeTextEnglish: "ID Type",
+    iDNumberTextEnglish: "ID Number",
+    inwardForeignRemittanceRequestTextEnglish: "Inward Foreign Remittance Request",
+    inwardForeignRemittanceWithdrawTextEnglish: "Inward Foreign Remittance Withdraw",
+    mobileNoTextEnglish: "Mobile No",
+    exchangeHouseNameEnglish: "Exchange House Name",
+    payableAmountTextEnglish: "Payable Amount",
+    pinNoTextEnglish: "Pin No",
+    printDateTextEnglish: "Print Date",
+    recipientNameTextEnglish: "Recipient Name",
+    senderCountryTextEnglish: "Sender Country",
+    senderNameTextEnglish: "Sender Name",
+    transactionIdTextEnglish: "Transaction Id",
+    userTextEnglish: "User",
+}
 
 
 
@@ -144,16 +210,16 @@ function replaceToken(receipt) {
     addImage("qr", "qr.png", "images/qr.png");
     addImage("customerPhoto", "photo.png", "images/photo.png");
 
-    addClassText("addressLine1Label", addressLine1Text);
-    addClassText("addressLine2Label", addressLine2Text);
-    addClassText("addressLine3Label", addressLine3Text);
-    addClassText("addressLine4Label", addressLine4Text);
+    addClassText("addressLine1Label", labelText.addressLine1Text);
+    addClassText("addressLine2Label", labelText.addressLine2Text);
+    addClassText("addressLine3Label", labelText.addressLine3Text);
+    addClassText("addressLine4Label", labelText.addressLine4Text);
 
 
 
-    addClassText("customerIdLabel", customerIdText);
+    addClassText("customerIdLabel", labelText.customerIdText);
     addClassText("customerId", data.customerId);
-    addClassText("accountTypeLabel", accountTypeText);
+    addClassText("accountTypeLabel", labelText.accountTypeText);
 
     switch (receipt) {
         case 1:
@@ -218,559 +284,559 @@ function replaceToken(receipt) {
     }
 }
 function setAccountBalance() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText(titleId, accountBalanceText);
+    addClassText(labelText.titleId, labelText.accountBalanceText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-        [[accountNameText, data.accountName], [balanceDateText, data.transactionDate]],
-        [[balanceAmountText, data.balanceAmount], [transactionIdText, data.transactionCode]],
-        [[inWordsText, data.balanceAmountInWords], [printDateText, data.printDate]],
-        [[emptyText, emptyText], [emptyText, emptyText]],
-        [[emptyText, emptyText], [emptyText, emptyText]]
+        [[labelText.accountNameText, data.accountName], [labelText.balanceDateText, data.transactionDate]],
+        [[labelText.balanceAmountText, data.balanceAmount], [labelText.transactionIdText, data.transactionCode]],
+        [[labelText.inWordsText, data.balanceAmountInWords], [labelText.printDateText, data.printDate]],
+        [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
+        [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setCashDeposit() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", cashDepositText);
+    addClassText("title", labelText.cashDepositText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [depositDateText, data.transactionDate]],
-       [[depositAmountText, data.depositAmount], [transactionIdText, data.transactionCode]],
-       [[inWordsText, data.depositAmountInWords], [printDateText, data.printDate]],
-       [[emptyText, emptyText], [emptyText, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.depositDateText, data.transactionDate]],
+       [[labelText.depositAmountText, data.depositAmount], [labelText.transactionIdText, data.transactionCode]],
+       [[labelText.inWordsText, data.depositAmountInWords], [labelText.printDateText, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setCashWithdraw() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", cashWithdrawText);
+    addClassText("title", labelText.cashWithdrawText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [withdrawDateText, data.transactionDate]],
-       [[withdrawAmountText, data.withdrawAmount], [transactionIdText, data.transactionCode]],
-       [[inWordsText, data.withdrawsAmountInWords], [printDateText, data.printDate]],
-       [[chargeText, data.charge], [emptyText, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.withdrawDateText, data.transactionDate]],
+       [[labelText.withdrawAmountText, data.withdrawAmount], [labelText.transactionIdText, data.transactionCode]],
+       [[labelText.inWordsText, data.withdrawsAmountInWords], [labelText.printDateText, data.printDate]],
+       [[labelText.chargeText, data.charge], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setDPSAccount() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", generalDPSAccountText);
+    addClassText("title", labelText.generalDPSAccountText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, emptyText);
-    addClassText(accountTypeId, data.dpsAccountType);
-    addClassText(linkAccountNumberLabelId, linkAccountNumberText);
-    addClassText(linkAccountNumberColonId, colonText);
-    addClassText(linkAccountNumberId, data.linkAccountNumber);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, labelText.emptyText);
+    addClassText(labelText.accountTypeId, data.dpsAccountType);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.linkAccountNumberText);
+    addClassText(labelText.linkAccountNumberColonId, labelText.colonText);
+    addClassText(labelText.linkAccountNumberId, data.linkAccountNumber);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [productTenorText, data.productTenor]],
-       [[accountOpeningDateText, data.transactionDate], [maturityDateText, data.maturityDate]],
-       [[monthlyDepositText, data.depositAmount], [printDateText, data.printDate]],
-       [[maturityAmountText, data.maturityAmount], [emptyText, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.productTenorText, data.productTenor]],
+       [[labelText.accountOpeningDateText, data.transactionDate], [labelText.maturityDateText, data.maturityDate]],
+       [[labelText.monthlyDepositText, data.depositAmount], [labelText.printDateText, data.printDate]],
+       [[labelText.maturityAmountText, data.maturityAmount], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setFixedDeposit() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", cityAgentFixedDepositText);
+    addClassText("title", labelText.cityAgentFixedDepositText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, emptyText);
-    addClassText(accountTypeId, data.termDepositAccountType);
-    addClassText(linkAccountNumberLabelId, linkAccountNumberText);
-    addClassText(linkAccountNumberColonId, colonText);
-    addClassText(linkAccountNumberId, data.linkAccountNumber);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, labelText.emptyText);
+    addClassText(labelText.accountTypeId, data.termDepositAccountType);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.linkAccountNumberText);
+    addClassText(labelText.linkAccountNumberColonId, labelText.colonText);
+    addClassText(labelText.linkAccountNumberId, data.linkAccountNumber);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [productTenorText, data.productTenor]],
-       [[accountOpeningDateText, data.transactionDate], [maturityDateText, data.maturityDate]],
-       [[profitRateText, data.profitRate], [maturityAmountText, data.maturityAmount]],
-       [[principalAmountText, data.principalAmount], [printDateText, data.printDate]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.productTenorText, data.productTenor]],
+       [[labelText.accountOpeningDateText, data.transactionDate], [labelText.maturityDateText, data.maturityDate]],
+       [[labelText.profitRateText, data.profitRate], [labelText.maturityAmountText, data.maturityAmount]],
+       [[labelText.principalAmountText, data.principalAmount], [labelText.printDateText, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setFundTransfer() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", fundTransferText);
+    addClassText("title", labelText.fundTransferText);
 
-    addClassText(accountNoLabelId, senderAccountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.senderAccountNoText);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[sendrAccountNameText, data.accountName], [fundTransferDateText, data.transactionDate]],
-       [[receiverAccountNameText, data.receiverAccountName], [receiverAccountNoText, data.linkAccountNumber]],
-       [[transferAmountText, data.depositAmount], [transactionIdText, data.transactionCode]],
-       [[inWordsText, data.depositAmountInWords], [printDateText, data.printDate]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.sendrAccountNameText, data.accountName], [labelText.fundTransferDateText, data.transactionDate]],
+       [[labelText.receiverAccountNameText, data.receiverAccountName], [labelText.receiverAccountNoText, data.linkAccountNumber]],
+       [[labelText.transferAmountText, data.depositAmount], [labelText.transactionIdText, data.transactionCode]],
+       [[labelText.inWordsText, data.depositAmountInWords], [labelText.printDateText, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setSavingsAccount() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", cityAgentSavingsAccountText);
+    addClassText("title", labelText.cityAgentSavingsAccountText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [initialDepositText, data.depositAmount]],
-       [[accountOpeningDateText, data.transactionDate], [printDateText, data.printDate]],
-       [[emptyText, emptyText], [emptyText, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.initialDepositText, data.depositAmount]],
+       [[labelText.accountOpeningDateText, data.transactionDate], [labelText.printDateText, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 
 function setATMDebitCardRequest() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", atmDebitCardRequestText);
+    addClassText("title", labelText.atmDebitCardRequestText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [requestReceiveTimeText, data.transactionDate]],
-       [[cardTypeText, data.cardType], [requestIdText, data.transactionCode]],
-       [[cardBrandText, data.cardBrand], [printDateText, data.printDate]],
-       [[cardTitleText, data.accountName], [chargeText, data.charge]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.requestReceiveTimeText, data.transactionDate]],
+       [[labelText.cardTypeText, data.cardType], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.cardBrandText, data.cardBrand], [labelText.printDateText, data.printDate]],
+       [[labelText.cardTitleText, data.accountName], [labelText.chargeText, data.charge]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setATMDebitCardDelivery() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", atmDebitCardDeliveryText);
+    addClassText("title", labelText.atmDebitCardDeliveryText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [deliveryDateText, data.transactionDate]],
-       [[cardTypeText, data.cardType], [requestIdText, data.transactionCode]],
-       [[cardBrandText, data.cardBrand], [printDateText, data.printDate]],
-       [[cardTitleText, data.accountName], [cardNumberText, data.cardNumber]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.deliveryDateText, data.transactionDate]],
+       [[labelText.cardTypeText, data.cardType], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.cardBrandText, data.cardBrand], [labelText.printDateText, data.printDate]],
+       [[labelText.cardTitleText, data.accountName], [labelText.cardNumberText, data.cardNumber]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setATMDebitCardCancel() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", atmDebitCardCancelText);
+    addClassText("title", labelText.atmDebitCardCancelText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [deliveryDateText, data.transactionDate]],
-       [[cardTypeText, data.cardType], [requestIdText, data.transactionCode]],
-       [[cardBrandText, data.cardBrand], [printDateText, data.printDate]],
-       [[cardTitleText, data.accountName], [cardNumberText, data.cardNumber]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.deliveryDateText, data.transactionDate]],
+       [[labelText.cardTypeText, data.cardType], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.cardBrandText, data.cardBrand], [labelText.printDateText, data.printDate]],
+       [[labelText.cardTitleText, data.accountName], [labelText.cardNumberText, data.cardNumber]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setChequeBookRequisition() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", chequeBookRequisitionText);
+    addClassText("title", labelText.chequeBookRequisitionText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [requestReceiveTimeText, data.transactionDate]],
-       [[noOfLeaveText, data.noOfLeave], [requestIdText, data.transactionCode]],
-       [[chargeText, data.charge], [printDateText, data.printDate]],
-       [[emptyText, emptyText], [emptyText, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.requestReceiveTimeText, data.transactionDate]],
+       [[labelText.noOfLeaveText, data.noOfLeave], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.chargeText, data.charge], [labelText.printDateText, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setChequeBookDelivery() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", chequeBookDeliveryText);
+    addClassText("title", labelText.chequeBookDeliveryText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [deliveryDateText, data.transactionDate]],
-       [[noOfLeaveText, data.noOfLeave], [requestIdText, data.transactionCode]],
-       [[emptyText, emptyText], [printDateText, data.printDate]],
-       [[emptyText, emptyText], [emptyText, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.deliveryDateText, data.transactionDate]],
+       [[labelText.noOfLeaveText, data.noOfLeave], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.printDateText, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setChequeStopPaymentSingle() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", chequeStopPaymentSingleText);
+    addClassText("title", labelText.chequeStopPaymentSingleText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [receiverNameText, data.receiverName]],
-       [[chequeLeafNumberText, data.chequeLeafNumber], [requestIdText, data.transactionCode]],
-       [[amountOfTkText, data.chequeAmount], [printDateText, data.printDate]],
-       [[chargeText, data.charge], [chequeLostReasonText, data.chequeLostReason]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.receiverNameText, data.receiverName]],
+       [[labelText.chequeLeafNumberText, data.chequeLeafNumber], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.amountOfTkText, data.chequeAmount], [labelText.printDateText, data.printDate]],
+       [[labelText.chargeText, data.charge], [labelText.chequeLostReasonText, data.chequeLostReason]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setChequeStopPaymentRange() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", chequeStopPaymentRangeText);
+    addClassText("title", labelText.chequeStopPaymentRangeText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [requestReceiveTimeText, data.transactionDate]],
-       [[chequeLeafNumberText, data.chequeLeafNumber], [requestIdText, data.transactionCode]],
-       [[chargeText, data.charge], [printDateText, data.printDate]],
-       [[emptyText, emptyText], [chequeLostReasonText, data.chequeLostReason]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.requestReceiveTimeText, data.transactionDate]],
+       [[labelText.chequeLeafNumberText, data.chequeLeafNumber], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.chargeText, data.charge], [labelText.printDateText, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.chequeLostReasonText, data.chequeLostReason]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setChequeStopPaymentSingleCancel() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", chequeStopPaymentSingleCancelText);
+    addClassText("title", labelText.chequeStopPaymentSingleCancelText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-       [[accountNameText, data.accountName], [receiverNameText, data.receiverName]],
-       [[chequeLeafNumberText, data.chequeLeafNumber], [requestIdText, data.transactionCode]],
-       [[amountOfTkText, data.chequeAmount], [printDateText, data.printDate]],
-       [[chargeText, data.charge], [retrieveFromText, data.retrieveFrom]],
-       [[emptyText, emptyText], [emptyText, emptyText]]
+       [[labelText.accountNameText, data.accountName], [labelText.receiverNameText, data.receiverName]],
+       [[labelText.chequeLeafNumberText, data.chequeLeafNumber], [labelText.requestIdText, data.transactionCode]],
+       [[labelText.amountOfTkText, data.chequeAmount], [labelText.printDateText, data.printDate]],
+       [[labelText.chargeText, data.charge], [labelText.retrieveFromText, data.retrieveFrom]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 function setChequeStopPaymentRangeCancel() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", chequeStopPaymentRangeCancelText);
+    addClassText("title", labelText.chequeStopPaymentRangeCancelText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, emptyText);
-    addClassText(linkAccountNumberLabelId, emptyText);
-    addClassText(linkAccountNumberId, emptyText);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.emptyText);
+    addClassText(labelText.linkAccountNumberId, labelText.emptyText);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = [
-        [[accountNameText, data.accountName], [requestReceiveTimeText, data.transactionDate]],
-        [[chequeLeafNumberText, data.chequeLeafNumber], [requestIdText, data.transactionCode]],
-        [[chargeText, data.charge], [printDateText, data.printDate]],
-        [[emptyText, emptyText], [retrieveFromText, data.retrieveFrom]],
-        [[emptyText, emptyText], [emptyText, emptyText]]
+        [[labelText.accountNameText, data.accountName], [labelText.requestReceiveTimeText, data.transactionDate]],
+        [[labelText.chequeLeafNumberText, data.chequeLeafNumber], [labelText.requestIdText, data.transactionCode]],
+        [[labelText.chargeText, data.charge], [labelText.printDateText, data.printDate]],
+        [[labelText.emptyText, labelText.emptyText], [labelText.retrieveFromText, data.retrieveFrom]],
+        [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
 
 function setMiniStatement() {
-    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentNameLabel", labelText.agentNameText);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
+    addClassText("userIdLabel", labelText.userText);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", cityAgentSavingsAccountText);
+    addClassText("title", labelText.cityAgentSavingsAccountText);
 
-    addClassText(accountNoLabelId, accountNoText);
-    addClassText(accountNumberId, data.accountNumber);
-    addClassText(accountTypeId, data.savingsAccountType);
-    addClassText(linkAccountNumberColonId, colonText);
-    addClassText(linkAccountNumberLabelId, transactionIdText);
-    addClassText(linkAccountNumberId, data.transactionCode);
+    addClassText(labelText.accountNoLabelId, labelText.titleId);
+    addClassText(labelText.accountNumberId, data.accountNumber);
+    addClassText(labelText.accountTypeId, data.savingsAccountType);
+    addClassText(labelText.linkAccountNumberColonId, labelText.colonText);
+    addClassText(labelText.linkAccountNumberLabelId, labelText.transactionIdText);
+    addClassText(labelText.linkAccountNumberId, data.transactionCode);
 
-    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerNameLabel", labelText.customerNameText);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNoLabel", labelText.mobileNoText);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", addressText);
-    addClassText(customerAddressId, data.customerAddress);
+    addClassText("customerAddressLabel", labelText.addressText);
+    addClassText(labelText.customerAddressId, data.customerAddress);
 
     var tableData = data.statement;
 
@@ -782,60 +848,60 @@ function setMiniStatement() {
     }
 }
 function setRemittanceRequest() {
-    addClassText("agentNameLabel", agentNameTextEnglish);
+    addClassText("agentNameLabel", labelText.agentNameTextEnglish);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userTextEnglish);
+    addClassText("userIdLabel", labelText.userTextEnglish);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressTextEnglish);
+    addClassText("boothAddressLabel", labelText.addressTextEnglish);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", inwardForeignRemittanceRequestTextEnglish);
+    addClassText("title", labelText.inwardForeignRemittanceRequestTextEnglish);
 
     hideElementByClassName('accountBasic');
 
-    addClassText("customerNameLabel", recipientNameTextEnglish);
+    addClassText("customerNameLabel", labelText.recipientNameTextEnglish);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoTextEnglish);
+    addClassText("mobileNoLabel", labelText.mobileNoTextEnglish);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", exchangeHouseNameEnglish);
-    addClassText(customerAddressId, emptyText);
+    addClassText("customerAddressLabel", labelText.exchangeHouseNameEnglish);
+    addClassText(labelText.customerAddressId, labelText.emptyText);
 
 
     var tableData = [
-       [[senderNameTextEnglish, emptyText], [senderCountryTextEnglish, emptyText]],
-       [[pinNoTextEnglish, emptyText], [apprxAmountTextEnglish, emptyText]],
-       [[iDTypeTextEnglish, emptyText], [iDNumberTextEnglish, emptyText]],
-       [[amountInWordsTextEnglish, emptyText], [printDateTextEnglish, emptyText]],
-       [[emptyText, emptyText], [emptyText, emptyText]],
+       [[labelText.senderNameTextEnglish, labelText.emptyText], [labelText.senderCountryTextEnglish, labelText.emptyText]],
+       [[labelText.pinNoTextEnglish, labelText.emptyText], [labelText.apprxAmountTextEnglish, labelText.emptyText]],
+       [[labelText.iDTypeTextEnglish, labelText.emptyText], [labelText.iDNumberTextEnglish, labelText.emptyText]],
+       [[labelText.amountInWordsTextEnglish, labelText.emptyText], [labelText.printDateTextEnglish, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
     ];
     replaceTableData(tableData);
 }
 function setRemittanceWithdraw() {
-    addClassText("agentNameLabel", agentNameTextEnglish);
+    addClassText("agentNameLabel", labelText.agentNameTextEnglish);
     addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userTextEnglish);
+    addClassText("userIdLabel", labelText.userTextEnglish);
     addClassText("userId", data.userId);
-    addClassText("boothAddressLabel", addressTextEnglish);
+    addClassText("boothAddressLabel", labelText.addressTextEnglish);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", inwardForeignRemittanceWithdrawTextEnglish);
+    addClassText("title", labelText.inwardForeignRemittanceWithdrawTextEnglish);
 
     hideElementByClassName('accountBasic');
 
-    addClassText("customerNameLabel", recipientNameTextEnglish);
+    addClassText("customerNameLabel", labelText.recipientNameTextEnglish);
     addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoTextEnglish);
+    addClassText("mobileNoLabel", labelText.mobileNoTextEnglish);
     addClassText("mobileNo", data.mobileNo);
-    addClassText("customerAddressLabel", exchangeHouseNameEnglish);
-    addClassText(customerAddressId, emptyText);
+    addClassText("customerAddressLabel", labelText.exchangeHouseNameEnglish);
+    addClassText(labelText.customerAddressId, labelText.emptyText);
 
 
     var tableData = [
-       [[senderNameTextEnglish, emptyText], [senderCountryTextEnglish, emptyText]],
-       [[pinNoTextEnglish, emptyText], [payableAmountTextEnglish, emptyText]],
-       [[transactionIdText, emptyText], [currencyTextEnglish, emptyText]],
-       [[exchangeRateTextEnglish, emptyText], [fxAmountTextEnglish, emptyText]],
-       [[amountInWordsTextEnglish, emptyText], [printDateTextEnglish, emptyText]]
+       [[labelText.senderNameTextEnglish, labelText.emptyText], [labelText.senderCountryTextEnglish, labelText.emptyText]],
+       [[labelText.pinNoTextEnglish, labelText.emptyText], [labelText.payableAmountTextEnglish, labelText.emptyText]],
+       [[labelText.transactionIdTextEnglish, labelText.emptyText], [labelText.currencyTextEnglish, labelText.emptyText]],
+       [[labelText.exchangeRateTextEnglish, labelText.emptyText], [labelText.fxAmountTextEnglish, labelText.emptyText]],
+       [[labelText.amountInWordsTextEnglish, labelText.emptyText], [labelText.printDateTextEnglish, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
@@ -848,10 +914,10 @@ function replaceTableData(tableData) {
             var value = tableData[i][j / 3][1];
             if (text) {
                 fourthTable.rows[i].cells[j].innerHTML = text;
-                fourthTable.rows[i].cells[++j].innerHTML = colonText;
+                fourthTable.rows[i].cells[++j].innerHTML = labelText.colonText;
             } else {
-                fourthTable.rows[i].cells[j].innerHTML = emptyText;
-                fourthTable.rows[i].cells[++j].innerHTML = emptyText;
+                fourthTable.rows[i].cells[j].innerHTML = labelText.emptyText;
+                fourthTable.rows[i].cells[++j].innerHTML = labelText.emptyText;
             }
             fourthTable.rows[i].cells[++j].innerHTML = value;
         }
