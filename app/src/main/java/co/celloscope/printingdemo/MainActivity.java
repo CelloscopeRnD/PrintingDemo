@@ -222,6 +222,8 @@ public class MainActivity extends AppCompatActivity {
                 });
                 checkPrintStatus();
                 break;
+            default:
+                break;
         }
     }
 
