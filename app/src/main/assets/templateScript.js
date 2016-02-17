@@ -5,92 +5,1533 @@
         url = receipt;
         window.data = JSON.parse(window.stringData);
     } else {
-        window.data = {
-            "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00",
-            "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
-            "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
-            "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY",
-            "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526",
-            "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595",
-            "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years",
-            "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "termDepositAccountType": "TERM DEPOSIT",
-            "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369",
-            "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
-            "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA",
-            "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00",
-            "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost",
-            "photo": "", "statement": [
-                ['Date', 'Description', 'Deposit', 'Withdraw', 'Balance'],
-                ['15-Dec-2016', 'FT-School Fee', '', '500.00', '4500.00'],
-                ['14-Dec-2016', 'DEP Cash', '1500.00', '', '6000.00'],
-                ['14-Dec-2016', 'WDL-Cash', '', '2000.00', '4000.00'],
-                ['13-Dec-2016', 'FT-Other Bank', '', '2000.00', '2000.00'],
-                ['12-Dec-2016', 'DEP-Personal A/C', '7000.00', '', '9000.00']]
-        };
+        setData(parseInt(url));
     }
 
     addStyleSheet('style_sheet/styles.css'); addStyleSheet('file:///android_asset/styles.css');
     replaceToken(parseInt(url));
 }
 
-function setData() {
+function setData(receipt) {
     switch (receipt) {
         case 1:
-            setAccountBalance();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 2:
-            setCashDeposit();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 3:
-            setCashWithdraw();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 4:
-            setDPSAccount();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 5:
-            setFixedDeposit();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 6:
-            setFundTransfer();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 7:
-            setSavingsAccount();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 8:
-            setATMDebitCardRequest();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 9:
-            setATMDebitCardDelivery();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 10:
-            setATMDebitCardCancel();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 11:
-            setChequeBookRequisition();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 12:
-            setChequeBookDelivery();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 13:
-            setChequeStopPaymentSingle();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 14:
-            setChequeStopPaymentRange();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 15:
-            setChequeStopPaymentSingleCancel();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 16:
-            setChequeStopPaymentRangeCancel();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 17:
-            setMiniStatement();
+            window.data = {
+                "accountName": "MD Arif Gazi",
+                "accountNumber": "2001158500126",
+                "agentName": "BADRUL ALOM",
+                "balanceAmount": "BDT 80,550.00",
+                "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "charge": "BDT 7.50",
+                "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA",
+                "customerId": "CB1158500",
+                "customerName": "Md. Arif Gazi",
+                "depositAmountInWords": "THREE THOUSAND ONLY",
+                "depositAmount": "BDT 3,000.00",
+                "dpsAccountType": "DPS",
+                "linkAccountNumber": "2005246987526",
+                "maturityAmount": "BDT 2,26,047.00",
+                "maturityDate": "19-JAN-2021",
+                "mobileNo": "01617877595",
+                "principalAmount": "BDT 1,00,000.00",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "productTenor": "5 Years",
+                "profitRate": "8.85% (Yearly)",
+                "receiverAccountName": "SUJON PATWARY",
+                "termDepositAccountType": "TERM DEPOSIT",
+                "transactionDate": "19-JAN-2016",
+                "savingsAccountType": "Savings",
+                "transactionCode": "TR222369",
+                "userId": "615001001 (NAIM ISLAM)",
+                "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)",
+                "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY",
+                "cardType": "ATM",
+                "cardBrand": "VISA",
+                "cardNumber": "1234 1234 1234 1234",
+                "noOfLeave": "10",
+                "chequeLeafNumber": "123 456 789 123",
+                "chequeAmount": "BDT 10,000.00",
+                "receiverName": "Asadul Haque",
+                "chequeLostReason": "Lost",
+                "retrieveFrom": "From Lost",
+                "photo": "",
+                "statement": [
+                  [
+                    "Date",
+                    "Description",
+                    "Deposit",
+                    "Withdraw",
+                    "Balance"
+                  ],
+                  [
+                    "15-Dec-2016",
+                    "FT-School Fee",
+                    "",
+                    "500.00",
+                    "4500.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "DEP Cash",
+                    "1500.00",
+                    "",
+                    "6000.00"
+                  ],
+                  [
+                    "14-Dec-2016",
+                    "WDL-Cash",
+                    "",
+                    "2000.00",
+                    "4000.00"
+                  ],
+                  [
+                    "13-Dec-2016",
+                    "FT-Other Bank",
+                    "",
+                    "2000.00",
+                    "2000.00"
+                  ],
+                  [
+                    "12-Dec-2016",
+                    "DEP-Personal A/C",
+                    "7000.00",
+                    "",
+                    "9000.00"
+                  ]
+                ]
+            };
             break;
         case 18:
-            setRemittanceRequest();
+            window.data = {
+                "agentName": "BADRUL ALOM",
+                "userId": "615001001 (NAIM ISLAM)",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "customerName": "Md. Arif Gazi",
+                "mobileNo": "01617877595",
+                "exchangeHouse": "",
+                "senderName": "Toufiq",
+                "senderCountry": "Italy",
+                "pinNo": "123456",
+                "apprxAmount": "1,000 BDT",
+                "iDType": "NID",
+                "iDNumber": "123456789",
+                "amountInWords": "ONE TOUSAND ONLY",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "photo": ""
+            };
             break;
         case 19:
-            setRemittanceWithdraw();
+            window.data = {
+                "agentName": "BADRUL ALOM",
+                "userId": "615001001 (NAIM ISLAM)",
+                "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI",
+                "customerName": "Md. Arif Gazi",
+                "mobileNo": "01617877595",
+                "exchangeHouse": "",
+                "senderName": "Toufiq",
+                "senderCountry": "Italy",
+                "pinNo": "123456",
+                "payableAmount": "1,000 BDT",
+                "transactionCode": "123456",
+                "currency": "Euro",
+                "exchangeRate": "100",
+                "fxAmount": "",
+                "printDate": "19-JAN-2016 13:13:15 PM",
+                "amountInWords": "ONE TOUSAND ONLY",
+                "photo": ""
+            };
             break;
         default:
             break;
@@ -201,9 +1642,6 @@ var labelText = {
     transactionIdTextEnglish: "Transaction Id",
     userTextEnglish: "User",
 }
-
-
-
 function replaceToken(receipt) {
     addImage("agent_banking_logo", "file:///android_asset/AGENT-BANKING-LOGO_Small.png", "images/AGENT-BANKING-LOGO_Small.png");
     addImage("logo", "file:///android_asset/logo.gif", "images/logo.png");
@@ -865,13 +2303,14 @@ function setRemittanceRequest() {
     addClassText("mobileNo", data.mobileNo);
     addClassText("customerAddressLabel", labelText.exchangeHouseNameEnglish);
     addClassText(labelText.customerAddressId, labelText.emptyText);
+    addClassText(labelText.customerAddressId, data.exchangeHouse);
 
 
     var tableData = [
-       [[labelText.senderNameTextEnglish, labelText.emptyText], [labelText.senderCountryTextEnglish, labelText.emptyText]],
-       [[labelText.pinNoTextEnglish, labelText.emptyText], [labelText.apprxAmountTextEnglish, labelText.emptyText]],
-       [[labelText.iDTypeTextEnglish, labelText.emptyText], [labelText.iDNumberTextEnglish, labelText.emptyText]],
-       [[labelText.amountInWordsTextEnglish, labelText.emptyText], [labelText.printDateTextEnglish, labelText.emptyText]],
+       [[labelText.senderNameTextEnglish, data.senderName], [labelText.senderCountryTextEnglish, data.senderCountry]],
+       [[labelText.pinNoTextEnglish, data.pinNo], [labelText.apprxAmountTextEnglish, data.apprxAmount]],
+       [[labelText.iDTypeTextEnglish, data.iDType], [labelText.iDNumberTextEnglish, data.iDNumber]],
+       [[labelText.amountInWordsTextEnglish, data.amountInWords], [labelText.printDateTextEnglish, data.printDate]],
        [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
     ];
     replaceTableData(tableData);
@@ -897,11 +2336,11 @@ function setRemittanceWithdraw() {
 
 
     var tableData = [
-       [[labelText.senderNameTextEnglish, labelText.emptyText], [labelText.senderCountryTextEnglish, labelText.emptyText]],
-       [[labelText.pinNoTextEnglish, labelText.emptyText], [labelText.payableAmountTextEnglish, labelText.emptyText]],
-       [[labelText.transactionIdTextEnglish, labelText.emptyText], [labelText.currencyTextEnglish, labelText.emptyText]],
-       [[labelText.exchangeRateTextEnglish, labelText.emptyText], [labelText.fxAmountTextEnglish, labelText.emptyText]],
-       [[labelText.amountInWordsTextEnglish, labelText.emptyText], [labelText.printDateTextEnglish, labelText.emptyText]]
+       [[labelText.senderNameTextEnglish, data.senderName], [labelText.senderCountryTextEnglish, data.senderCountry]],
+       [[labelText.pinNoTextEnglish, data.pinNo], [labelText.payableAmountTextEnglish, data.payableAmount]],
+       [[labelText.transactionIdTextEnglish, data.transactionCode], [labelText.currencyTextEnglish, data.currency]],
+       [[labelText.exchangeRateTextEnglish, data.exchangeRate], [labelText.fxAmountTextEnglish, data.fxAmount]],
+       [[labelText.amountInWordsTextEnglish, data.amountInWords], [labelText.printDateTextEnglish, data.printDate]]
     ];
     replaceTableData(tableData);
 }
