@@ -113,6 +113,31 @@ var amountOfTkText = "টাকার পরিমান";
 var receiverNameText = "প্রাপকের নাম";
 var retrieveFromText = "পুনরুদ্ধার হয়েছে";
 
+var addressTextEnglish = "Address";
+var agentNameTextEnglish = "Agent Name";
+var amountInWordsTextEnglish = "Amount in Words";
+var apprxAmountTextEnglish = "Apprx.  Amount";
+var currencyTextEnglish = "Currency";
+var exchangeRateTextEnglish = "Exchange Rate";
+var fxAmountTextEnglish = "Fx Amount";
+var iDTypeTextEnglish = "ID Type";
+var iDNumberTextEnglish = "ID Number";
+var inwardForeignRemittanceRequestTextEnglish = "Inward Foreign Remittance Request";
+var inwardForeignRemittanceWithdrawTextEnglish = "Inward Foreign Remittance Withdraw";
+var mobileNoTextEnglish = "Mobile No";
+var exchangeHouseNameEnglish = "Exchange House Name";
+var payableAmountTextEnglish = "Payable Amount";
+var pinNoTextEnglish = "Pin No";
+var printDateTextEnglish = "Print Date";
+var payableAmountTextEnglish = "Payable Amount";
+var recipientNameTextEnglish = "Recipient Name";
+var senderCountryTextEnglish = "Sender Country";
+var senderNameTextEnglish = "Sender Name";
+var transactionIdTextEnglish = "Transaction Id";
+var userTextEnglish = "User";
+
+
+
 function replaceToken(receipt) {
     addImage("agent_banking_logo", "file:///android_asset/AGENT-BANKING-LOGO_Small.png", "images/AGENT-BANKING-LOGO_Small.png");
     addImage("logo", "file:///android_asset/logo.gif", "images/logo.png");
@@ -124,20 +149,11 @@ function replaceToken(receipt) {
     addClassText("addressLine3Label", addressLine3Text);
     addClassText("addressLine4Label", addressLine4Text);
 
-    addClassText("agentNameLabel", agentNameText);
-    addClassText("agentName", data.agentName);
-    addClassText("userIdLabel", userText);
-    addClassText("userId", data.userId);
-    addClassText("addressLabel", addressText);
-    addClassText("boothAddress", data.boothAddress);
+
+
     addClassText("customerIdLabel", customerIdText);
     addClassText("customerId", data.customerId);
     addClassText("accountTypeLabel", accountTypeText);
-    addClassText("customerNameLabel", customerNameText);
-    addClassText("customerName", data.customerName);
-    addClassText("mobileNoLabel", mobileNoText);
-    addClassText("mobileNo", data.mobileNo);
-
 
     switch (receipt) {
         case 1:
@@ -191,11 +207,24 @@ function replaceToken(receipt) {
         case 17:
             setMiniStatement();
             break;
+        case 18:
+            setRemittanceRequest();
+            break;
+        case 19:
+            setRemittanceWithdraw();
+            break;
         default:
             break;
     }
 }
 function setAccountBalance() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText(titleId, accountBalanceText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -205,6 +234,11 @@ function setAccountBalance() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -217,6 +251,13 @@ function setAccountBalance() {
     replaceTableData(tableData);
 }
 function setCashDeposit() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", cashDepositText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -226,6 +267,11 @@ function setCashDeposit() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -238,6 +284,13 @@ function setCashDeposit() {
     replaceTableData(tableData);
 }
 function setCashWithdraw() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", cashWithdrawText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -247,6 +300,11 @@ function setCashWithdraw() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -259,6 +317,13 @@ function setCashWithdraw() {
     replaceTableData(tableData);
 }
 function setDPSAccount() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", generalDPSAccountText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -268,6 +333,11 @@ function setDPSAccount() {
     addClassText(linkAccountNumberColonId, colonText);
     addClassText(linkAccountNumberId, data.linkAccountNumber);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -280,6 +350,13 @@ function setDPSAccount() {
     replaceTableData(tableData);
 }
 function setFixedDeposit() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", cityAgentFixedDepositText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -289,6 +366,11 @@ function setFixedDeposit() {
     addClassText(linkAccountNumberColonId, colonText);
     addClassText(linkAccountNumberId, data.linkAccountNumber);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -301,6 +383,13 @@ function setFixedDeposit() {
     replaceTableData(tableData);
 }
 function setFundTransfer() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", fundTransferText);
 
     addClassText(accountNoLabelId, senderAccountNoText);
@@ -311,6 +400,11 @@ function setFundTransfer() {
     addClassText(linkAccountNumberColonId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -323,6 +417,13 @@ function setFundTransfer() {
     replaceTableData(tableData);
 }
 function setSavingsAccount() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", cityAgentSavingsAccountText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -332,6 +433,11 @@ function setSavingsAccount() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -345,6 +451,13 @@ function setSavingsAccount() {
 }
 
 function setATMDebitCardRequest() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", atmDebitCardRequestText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -354,6 +467,11 @@ function setATMDebitCardRequest() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -366,6 +484,13 @@ function setATMDebitCardRequest() {
     replaceTableData(tableData);
 }
 function setATMDebitCardDelivery() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", atmDebitCardDeliveryText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -375,6 +500,11 @@ function setATMDebitCardDelivery() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -387,6 +517,13 @@ function setATMDebitCardDelivery() {
     replaceTableData(tableData);
 }
 function setATMDebitCardCancel() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", atmDebitCardCancelText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -396,6 +533,11 @@ function setATMDebitCardCancel() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -408,6 +550,13 @@ function setATMDebitCardCancel() {
     replaceTableData(tableData);
 }
 function setChequeBookRequisition() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", chequeBookRequisitionText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -417,6 +566,11 @@ function setChequeBookRequisition() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -429,6 +583,13 @@ function setChequeBookRequisition() {
     replaceTableData(tableData);
 }
 function setChequeBookDelivery() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", chequeBookDeliveryText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -438,6 +599,11 @@ function setChequeBookDelivery() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -450,6 +616,13 @@ function setChequeBookDelivery() {
     replaceTableData(tableData);
 }
 function setChequeStopPaymentSingle() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", chequeStopPaymentSingleText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -459,6 +632,11 @@ function setChequeStopPaymentSingle() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -471,6 +649,13 @@ function setChequeStopPaymentSingle() {
     replaceTableData(tableData);
 }
 function setChequeStopPaymentRange() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", chequeStopPaymentRangeText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -480,6 +665,11 @@ function setChequeStopPaymentRange() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -492,6 +682,13 @@ function setChequeStopPaymentRange() {
     replaceTableData(tableData);
 }
 function setChequeStopPaymentSingleCancel() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", chequeStopPaymentSingleCancelText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -501,6 +698,11 @@ function setChequeStopPaymentSingleCancel() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -513,6 +715,13 @@ function setChequeStopPaymentSingleCancel() {
     replaceTableData(tableData);
 }
 function setChequeStopPaymentRangeCancel() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", chequeStopPaymentRangeCancelText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -522,6 +731,11 @@ function setChequeStopPaymentRangeCancel() {
     addClassText(linkAccountNumberLabelId, emptyText);
     addClassText(linkAccountNumberId, emptyText);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = [
@@ -535,6 +749,13 @@ function setChequeStopPaymentRangeCancel() {
 }
 
 function setMiniStatement() {
+    addClassText("agentNameLabel", agentNameText);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userText);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressText);
+    addClassText("boothAddress", data.boothAddress);
+
     addClassText("title", cityAgentSavingsAccountText);
 
     addClassText(accountNoLabelId, accountNoText);
@@ -544,6 +765,11 @@ function setMiniStatement() {
     addClassText(linkAccountNumberLabelId, transactionIdText);
     addClassText(linkAccountNumberId, data.transactionCode);
 
+    addClassText("customerNameLabel", customerNameText);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoText);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", addressText);
     addClassText(customerAddressId, data.customerAddress);
 
     var tableData = data.statement;
@@ -554,6 +780,64 @@ function setMiniStatement() {
             fourthTable.rows[r].cells[c].innerHTML = tableData[r][c];
         }
     }
+}
+function setRemittanceRequest() {
+    addClassText("agentNameLabel", agentNameTextEnglish);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userTextEnglish);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressTextEnglish);
+    addClassText("boothAddress", data.boothAddress);
+
+    addClassText("title", inwardForeignRemittanceRequestTextEnglish);
+
+    hideElementByClassName('accountBasic');
+
+    addClassText("customerNameLabel", recipientNameTextEnglish);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoTextEnglish);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", exchangeHouseNameEnglish);
+    addClassText(customerAddressId, emptyText);
+
+
+    var tableData = [
+       [[senderNameTextEnglish, emptyText], [senderCountryTextEnglish, emptyText]],
+       [[pinNoTextEnglish, emptyText], [apprxAmountTextEnglish, emptyText]],
+       [[iDTypeTextEnglish, emptyText], [iDNumberTextEnglish, emptyText]],
+       [[amountInWordsTextEnglish, emptyText], [printDateTextEnglish, emptyText]],
+       [[emptyText, emptyText], [emptyText, emptyText]],
+    ];
+    replaceTableData(tableData);
+}
+function setRemittanceWithdraw() {
+    addClassText("agentNameLabel", agentNameTextEnglish);
+    addClassText("agentName", data.agentName);
+    addClassText("userIdLabel", userTextEnglish);
+    addClassText("userId", data.userId);
+    addClassText("boothAddressLabel", addressTextEnglish);
+    addClassText("boothAddress", data.boothAddress);
+
+    addClassText("title", inwardForeignRemittanceWithdrawTextEnglish);
+
+    hideElementByClassName('accountBasic');
+
+    addClassText("customerNameLabel", recipientNameTextEnglish);
+    addClassText("customerName", data.customerName);
+    addClassText("mobileNoLabel", mobileNoTextEnglish);
+    addClassText("mobileNo", data.mobileNo);
+    addClassText("customerAddressLabel", exchangeHouseNameEnglish);
+    addClassText(customerAddressId, emptyText);
+
+
+    var tableData = [
+       [[senderNameTextEnglish, emptyText], [senderCountryTextEnglish, emptyText]],
+       [[pinNoTextEnglish, emptyText], [payableAmountTextEnglish, emptyText]],
+       [[transactionIdText, emptyText], [currencyTextEnglish, emptyText]],
+       [[exchangeRateTextEnglish, emptyText], [fxAmountTextEnglish, emptyText]],
+       [[amountInWordsTextEnglish, emptyText], [printDateTextEnglish, emptyText]]
+    ];
+    replaceTableData(tableData);
 }
 
 function replaceTableData(tableData) {
@@ -592,6 +876,15 @@ function addClassText(elementId, innerHtml) {
     if (elements != null) {
         for (var i = 0; i < elements.length; i++) {
             elements[i].innerHTML = innerHtml;
+        }
+    }
+}
+function hideElementByClassName(elementId) {
+    var elements = document.getElementsByClassName(elementId);
+
+    if (elements != null) {
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.display = 'none';
         }
     }
 }

@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             AsyncTask.execute(new Runnable() {
                 @Override
                 public void run() {
-                    test();
+                    checkPrintStatus();
                 }
             });
         }
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         return buffer.toByteArray();
     }
 
-    private void test() {
+    private void checkPrintStatus() {
         int state = webViewPrint.getState();
         switch (state) {
             case PrintJobInfo.STATE_BLOCKED:
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                         statusTextView.setText(R.string.printing);
                     }
                 });
-                test();
+                checkPrintStatus();
                 break;
             case PrintJobInfo.STATE_FAILED:
                 setResult(MainActivity.RESULT_CANCELED, new Intent());
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                         statusTextView.setText(R.string.printJobQueued);
                     }
                 });
-                test();
+                checkPrintStatus();
                 break;
             case PrintJobInfo.STATE_STARTED:
                 statusTextView.post(new Runnable() {
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                         statusTextView.setText(R.string.printingStarted);
                     }
                 });
-                test();
+                checkPrintStatus();
                 break;
         }
     }
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         String receiptType = getReceiptType();
         String jsonData = getJsonString();
         String[] values = {
-                receiptType != null ? receiptType : "17",
+                receiptType != null ? receiptType : "18",
                 jsonData != null ? jsonData : getDummyJsonString()
         };
         if (values[0] == "17") {
