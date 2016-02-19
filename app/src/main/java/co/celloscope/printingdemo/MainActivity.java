@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         };
         String[] values = {getReceiptType().toString(), getJsonString()};
 
-        if (values[0] == "17") {
+        if (values[0].equals("17")) {
             return new HtmlHelper(this).getHtml(MINI_STATEMENT_TEMPLATE_HTML, keys, values);
         } else {
             return new HtmlHelper(this).getHtml(TEMPLATE_HTML, keys, values);
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
     private Integer getReceiptType() {
         String receiptType = this.getIntent().getStringExtra(RECEIPT_TYPE);
         if (receiptType == null) {
-            receiptType = "19";
+            receiptType = "17";
         }
         return Integer.parseInt(receiptType);
     }
