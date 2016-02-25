@@ -120,6 +120,7 @@ tr {
 .label {
     font-size: 7pt;
     font-weight: bold;
+    vertical-align: top;
 }
 
 .topFieldValue {
@@ -130,7 +131,14 @@ tr {
 .fieldValue {
     font-size: 7pt;
     text-transform: uppercase;
+    vertical-align: top;
 }
+
+.generalFieldValue {
+    font-size: 7pt;
+    vertical-align: top;
+}
+
 
 .cellPadding {
     padding-bottom: 1px !important;
@@ -190,6 +198,7 @@ span.colon {
 
 .fourthColumn {
     width: 17%;
+    padding-left: 10px;
 }
 
 .sixthColumn {
@@ -198,6 +207,14 @@ span.colon {
 
 .lastColumn {
     width: 16%;
+}
+
+.money {
+    text-align: right;
+}
+
+.right {
+    text-align: right;
 }
 
 .qrCodeImg {

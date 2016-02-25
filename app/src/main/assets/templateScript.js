@@ -15,7 +15,7 @@
 function setData(receipt) {
     switch (receipt) {
         case 1:
-            window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "requestId": "12346", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA", "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00", "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost", "photo": "", "statement": [["Date", "Description", "Deposit", "Withdraw", "Balance"], ["15-Dec-2016", "FT-School Fee", "", "500.00", "4500.00"], ["14-Dec-2016", "DEP Cash", "1500.00", "", "6000.00"], ["14-Dec-2016", "WDL-Cash", "", "2000.00", "4000.00"], ["13-Dec-2016", "FT-Other Bank", "", "2000.00", "2000.00"], ["12-Dec-2016", "DEP-Personal A/C", "7000.00", "", "9000.00"]] };
+            window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY asdkjfa fasd asdfjasd asdfasd asdfas fasdfa asdfasdf asdfas", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "requestId": "12346", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA", "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00", "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost", "photo": "", "statement": [["Date", "Description", "Deposit", "Withdraw", "Balance"], ["15-Dec-2016", "FT-School Fee", "", "500.00", "4500.00"], ["14-Dec-2016", "DEP Cash", "1500.00", "", "6000.00"], ["14-Dec-2016", "WDL-Cash", "", "2000.00", "4000.00"], ["13-Dec-2016", "FT-Other Bank", "", "2000.00", "2000.00"], ["12-Dec-2016", "DEP-Personal A/C", "7000.00", "", "9000.00"]] };
             break;
         case 2:
             window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "requestId": "12346", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA", "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00", "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost", "photo": "", "statement": [["Date", "Description", "Deposit", "Withdraw", "Balance"], ["15-Dec-2016", "FT-School Fee", "", "500.00", "4500.00"], ["14-Dec-2016", "DEP Cash", "1500.00", "", "6000.00"], ["14-Dec-2016", "WDL-Cash", "", "2000.00", "4000.00"], ["13-Dec-2016", "FT-Other Bank", "", "2000.00", "2000.00"], ["12-Dec-2016", "DEP-Personal A/C", "7000.00", "", "9000.00"]] };
@@ -63,7 +63,7 @@ function setData(receipt) {
             window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "requestId": "12346", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA", "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00", "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost", "photo": "", "statement": [["Date", "Description", "Deposit", "Withdraw", "Balance"], ["15-Dec-2016", "FT-School Fee", "", "500.00", "4500.00"], ["14-Dec-2016", "DEP Cash", "1500.00", "", "6000.00"], ["14-Dec-2016", "WDL-Cash", "", "2000.00", "4000.00"], ["13-Dec-2016", "FT-Other Bank", "", "2000.00", "2000.00"], ["12-Dec-2016", "DEP-Personal A/C", "7000.00", "", "9000.00"]] };
             break;
         case 17:
-            window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "requestId": "12346", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA", "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00", "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost", "photo": "", "statement": [["Date", "Description", "Deposit", "Withdraw", "Balance"], ["15-Dec-2016", "FT-School Fee", "", "500.00", "4500.00"], ["14-Dec-2016", "DEP Cash", "1500.00", "", "6000.00"], ["14-Dec-2016", "WDL-Cash", "", "2000.00", "4000.00"], ["13-Dec-2016", "FT-Other Bank", "", "2000.00", "2000.00"], ["12-Dec-2016", "DEP-Personal A/C", "7000.00", "", "9000.00"]] };
+            window.data = { "accountName": "MD Arif Gazi", "accountNumber": "2001158500126", "agentName": "BADRUL ALOM", "balanceAmount": "BDT 80,550.00", "balanceAmountInWords": "EIGHTY THOUSAND FIVE HUNDRED FIFTY ONLY", "boothAddress": "VAIRAB BAZAR, CHOWDHURYR HAT, SONAGAZI", "charge": "BDT 7.50", "customerAddress": "GREEN GADEN BUILDING, FLAT- D4, HOUSE- 12, ROAD- 10, BLOCK- C, MIRPUR, PS- MIRPUR, DHAKA", "customerId": "CB1158500", "customerName": "Md. Arif Gazi", "depositAmountInWords": "THREE THOUSAND ONLY", "depositAmount": "BDT 3,000.00", "dpsAccountType": "DPS", "linkAccountNumber": "2005246987526", "maturityAmount": "BDT 2,26,047.00", "maturityDate": "19-JAN-2021", "mobileNo": "01617877595", "principalAmount": "BDT 1,00,000.00", "printDate": "19-JAN-2016 13:13:15 PM", "productTenor": "5 Years", "profitRate": "8.85% (Yearly)", "receiverAccountName": "SUJON PATWARY", "requestId": "12346", "termDepositAccountType": "TERM DEPOSIT", "transactionDate": "19-JAN-2016", "savingsAccountType": "Savings", "transactionCode": "TR222369", "userId": "615001001 (NAIM ISLAM)", "withdrawAmount": "BDT 3,000.00 + 7.5 (Charge)", "withdrawsAmountInWords": "THREE THOUSAND SEVEN TAKA FIFTY PAISA ONLY", "cardType": "ATM", "cardBrand": "VISA", "cardNumber": "1234 1234 1234 1234", "noOfLeave": "10", "chequeLeafNumber": "123 456 789 123", "chequeAmount": "BDT 10,000.00", "receiverName": "Asadul Haque", "chequeLostReason": "Lost", "retrieveFrom": "From Lost", "photo": "", "statement": [["", "Date", "Description", "Deposit", "Withdraw", "Balance", ""], ["", "", "", "", "", "5000.00", "Starting"], ["1", "15-Dec-2016", "FT-School Fee", "", "500.00", "4500.00", ""], ["2", "14-Dec-2016", "DEP Cash", "1500.00", "", "6000.00", ""], ["3", "14-Dec-2016", "WDL-Cash", "", "2000.00", "4000.00", ""], ["4", "13-Dec-2016", "FT-Other Bank", "", "2000.00", "2000.00", ""], ["5", "12-Dec-2016", "DEP-Personal A/C", "7000.00", "", "9000.00", ""], ["", "", "", "", "", "9000.00", "Ending"]] };
             break;
         case 18:
             window.data = {
@@ -125,9 +125,10 @@ var labelText = {
 
     titleId: "হিসাব নম্বর",
     accountNameText: "হিসাব নাম",
-    accountBalanceText: "ব্যালান্স",
+    accountBalanceText: "ব্যালেন্স",
     accountOpeningDateText: "হিসাব খোলার তারিখ",
     accountTypeText: "হিসাবের ধরন",
+    accountStatement: "হিসাবের সার বিবরনী",
     addressLine1Text: "এজেন্ট ব্যাংকিং ডিভিশন",
     addressLine2Text: "সিটি ব্যাংক লিঃ",
     addressLine3Text: "সিটি ব্যাংক  সেন্টার ১৩৬",
@@ -137,8 +138,8 @@ var labelText = {
     atmDebitCardCancelText: "এটিএম / ডেবিট কার্ড বাতিলকরন",
     atmDebitCardDeliveryText: "এটিএম / ডেবিট কার্ড হস্তান্তর",
     atmDebitCardRequestText: "এটিএম / ডেবিটি কার্ডের অনুরোধ",
-    balanceAmountText: "ব্যালান্সের পরিমান",
-    balanceDateText: "ব্যালান্সের তারিখ",
+    balanceAmountText: "ব্যালেন্সের পরিমান",
+    balanceDateText: "ব্যালেন্সের তারিখ",
     chargeText: "চার্জ",
     cashDepositText: "নগদ জমা",
     cashWithdrawText: "নগদ উত্তোলন",
@@ -149,7 +150,7 @@ var labelText = {
     chequeStopPaymentRangeText: "চেক স্টপ পেমেন্ট নির্দেশনা - রেঞ্জ",
     chequeStopPaymentSingleText: "চেক স্টপ পেমেন্ট নির্দেশনা - সিঙ্গেল",
     cityAgentFixedDepositText: "সিটি এজেন্ট ফিক্সড ডিপোজিট",
-    cityAgentSavingsAccountText: "সিটি এজেন্ট সেভিংস হিসাব",
+    cityAgentSavingsAccountText: "সিটি এজেন্ট সঞ্চয়ী হিসাব",
     colonText: ":",
     customerIdText: "গ্রাহক আইডি",
     customerNameText: "গ্রাহকের নাম",
@@ -204,7 +205,7 @@ var labelText = {
     iDTypeTextEnglish: "ID Type",
     iDNumberTextEnglish: "ID Number",
     inwardForeignRemittanceRequestTextEnglish: "Inward Foreign Remittance Request",
-    inwardForeignRemittanceWithdrawTextEnglish: "Inward Foreign Remittance Withdraw",
+    inwardForeignRemittanceDisbursementTextEnglish: "Inward Foreign Remittance Disbursement",
     mobileNoTextEnglish: "Mobile No",
     exchangeHouseNameEnglish: "Exchange House Name",
     payableAmountTextEnglish: "Payable Amount",
@@ -289,7 +290,7 @@ function replaceToken(receipt) {
             setRemittanceRequest();
             break;
         case 19:
-            setRemittanceWithdraw();
+            setRemittanceDisbursement();
             break;
         default:
             break;
@@ -834,7 +835,7 @@ function setMiniStatement() {
     addClassText("boothAddressLabel", labelText.addressText);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", labelText.cityAgentSavingsAccountText);
+    addClassText("title", labelText.accountStatement);
 
     addClassText(labelText.accountNoLabelId, labelText.titleId);
     addClassText(labelText.accountNumberId, data.accountNumber);
@@ -882,14 +883,14 @@ function setRemittanceRequest() {
 
     var tableData = [
        [[labelText.senderNameTextEnglish, data.senderName], [labelText.senderCountryTextEnglish, data.senderCountry]],
-       [[labelText.pinNoTextEnglish, data.pinNo], [labelText.apprxAmountTextEnglish, data.apprxAmount]],
-       [[labelText.iDTypeTextEnglish, data.iDType], [labelText.iDNumberTextEnglish, data.iDNumber]],
-       [[labelText.amountInWordsTextEnglish, data.amountInWords], [labelText.printDateTextEnglish, data.printDate]],
+       [[labelText.iDTypeTextEnglish, data.iDType], [labelText.apprxAmountTextEnglish, data.apprxAmount]],
+       [[labelText.amountInWordsTextEnglish, data.amountInWords], [labelText.iDNumberTextEnglish, data.iDNumber]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.printDateTextEnglish, data.printDate]],
        [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
     ];
     replaceTableData(tableData);
 }
-function setRemittanceWithdraw() {
+function setRemittanceDisbursement() {
     addClassText("agentNameLabel", labelText.agentNameTextEnglish);
     addClassText("agentName", data.agentName);
     addClassText("userIdLabel", labelText.userTextEnglish);
@@ -897,7 +898,7 @@ function setRemittanceWithdraw() {
     addClassText("boothAddressLabel", labelText.addressTextEnglish);
     addClassText("boothAddress", data.boothAddress);
 
-    addClassText("title", labelText.inwardForeignRemittanceWithdrawTextEnglish);
+    addClassText("title", labelText.inwardForeignRemittanceDisbursementTextEnglish);
 
     hideElementByClassName('accountBasic');
 
@@ -911,10 +912,10 @@ function setRemittanceWithdraw() {
 
     var tableData = [
        [[labelText.senderNameTextEnglish, data.senderName], [labelText.senderCountryTextEnglish, data.senderCountry]],
-       [[labelText.pinNoTextEnglish, data.pinNo], [labelText.payableAmountTextEnglish, data.payableAmount]],
-       [[labelText.transactionIdTextEnglish, data.transactionCode], [labelText.currencyTextEnglish, data.currency]],
-       [[labelText.exchangeRateTextEnglish, data.exchangeRate], [labelText.fxAmountTextEnglish, data.fxAmount]],
-       [[labelText.amountInWordsTextEnglish, data.amountInWords], [labelText.printDateTextEnglish, data.printDate]]
+       [[labelText.transactionIdTextEnglish, data.transactionCode], [labelText.payableAmountTextEnglish, data.payableAmount]],
+       [[labelText.amountInWordsTextEnglish, data.amountInWords], [labelText.printDateTextEnglish, data.printDate]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]],
+       [[labelText.emptyText, labelText.emptyText], [labelText.emptyText, labelText.emptyText]]
     ];
     replaceTableData(tableData);
 }
