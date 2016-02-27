@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
     private Integer getReceiptType() {
         String receiptType = this.getIntent().getStringExtra(RECEIPT_TYPE);
         if (receiptType == null) {
-            receiptType = "1";
+            receiptType = "17";
         }
         return Integer.parseInt(receiptType);
     }
