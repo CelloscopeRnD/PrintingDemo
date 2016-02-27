@@ -13,57 +13,61 @@
 <body>
 <div class="main">
     <div class="container">
-        <img class="logo" alt="logo" />
-        <img class="agent_banking_logo" alt="Agent Banking Logo" />
-        <p class="title">#TITLE</p>
-        <table class="elmentCtr">
+        <div style="float:left;">
+            <img class="logo" alt="logo" style="display:block; float:none;" />
+            <img class="customerPhoto" alt="Customer Photo" style="display:block; float:none;" />
+        </div>
+        <div style="float:right;">
+            <img class="agent_banking_logo" alt="Agent Banking Logo" style="display:block; float:none; margin-bottom:3px;" />
+            <div class="addressDiv">
+                <p class="addressLine1Label">#ADDRESS_LINE_1</p>
+                <p class="addressLine2Label">#ADDRESS_LINE_2</p>
+                <p class="addressLine3Label">#ADDRESS_LINE_3</p>
+                <p class="addressLine4Label">#ADDRESS_LINE_4</p>
+            </div>
+        </div>
+        <p class="title"></p>
+        <table class="elmentCtr" id="target" style="">
             <tr>
-                <td class="agentNameLabel topLabel"></td>
+                <td class="userIdLabel topLabel right" style="width:50%;"></td>
                 <td class="colon">:</td>
-                <td class="agentName topFieldValue"></td>
-                <td>&nbsp;&nbsp;</td>
-                <td class="userIdLabel topLabel"></td>
-                <td class="colon">:</td>
-                <td class="userId topFieldValue"></td>
+                <td class="userId topFieldValue" style="width:50%;"></td>
             </tr>
             <tr>
-                <td class="boothAddressLabel topLabel"></td>
+                <td class="agentNameLabel topLabel right"></td>
+                <td class="colon">:</td>
+                <td class="agentName topFieldValue"></td>
+            </tr>
+            <tr>
+                <td class="boothAddressLabel topLabel right"></td>
                 <td class="colon">:</td>
                 <td colspan="5" class="boothAddress topFieldValue"></td>
             </tr>
-        </table>
-    </div>
-    <div class="container">
-        <img class="customerPhoto" alt="Customer Photo" />
-        <div class="addressDiv">
-            <p class="addressLine1Label">#ADDRESS_LINE_1</p>
-            <p class="addressLine2Label">#ADDRESS_LINE_2</p>
-            <p class="addressLine3Label">#ADDRESS_LINE_3</p>
-            <p class="addressLine4Label">#ADDRESS_LINE_4</p>
-        </div>
-        <table class="accountBasic">
             <tr>
-                <td class="accountNoLabel label">#ACCOUNT_NO_LABEL</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="accountNoLabel label right"></td>
                 <td class="colon">:</td>
-                <td class="accountNumber boldFieldValue">#ACCOUNT_NUMBER</td>
+                <td class="accountNumber boldFieldValue"></td>
             </tr>
             <tr>
-                <td class="customerIdLabel label">#CUSTOMER_ID_LABEL</td>
+                <td class="customerIdLabel label right"></td>
                 <td class="colon">:</td>
-                <td class="customerId boldFieldValue">#CUSTOMER_ID</td>
+                <td class="customerId boldFieldValue"></td>
             </tr>
             <tr>
-                <td class="accountTypeLabel label">#ACCOUNT_TYPE_LABEL</td>
+                <td class="accountTypeLabel label right"></td>
                 <td class="colon">:</td>
-                <td class="accountType boldFieldValue">#ACCOUNT_TYPE</td>
+                <td class="accountType boldFieldValue"></td>
             </tr>
             <tr>
-                <td class="linkAccountNumberLabel label">#LINK_ACCOUNT_NUMBER_LABEL</td>
-                <td class="linkAccountNumberColon colon">#LINK_ACCOUNT_NUMBER_COLON</td>
-                <td class="linkAccountNumber boldFieldValue">#LINK_ACCOUNT_NUMBER</td>
+                <td class="linkAccountNumberLabel label right"></td>
+                <td class="linkAccountNumberColon colon"></td>
+                <td class="linkAccountNumber boldFieldValue"></td>
             </tr>
             <tr>
-                <td class="label">&nbsp;</td>
+                <td class="label right">&nbsp;</td>
                 <td class="fieldValue"></td>
                 <td></td>
             </tr>

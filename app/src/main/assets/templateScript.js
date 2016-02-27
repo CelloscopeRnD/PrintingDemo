@@ -10,6 +10,24 @@
 
     addStyleSheet('style_sheet/styles.css'); addStyleSheet('file:///android_asset/styles.css');
     replaceToken(parseInt(url));
+
+    //var body = document.getElementsByTagName('body')[0];
+    //var tbl = document.getElementById("target");
+    //var td0 = tbl.rows[0].cells[0].offsetWidth;
+    //var td2 = tbl.rows[0].cells[2].offsetWidth;
+    //var diff = td2 - td0;
+    //var style = window.getComputedStyle(tbl);
+    //var marginLeft = parseFloat(style.marginLeft);
+    //console.log(marginLeft, td0, td2, diff);
+
+    //tbl.style.marginLeft = marginLeft + diff + 'px';
+    //console.log(marginLeft);
+
+
+    var tbl = document.getElementById("target");
+    var td0 = tbl.rows[0].cells[0].offsetWidth;
+    var td1 = tbl.rows[1].cells[0].offsetWidth;
+    console.log(td0, td1);
 }
 
 function setData(receipt) {
