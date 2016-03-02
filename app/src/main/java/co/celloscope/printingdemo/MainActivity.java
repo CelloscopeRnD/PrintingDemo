@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String MINI_STATEMENT_TEMPLATE_HTML = "miniStatementTemplate.html";
     private WebViewPrint webViewPrint;
     private TextView statusTextView;
+    //new branch
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
